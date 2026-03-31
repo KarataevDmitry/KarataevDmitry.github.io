@@ -1,0 +1,5 @@
+title: "Karataev Dmitry — CV"
+theme: minima
+markdown: kramdown
+kramdown:
+  input: GFM
