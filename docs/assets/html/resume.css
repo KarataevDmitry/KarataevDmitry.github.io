@@ -78,6 +78,35 @@ nav#TOC a:hover {
   border-bottom-color: rgba(11, 87, 208, 0.25);
 }
 
+/* Sidebar TOC on wide screens (keep inline TOC on narrow/mobile) */
+@media screen and (min-width: 1100px) {
+  body {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    column-gap: 1.6rem;
+  }
+
+  header#title-block-header {
+    grid-column: 1 / -1;
+  }
+
+  nav#TOC {
+    grid-column: 1;
+    margin: 0;
+    align-self: start;
+    position: sticky;
+    top: 1.25rem;
+    max-height: calc(100vh - 2.5rem);
+    overflow: auto;
+  }
+
+  /* Put the rest of the document into the main column */
+  body > :not(header#title-block-header):not(nav#TOC) {
+    grid-column: 2;
+    min-width: 0;
+  }
+}
+
 body > header ~ p:first-of-type,
 body > header ~ p:nth-of-type(2),
 body > header ~ p:nth-of-type(3),
@@ -158,6 +187,16 @@ a:hover {
 }
 
 @media print {
+  body {
+    display: block;
+  }
+
+  nav#TOC {
+    position: static;
+    max-height: none;
+    overflow: visible;
+  }
+
   html {
     padding: 0;
     max-width: none;
