@@ -1,169 +1,36 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ru" xml:lang="ru">
+<!doctype html>
+<html lang="ru">
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>CV — Каратаев Дмитрий Александрович</title>
-  <style>
-    /* Default styles provided by pandoc.
-    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-    */
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CV</title>
   <link rel="stylesheet" href="resume.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css" />
+  <style>
+    body { margin: 0; }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 1.25rem 1.5rem 2rem; }
+    .topbar { display:flex; gap: .75rem; align-items:center; justify-content:space-between; margin: .5rem 0 1rem; }
+    .topbar a { text-decoration: none; }
+    .topbar a:hover { text-decoration: underline; }
+    .markdown-body { box-sizing: border-box; }
+  </style>
 </head>
 <body>
-<header id="title-block-header">
-<h1 class="title">Каратаев Дмитрий Александрович</h1>
-<p class="subtitle">Backend Software Developer (C#) · Москва, м.
-Коломенская</p>
-</header>
-<p><strong>Контакты:</strong> <a href="tel:+79230471355">+7 (923)
-047-13-55</a> (предпочтительно Telegram по этому номеру) · <a
-href="mailto:dkarataev1990@gmail.com">dkarataev1990@gmail.com</a> · <a
-href="https://t.me/Krawler">Telegram, Krawler</a></p>
-<p><strong>Гражданство:</strong> Россия · <strong>Опыт в
-разработке:</strong> 8 лет 3 месяца</p>
-<p><strong>Формат:</strong> удалённая работа · полная / частичная /
-проектная занятость · <strong>Локации (удалённо):</strong> Канада,
-Минск, Норвегия, США · командировки не рассматриваю</p>
-<p><strong>Возможные форматы трудоустройства:</strong> трудовой договор,
-самозанятость, ГПХ</p>
-<h2 id="кратко">Кратко</h2>
-<p>Backend-разработчик на <strong>C# / .NET</strong>: микросервисы, REST
-API, SOA, инженерные и документооборотные системы. Опыт полного цикла
-SDLC, рефакторинга и перевода монолитов к сервисной архитектуре,
-внедрения DI, unit-тестов, Agile-практик (DoR/DoD/AC), документации и
-баз знаний.</p>
-<p>Помимо кода: настройка процессов, работа с требованиями, техническая
-экспертиза и поддержка сложных систем.</p>
-<p><strong>Инструменты разработки с ИИ:</strong> Cursor и аналоги —
-<strong>1+ год</strong> практического применения в работе.</p>
-<h2 id="опыт-работы">Опыт работы</h2>
-<h3
-id="ооо-нова-энерджис-москва-эксперт-по-технической-экспертизе-и-поддержке">ООО
-«НОВА ЭНЕРДЖИС» (Москва) — эксперт по технической экспертизе и
-поддержке</h3>
-<p><em>Сентябрь 2023 — настоящее время · удалённо</em></p>
-<p><strong>Энергетика</strong> · системы управления инженерными данными;
-по типу задач — <strong>сопоставимо с опытом контура Harvester и
-корпоративного веб-портала EDW</strong> (сбор, обработка и публикация
-данных, контур цифрового двойника EPC). <strong>Тимлид</strong> задаёт
-приоритеты и общее направление команды; ниже — <strong>личный
-вклад</strong> и два кейса (<strong>Harvester</strong>,
-<strong>веб-портал EDW</strong>).</p>
-<p><strong>Задачи</strong></p>
-<ol type="1">
-<li>Разработка и сопровождение сервисов по <strong>сбору, обработке и
-публикации</strong> инженерных данных.</li>
-<li>Разработка и сопровождение решений по <strong>публикации инженерных
-данных</strong> в контексте цифрового двойника EPC: документы, теги,
-атрибуты, связи и смежные сущности.</li>
-<li>Анализ архитектуры, предложения по улучшению; развитие функционала и
-сопровождение системы в production.</li>
-<li>Внедрение <strong>Dependency Injection</strong>, развитие
-<strong>unit-тестирования</strong>; ведение документации (модули,
-онбординг, база знаний техкоманды).</li>
-<li>Внедрение практик <strong>Agile</strong>: DoR, DoD, acceptance
-criteria; участие в выстраивании предсказуемого процесса поставки.</li>
-</ol>
-<p><strong>Мой вклад — система Harvester (кейс, STAR)</strong></p>
-<p><em>Ситуация:</em> унаследованная система (в интерфейсе и на
-<strong>IIS</strong> продукт именуется <strong>Harvester</strong>):
-модули писались в разных стилях и подходах, развитие эволюционное;
-требования часто противоречили друг другу и менялись по ходу работ.
-Нужна была устойчивость и производительность на <strong>больших объёмах данных</strong>
-(порядка <strong>~1 млн</strong> объектов, связей и документов с атрибутикой).
-При переключении между задачами и модулями росла когнитивная нагрузка;
-документация и комментарии к коду отсутствовали или устарели.</p>
-<p><em>Цель:</em> ускорить ввод новых и доработку существующих фич,
-снизить когнитивную нагрузку при смене контекста, повысить прозрачность
-работы с системой для пользователей и <strong>стабильность</strong>
-контура подготовки → валидации → публикации в корпоративный
-веб-портал.</p>
-<p><em>Действия:</em></p>
-<ul>
-<li>Внедрил <strong>.editorconfig</strong> (за основу взят конфиг
-<strong>dotnet/runtime</strong>): единый стандарт оформления, снижение
-«визуального шума» и лишних предупреждений при переходе от модуля к
-модулю; довёл существующий код в соответствие с правилами.</li>
-<li>Провёл встречи с командой и стейкхолдерами, чтобы обосновать
-необходимость изменений.</li>
-<li>За <strong>2 дня</strong> предложил и реализовал внедрение
-<strong>Dependency Injection</strong> на базе
-<strong>Microsoft.Extensions.DependencyInjection</strong> (совместно с
-тимлидом).</li>
-<li>Создал и вёл <strong>базу знаний</strong> и <strong>пользовательскую
-документацию</strong>: логика работы системы, шаблоны оформления
-обращений в поддержку и др.</li>
-<li>Реорганизовал общую библиотеку (репозитории, объекты предметной
-области) в <strong>feature-based</strong> структуру.</li>
-<li><strong>Архитектура:</strong> общая <strong>библиотека ядра</strong>
-на <strong>.NET 9</strong> (<strong>SQL Server</strong>,
-<strong>Dapper</strong> / <strong>RepoDb</strong> (в т.ч. bulk),
-<strong>CsvHelper</strong>, <strong>Serilog</strong>, <strong>feature
-flags</strong>) и три сервисных контура — <strong>сервис подготовки
-файлов и данных</strong>, <strong>сервис валидации</strong> (в т.ч.
-правила именования тегов и <strong>RDL</strong>), <strong>фоновый сервис
-публикации</strong> (таймеры проверки согласованности и выгрузки,
-staging, выгрузка <strong>CSV</strong> в каталог веб-портала по
-конфигурации). Поверх — <strong>веб-слой</strong>: <strong>ASP.NET Core</strong>
-+ <strong>Angular</strong> (SPA для статусов зарезервированных тегов,
-процессов загрузки и смежных сценариев). Параллельно развивался доступ
-к данным через <strong>Linq2db</strong> (контекст в DI, выравнивание имён
-сущностей со схемой БД) — <strong>рядом</strong> с существующим
-<strong>Dapper</strong> на отдельных участках. Для совместимости с
-инженерной моделью <strong>AVEVA</strong> используется слой
-<strong>воссозданных</strong> API-сборок под контракты модели — без опоры
-на проприетарные бинарники вендора там, где обходились своим кодом.</li>
-<li><strong>Связка с порталом:</strong> потоки публикации учитывают
-наличие тега «в портале» (валидация и комментарии/ссылки не создают
-лишнего шума, если карточки в портале нет); выгрузки и имена CSV
-приводились к <strong>единому шаблону</strong> имён файлов; исправлялись
-<strong>конкурентные</strong> обращения к общему пайплайну публикации
-(<strong>lock</strong>-и на стороне воркера, сценарии «готово к тестам»)
-и ошибки конфигурации таймеров (интервал в <strong>секундах</strong>, а
-не минутах), <strong>кодировка/заголовки CSV</strong> — по следам
-инцидентов и код-ревью; отдельные крупные доработки по
-<strong>экспорту</strong> и стабилизации публикации велись в выделенных
-ветках.</li>
-<li><strong>Эксплуатация:</strong> PowerShell-скрипты обновления
-<strong>RDL</strong> под развёртывания <strong>IIS</strong> (отдельные
-стенды/сайты для веба и сервисов) — в одном контуре с задачами
-сопровождения.</li>
-</ul>
-<p><em>Результат:</em></p>
-<ul>
-<li>Единый стиль и предсказуемая структура снизили ментальную нагрузку
-при подхвате чужой задачи или переходе в другой модуль.</li>
-<li>Внедрение новых фич ускорилось: проще наращивать слои; при
-<strong>feature-based</strong> доменной модели расширения оказываются в
-ожидаемых местах.</li>
-<li>Открылась дорога к <strong>unit-тестам</strong> (изначально
-отсутствовали): проще подменять реализации через интерфейсы; в решении
-развиты отдельные <strong>тестовые проекты</strong> по ключевым слоям
-(ядро, публикация, валидация, веб, приёмочные, подготовка).</li>
-<li>Контур <strong>подготовка → валидация → публикация → портал</strong>
-сопоставим по смыслу с <strong>импортозамещённым веб-порталом</strong>
-(второй кейс ниже): те же классы задач (теги, документы, атрибуты),
-другой стек и владение кодом.</li>
-</ul>
-<p><strong>Мой вклад — веб-портал EDW (кейс, STAR)</strong></p>
-<!-- (остальной контент сохранён как в сгенерированном cv.html) -->
+  <div class="wrap">
+    <div class="topbar">
+      <div><a href="/">← Home</a></div>
+      <div><a href="cv.md">Raw Markdown</a></div>
+    </div>
+    <article id="content" class="markdown-body"></article>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="viewer.js"></script>
+  <script>
+    renderMarkdown({ mdPath: 'cv.md', title: 'CV — Каратаев Дмитрий' })
+      .catch(err => {
+        document.getElementById('content').textContent = String(err);
+      });
+  </script>
 </body>
 </html>
