@@ -50,6 +50,34 @@ header#title-block-header p.subtitle {
   line-height: 1.35;
 }
 
+/* Pandoc TOC */
+nav#TOC {
+  margin: 0.85rem 0 1.15rem 0;
+  padding: 0.9rem 1.05rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: rgba(127, 127, 127, 0.05);
+}
+
+nav#TOC > ul {
+  margin: 0.25rem 0 0 0;
+  padding-left: 1.15rem;
+}
+
+nav#TOC li {
+  margin: 0.15rem 0;
+}
+
+nav#TOC a {
+  color: var(--text);
+  border-bottom-color: transparent;
+}
+
+nav#TOC a:hover {
+  color: var(--accent-hover);
+  border-bottom-color: rgba(11, 87, 208, 0.25);
+}
+
 body > header ~ p:first-of-type,
 body > header ~ p:nth-of-type(2),
 body > header ~ p:nth-of-type(3),
