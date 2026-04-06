@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>CV — Dmitry Karataev</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="resume.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Dmitry Aleksandrovich Karataev</h1>
+<p class="subtitle">Backend Software Developer (C#) · Moscow,
+Kolomenskaya metro</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#summary" id="toc-summary">Summary</a></li>
+<li><a href="#work-experience" id="toc-work-experience">Work
+experience</a></li>
+<li><a href="#education" id="toc-education">Education</a></li>
+<li><a href="#skills" id="toc-skills">Skills</a></li>
+<li><a href="#ai-assisted-engineering-environment"
+id="toc-ai-assisted-engineering-environment">AI-assisted engineering
+environment</a></li>
+<li><a href="#open-source-projects-mcp"
+id="toc-open-source-projects-mcp">Open-source projects (MCP)</a></li>
+<li><a href="#additional-information"
+id="toc-additional-information">Additional information</a></li>
+</ul>
+</nav>
+<p><strong>Contact:</strong> <a href="tel:+79230471355">+7 (923)
+047-13-55</a> (Telegram preferred) · <a
+href="mailto:dkarataev1990@gmail.com">dkarataev1990@gmail.com</a> · <a
+href="https://t.me/Krawler">Telegram <span class="citation"
+data-cites="Krawler">@Krawler</span></a> · <a
+href="https://github.com/KarataevDmitry">GitHub</a> · <a
+href="https://karataevdmitry.github.io">Website</a></p>
+<p><strong>Citizenship:</strong> Russia · <strong>Experience in software
+development:</strong> 8+ years</p>
+<p><strong>Format:</strong> remote work · full-time / part-time /
+project-based · <strong>Remote locations:</strong> Canada, Minsk,
+Norway, USA · business travel not considered</p>
+<p><strong>Possible employment arrangements:</strong> employment
+contract, self-employment, contract work</p>
+<h2 id="summary">Summary</h2>
+<p>Backend developer in <strong>C# / .NET</strong> (8+ years):
+microservices, REST API, SOA, GraphQL, engineering and
+document-management systems. Full SDLC experience, refactoring and
+moving monoliths toward service architecture, introducing DI, unit
+tests, Agile practices (DoR/DoD/AC), documentation, and team knowledge
+bases.</p>
+<p>Alongside my main job I build <strong>infrastructure for AI
+agents</strong>: a series of open-source <strong>MCP servers</strong>
+(Model Context Protocol) that give AI assistants access to the compiler,
+debugger, build system, and multimodal inputs. Author of
+<strong>agent-first-learn</strong> — a practical guide to productive
+work with AI.</p>
+<p>Beyond coding: process setup, requirements work, technical expertise,
+non-trivial debugging (memory dumps, thread analysis, Reflection).</p>
+<p><strong>AI-assisted engineering:</strong> <strong>1.5+ years</strong>
+of daily practice (Cursor IDE, MCP servers of my own design).</p>
+<h2 id="work-experience">Work experience</h2>
+<h3 id="nova-energies-llc-moscow-technical-expert-support-engineer">NOVA
+Energies LLC (Moscow) — Technical Expert &amp; Support Engineer</h3>
+<p><em>September 2023 — present · remote</em></p>
+<p><strong>Energy sector</strong> · engineering data management systems;
+by task shape — <strong>comparable to Harvester and a corporate EDW web
+portal</strong> (collect, process, and publish data, EPC digital-twin
+context). The <strong>team lead</strong> sets priorities and direction;
+below is <strong>my contribution</strong> and two cases
+(<strong>Harvester</strong>, <strong>EDW web portal</strong>).</p>
+<p><strong>Responsibilities</strong></p>
+<ol type="1">
+<li>Development and maintenance of services for <strong>collecting,
+processing, and publishing</strong> engineering data.</li>
+<li>Development and maintenance of solutions for <strong>publishing
+engineering data</strong> in the EPC digital-twin context: documents,
+tags, attributes, relations, and related entities.</li>
+<li>Architecture review and improvement proposals; feature work and
+production support.</li>
+<li>Introducing <strong>dependency injection</strong>, growing
+<strong>unit testing</strong>; documentation (modules, onboarding,
+engineering knowledge base).</li>
+<li><strong>Agile</strong> practices: DoR, DoD, acceptance criteria;
+helping build a predictable delivery process.</li>
+</ol>
+<p><strong>My contribution — Harvester system (case, STAR)</strong></p>
+<p><em>Situation:</em> a legacy system (in the UI and on
+<strong>IIS</strong> the product is named <strong>Harvester</strong>):
+modules written in different styles; evolutionary growth; requirements
+often conflicted and changed mid-flight. We needed stability and
+performance on <strong>large volumes</strong> (<sub>**</sub>1M**
+objects, relations, and documents with attributes). Switching
+tasks/modules raised cognitive load; documentation and code comments
+were missing or stale.</p>
+<p><em>Goal:</em> speed up new features and changes, reduce mental load
+when picking up others’ work, improve transparency for users, and
+<strong>stability</strong> of the prepare → validate → publish path into
+the corporate web portal.</p>
+<p><em>Actions:</em></p>
+<ul>
+<li>Introduced <strong>.editorconfig</strong> (based on
+<strong>dotnet/runtime</strong>): consistent formatting, less “visual
+noise” and noise warnings when moving between modules; brought existing
+code toward the rules.</li>
+<li>Ran meetings with the team and stakeholders to justify the
+changes.</li>
+<li>In <strong>2 days</strong> proposed and rolled out
+<strong>dependency injection</strong> with
+<strong>Microsoft.Extensions.DependencyInjection</strong> (with the team
+lead).</li>
+<li>Created and maintained a <strong>knowledge base</strong> and
+<strong>user documentation</strong>: how the system works, support
+ticket templates, etc.</li>
+<li>Reorganized the shared library (repositories, domain objects) into a
+<strong>feature-based</strong> structure.</li>
+<li><strong>Architecture:</strong> shared <strong>core library</strong>
+on <strong>.NET 9</strong> (<strong>SQL Server</strong>,
+<strong>Dapper</strong> / <strong>RepoDb</strong> (incl. bulk),
+<strong>CsvHelper</strong>, <strong>Serilog</strong>, <strong>feature
+flags</strong>) and three service areas — <strong>file/data preparation
+service</strong>, <strong>validation service</strong> (incl. tag naming
+rules and <strong>RDL</strong>), <strong>background publish
+service</strong> (timers for consistency checks and export, staging,
+<strong>CSV</strong> export to a web-portal folder per config). On top —
+<strong>web</strong>: <strong>ASP.NET Core</strong> +
+<strong>Angular</strong> (SPA for reserved-tag statuses, upload flows,
+related scenarios). In parallel, data access via
+<strong>Linq2db</strong> (context in DI, entity names aligned with DB
+schema) <strong>alongside</strong> existing <strong>Dapper</strong> on
+some paths. For compatibility with the <strong>AVEVA</strong>
+engineering model, a layer of <strong>recreated</strong> API assemblies
+matches model contracts — without vendor binaries where we could ship
+our own code.</li>
+<li><strong>Portal integration:</strong> publish flows respect a “in
+portal” tag (validation and comments don’t add noise if there is no
+portal card); exports and CSV names converged to a <strong>single naming
+template</strong>; fixed <strong>concurrent</strong> use of the shared
+publish pipeline (<strong>locks</strong> in the worker, “ready for test”
+scenarios) and timer config bugs (interval in <strong>seconds</strong>,
+not minutes), <strong>CSV encoding/headers</strong> — from incidents and
+code review; larger export and publish stabilization work happened in
+dedicated branches.</li>
+<li><strong>Operations:</strong> PowerShell scripts to refresh
+<strong>RDL</strong> for <strong>IIS</strong> deployments (separate
+sites for web and services) alongside support tasks.</li>
+</ul>
+<p><em>Result:</em></p>
+<ul>
+<li>Unified style and predictable structure reduced mental load when
+taking over tasks or switching modules.</li>
+<li>New features landed faster: easier to add layers; with
+<strong>feature-based</strong> domain modeling, extensions land where
+people expect.</li>
+<li>A path to <strong>unit tests</strong> (initially none): easier to
+substitute implementations via interfaces; separate <strong>test
+projects</strong> for core layers, publish, validation, web, acceptance,
+preparation.</li>
+<li>The <strong>prepare → validate → publish → portal</strong> chain is
+conceptually similar to the <strong>import-substitution web
+portal</strong> (second case below): same classes of problems (tags,
+documents, attributes), different stack and code ownership.</li>
+</ul>
+<p><strong>My contribution — EDW web portal (case, STAR)</strong></p>
+<p><em>Situation:</em> after several Western vendors left the market,
+support ended for products in the <strong>AVEVA</strong> line (including
+<strong>NET Portal</strong>, <strong>AVEVA ISM</strong>). To keep
+working with engineering data we needed a <strong>replacement</strong>
+and less dependence on unavailable support and updates.</p>
+<p><em>Goal:</em> per agreed plan — <strong>MVP of a corporate web
+portal</strong>: view documents, tags, and <strong>relations</strong>,
+search and file handling (incl. preview) so users could continue
+<strong>without the original vendor</strong>.</p>
+<p><em>Actions:</em></p>
+<ul>
+<li>Helped <strong>implement the MVP</strong> on <strong>Blazor
+WebAssembly</strong>, <strong>GraphQL</strong>, <strong>EF
+Core</strong>, <strong>.NET 8+</strong> (production on current
+<strong>.NET 9</strong> on server and client).</li>
+<li><strong>Architecture in short:</strong> thin <strong>Blazor
+WASM</strong> client (component library, API via generated
+<strong>GraphQL</strong> client) and <strong>ASP.NET Core</strong>
+server with a single <strong>GraphQL</strong> endpoint: projections,
+filtering, sorting, <strong>cursor pagination</strong> without exploding
+REST resources per screen. Behind the server — <strong>SQL
+Server</strong> (portal DB), <strong>DbContext pool</strong>,
+<strong>NoTracking</strong> for read-heavy paths; separate controllers
+for files, export, and long operations.</li>
+<li><strong>Module split:</strong> the online stack (<strong>API +
+Blazor</strong>) <strong>does not reference</strong> the shared domain
+library — only network contracts. Shared <strong>EF</strong> model (DB
+context, entities) lives in a <strong>separate library</strong> used by
+<strong>background jobs</strong> (sync, import, file monitoring). The
+server has <strong>its own</strong> entity copy: deliberate split
+between “API/UI” and “integrations”, with known <strong>schema
+drift</strong> risk on changes (managed via review and migrations).</li>
+<li><strong>Integration with corporate engineering data:</strong> three
+pipelines — <strong>incremental</strong> metadata pull for documents,
+<strong>full</strong> sync of revision/version chains, then <strong>file
+attachment</strong> from disk (staging / fallback) so a version gets a
+<strong>primary file</strong> for portal preview. Helped shape data
+ordering (document → revision → version → file),
+<strong>deduplication</strong> in inherited data (views, in-code
+dedupe), and documentation.</li>
+<li><strong>Why GraphQL:</strong> one typed contract for the front,
+per-screen queries, fewer hand-built CRUD endpoints. Downsides are
+known: heavy queries possible (schema design, pagination, cost limits),
+higher onboarding than classic REST.</li>
+<li><strong>Security and perimeter:</strong> beyond AD/domain model,
+<strong>network isolation</strong> matters — portal in the
+<strong>corporate perimeter</strong> and over <strong>VPN</strong>; a
+deliberate addition to app-level measures (no “public internet GraphQL”
+by default).</li>
+</ul>
+<p><em>Result:</em> users keep running projects, <strong>uploading and
+updating</strong> engineering information despite <strong>end of
+support</strong> for prior products and external software constraints;
+<strong>integration → portal DB → UI</strong> covers EPC-style viewing
+and update scenarios.</p>
+<p><strong>Team outcomes</strong> (beyond the cases above; under the
+team lead)</p>
+<p>Reduced vendor lock-in risk and higher modularity; more testing and
+<strong>CI/CD</strong>; better performance and resource use on some
+paths after profiling and targeted fixes.</p>
+<h3 id="wissance-co-founder-senior-backend-developer-.net">Wissance —
+Co-founder / Senior Backend Developer (.NET)</h3>
+<p><em>February 2022 — September 2023 (1 year 8 months)</em></p>
+<ul>
+<li>Cross-functional work: analysis, documentation, development,
+estimation — largely across the <strong>SDLC</strong>.</li>
+</ul>
+<h3 id="electron-service-llc-software-technician">Electron-Service LLC —
+software technician</h3>
+<p><em>August 2020 — February 2022 (1 year 7 months)</em></p>
+<ul>
+<li>Stack: <strong>.NET Core</strong>, <strong>Entity Framework
+Core</strong>, <strong>REST API</strong>, GitLab, TFS.</li>
+<li>Web services and background services; <strong>SOA</strong>;
+<strong>ASP.NET</strong> controllers.</li>
+<li>Debugging and changes to <strong>MS SQL Server</strong> stored
+procedures; SQL scripts for testing.</li>
+<li>Project in maintenance and evolution (~6 years old when I
+joined).</li>
+</ul>
+<h3 id="gazprom-neft-digital-solutions-lead-.net-developer">Gazprom Neft
+— Digital Solutions — Lead .NET Developer</h3>
+<p><em>September 2017 — March 2020 (2 years 7 months)</em></p>
+<p><strong>Domain:</strong> <strong>electronic document management
+(EDM)</strong> on <strong>IBM Document Manager</strong>; the solution
+covered the <strong>full cycle</strong>: from <strong>scanning primary
+documents</strong> (accounting and related) — custom software around
+<strong>TWAIN</strong> and <strong>production scanners</strong> —
+through <strong>SAP integration</strong> and control of <strong>posting
+documents</strong> in the accounting system.</p>
+<p><strong>Responsibilities</strong></p>
+<ol type="1">
+<li>Development and maintenance of EDM modules: <strong>WCF</strong>
+services, integrations, and over time <strong>extracting
+microservices</strong> from monoliths.</li>
+<li>Refactoring toward <strong>SOLID</strong>; multithreading (scanning,
+uploads, background flows).</li>
+<li>Use of <strong>.NET Reflection</strong> for non-trivial debugging
+and architectural workarounds (including scanner driver interaction and
+<strong>UI</strong> threads).</li>
+</ol>
+<p><strong>Architecture (context)</strong></p>
+<ul>
+<li>Server-side ECM on <strong>Java</strong>; <strong>IKVM.NET</strong>
+bridged JVM ↔︎ CLR for platform classes from <strong>.NET</strong>.</li>
+<li>Two storage modes: <strong>high-level client scenario</strong>
+(easier but needs <strong>ECM client running in the browser</strong>)
+and <strong>low-level API to content</strong> (no browser, harder, more
+control).</li>
+<li>The platform had its own form and <strong>plugin</strong> model for
+user actions; we used it heavily.</li>
+<li>The system was <strong>legacy</strong> (years of evolution before I
+joined); documentation existed but was <strong>sparse</strong> and fully
+<strong>manual</strong>; version control was <strong>TFS</strong>, work
+through <strong>Visual Studio</strong> / <strong>VSTS</strong>.</li>
+</ul>
+<p><strong>Stack:</strong> <strong>.NET Framework</strong> 2.0–4.8,
+<strong>MongoDB</strong>, <strong>Quartz.NET</strong>.
+<strong>MongoDB</strong> and <strong>Quartz</strong> powered a
+<strong>document processing pipeline</strong>: jobs in collections,
+<strong>background services</strong> moved them between collections
+along the <strong>business process</strong>.</p>
+<p><strong>Case: assigning a document package “curator”
+(STAR)</strong></p>
+<p><em>Situation:</em> each document package had a <strong>responsible
+curator</strong> for processing deadlines; we needed to
+<strong>compute</strong> that person from the <strong>org
+chart</strong>: for a line employee — <strong>their direct
+manager</strong>; if missing — <strong>walk up</strong> the
+hierarchy.</p>
+<p><em>Goal:</em> correct curator from the <strong>reporting
+tree</strong> without duplicating logic for each new client UI.</p>
+<p><em>Actions:</em></p>
+<ul>
+<li>Implemented an <strong>ECM plugin</strong>: walked corporate
+hierarchy <strong>XML</strong> with <strong>System.Xml</strong>, classic
+<strong>tree traversal</strong>.</li>
+<li>When a <strong>WinForms</strong> desktop client appeared with
+<strong>System.Reactive</strong> and document-package flows, the same
+logic had to be embedded. With the <strong>team lead</strong> we
+<strong>reused</strong> the existing plugin: it was essentially a
+<strong>console app</strong> with a clear contract — <strong>call it
+correctly</strong> from the new UI.</li>
+</ul>
+<p><em>Result:</em> the team <strong>saved time</strong> reimplementing
+rules; curator logic stayed in one place.</p>
+<p><strong>Case: custom package viewer and unit tests
+(STAR)</strong></p>
+<p><em>Situation:</em> the <strong>platform UX</strong> increasingly
+<strong>limited</strong> scenarios; we needed document packages to hold
+not only <strong>files</strong> (including <strong>PDF</strong>) but
+<strong>nested packages</strong> — the <strong>high-level ECM
+API</strong> made that awkward or impossible.</p>
+<p><em>Goal:</em> move off <strong>high-level API</strong> and build a
+<strong>custom desktop package viewer</strong> on <strong>low-level
+storage API</strong> (same layer as above), with acceptable
+<strong>UX</strong> for the new composition rules.</p>
+<p><em>Actions:</em></p>
+<ul>
+<li>Designed and helped implement the client: package tree and nesting
+on <strong>low-level API</strong>, without stock UI limits.</li>
+<li><strong>Unit testing:</strong> initially <strong>no
+automation</strong>, checks were <strong>manual</strong>. Experiments
+with <strong>Microsoft Fakes</strong> produced stubs that saw
+<strong>COM interfaces</strong> from the vendor library; that enabled an
+<strong>abstraction layer</strong> and a <strong>large test
+suite</strong> that <strong>cut regressions</strong> and manual
+effort.</li>
+<li>The same abstraction later enabled <strong>MVVM</strong>, pairing
+well with <strong>System.Reactive</strong> in the desktop client.</li>
+</ul>
+<p><em>Result:</em> manageable UI architecture and testability instead
+of “manual only”; foundation to grow the client without COM/API details
+in the view layer.</p>
+<p><strong>Case: hang, memory dump, and Reflection (STAR)</strong></p>
+<p><em>Situation:</em> scanning used <strong>TWAIN.NET</strong> (wrapper
+over <strong>TWAIN</strong>) from a <strong>background thread</strong>.
+The app <strong>hung</strong> “nowhere”: silent logs, <strong>no
+exceptions</strong>, hard to reproduce locally; <strong>highest-priority
+incident</strong>; investigation lasted <strong>several
+days</strong>.</p>
+<p><em>Goal:</em> find the <strong>deadlock</strong> and remove it
+without months of guessing.</p>
+<p><em>Actions:</em> suggested a <strong>memory dump</strong> of the
+hung process and <strong>thread stack</strong> analysis. The dump
+showed: through a dependency chain the app <strong>subscribed to Windows
+user settings change notifications</strong>; per <strong>WinAPI</strong>
+docs those must run on the <strong>UI thread</strong>, but the chain led
+handling <strong>off-thread</strong> — on the event everything
+<strong>froze</strong>. Found the subscription via <strong>.NET
+Reflection</strong> and <strong>unsubscribed in a few
+lines</strong>.</p>
+<p><em>Result:</em> hang fixed. <strong>Repro</strong> was subtle:
+enable <strong>desktop wallpaper slideshow</strong> — on <strong>image
+change</strong> the OS sends the notification and the bug triggered
+reliably.</p>
+<p><strong>Outcomes</strong> (beyond cases)</p>
+<p>Refactoring monoliths toward <strong>microservices</strong> where it
+made sense; <strong>ECM (Java)</strong> ↔︎ <strong>.NET</strong>
+integration, background pipelines on <strong>MongoDB</strong> /
+<strong>Quartz</strong> and accounting (<strong>SAP</strong>);
+<strong>desktop package viewer</strong> with <strong>MVVM</strong>,
+<strong>Rx.NET</strong>, <strong>unit tests</strong> via
+<strong>Microsoft Fakes</strong> and abstraction over
+<strong>COM</strong> storage API; <strong>memory-dump
+debugging</strong>, <strong>multithreading</strong>,
+<strong>WinAPI</strong>/UI thread, and <strong>Reflection</strong> to
+find hidden subscriptions in third-party code.</p>
+<h2 id="education">Education</h2>
+<p>Omsk State University named after F. M. Dostoevsky, Omsk.</p>
+<h3 id="faculty-of-mathematics-until-2019">Faculty of Mathematics —
+until 2019</h3>
+<p>Applied mathematics and computer science · incomplete higher
+education</p>
+<h3 id="faculty-of-physics-until-2017">Faculty of Physics — until
+2017</h3>
+<p>Applied mathematics and physics · incomplete higher education</p>
+<h3 id="faculty-of-computer-science-until-2013">Faculty of Computer
+Science — until 2013</h3>
+<p>Computers, complexes, systems and networks · incomplete higher
+education</p>
+<h2 id="skills">Skills</h2>
+<p><strong>Languages and platforms:</strong> C# (8+ years), .NET
+Framework 2.0–4.8, .NET Core, .NET 9, ASP.NET Core, ASP.NET MVC, Blazor
+WebAssembly, Entity Framework / EF Core, ADO.NET, LINQ, SQL</p>
+<p><strong>Architecture and practices:</strong> microservices, SOA, REST
+API, GraphQL (HotChocolate), WCF, SOLID, design patterns, DDD
+(elements), feature-based architecture, dependency injection, unit /
+integration testing, Agile (DoR / DoD / AC), BPMN</p>
+<p><strong>Data and integrations:</strong> SQL Server, MongoDB, Dapper,
+RepoDb, Linq2db, RabbitMQ, CSV / XML / XSD pipelines, SAP
+integrations</p>
+<p><strong>AI and agent tooling:</strong> MCP server development (Model
+Context Protocol), Roslyn API, Debug Adapter Protocol (DAP), Whisper
+integration, prompt engineering, structured context management, AI
+safety guardrails</p>
+<p><strong>Debugging and systems:</strong> memory dump analysis, thread
+debugging, .NET Reflection, COM interop, TWAIN, background processing
+(Quartz.NET), reactive programming (Rx.NET / System.Reactive), MVVM</p>
+<p><strong>Tools:</strong> Git, GitHub, GitLab, Docker (basics), CI/CD,
+PowerShell, Cursor IDE, VS Code, Visual Studio</p>
+<p><strong>Languages:</strong> Russian — native; <strong>English —
+B2</strong> (upper intermediate)</p>
+<h2 id="ai-assisted-engineering-environment">AI-assisted engineering
+environment</h2>
+<p>I have built a working environment where AI is used as an
+<strong>accelerator for engineering work</strong>, while outcomes stay
+<strong>verifiable and reproducible</strong>. The focus is not “code
+generation for its own sake” but <strong>process and
+infrastructure</strong>: context, knowledge, guardrails, quality checks,
+and reuse of solutions.</p>
+<p><strong>What was built</strong></p>
+<ul>
+<li><strong>Knowledge base and “environment memory”:</strong> one place
+for decisions, conventions, postmortems, patterns, examples, checklists,
+and known pitfalls. This cuts repeated questions and speeds up returning
+to context after context switches or breaks.</li>
+<li><strong>Context standards:</strong> rules for what counts as a fact,
+how to record decisions and rationale (decision log), how to dose
+context for stable output without noise.</li>
+<li><strong>Guardrails (safety and quality):</strong> anonymization and
+no sensitive data; explicit “hypothesis / verified” split; mandatory
+validation via build/tests/diagnostics and manual checks where
+needed.</li>
+<li><strong>SDLC integration:</strong> AI inside the normal development
+loop — task wording, PR descriptions, test plans, technical notes,
+build/test failure analysis, regressions.</li>
+<li><strong>Reuse:</strong> wording templates, document structures, and
+reusable building blocks so new tasks are faster and consistent.</li>
+</ul>
+<p><strong>Conclusions from joint practice</strong></p>
+<ul>
+<li>AI is most effective for <strong>routine and structure</strong>
+(draft docs, triage, templates, repetitive edits), not for “magic” fixes
+to complex business logic without context.</li>
+<li>Result quality is driven not by the model but by
+<strong>verification discipline</strong>: tests/build/diagnostics +
+clear done criteria give predictability.</li>
+<li>Long term, what wins is not “one lucky prompt” but the
+<strong>environment</strong>: knowledge base + standards + guardrails →
+less cognitive load, fewer repeat mistakes, faster delivery.</li>
+</ul>
+<p><strong>What this demonstrates</strong></p>
+<p>Knowledge management, engineering discipline, systems thinking,
+development-process automation, requirements/DoD formalization, quality
+and safety when using AI.</p>
+<h2 id="open-source-projects-mcp">Open-source projects (MCP)</h2>
+<p>Public GitHub repositories — <strong>Model Context Protocol</strong>
+servers for Cursor and compatible environments: they give the AI
+assistant access to tools (build, debug, C# semantics, etc.), not just
+file text.</p>
+<p>Card schema (Purpose / Motivation / Vision and agent hints): <a
+href="open-projects/README.md">open-projects/README.md</a>.</p>
+<ul>
+<li><p><strong><a
+href="https://github.com/KarataevDmitry/RoslynMcp">RoslynMcp</a></strong>
+— MCP over Roslyn: diagnostics, quick fixes, go-to-definition, find
+usages, rename, solution structure. <strong>Why:</strong> so the
+assistant relies on C# semantics and suggests edits consistent with the
+compiler.</p>
+<ul>
+<li><strong>Purpose:</strong> give the model the same code-analysis
+layer as the IDE (Roslyn), not only file text.</li>
+<li><strong>Motivation:</strong> fewer edits that break the build and
+less API guessing without compiler checks.</li>
+<li><strong>Vision:</strong> main C# workflow in Cursor where MCP is
+connected: diagnostics → code actions → apply, symbol navigation.</li>
+<li><strong>Scope:</strong> solution/project, open documents, Roslyn
+operations (within server capabilities).</li>
+<li><strong>Non-goals:</strong> replacing a full IDE, running apps,
+debugging (other MCPs).</li>
+<li><strong>For the agent:</strong> on errors/warnings use
+<code>roslyn_get_diagnostics</code> and code actions, not only
+<code>dotnet build</code>; tool positions are 1-based; do not treat text
+grep as a substitute for semantics.</li>
+</ul></li>
+<li><p><strong><a
+href="https://github.com/KarataevDmitry/dotnet-debug-mcp">dotnet-debug-mcp</a></strong>
+— .NET debugging via DAP (netcoredbg): breakpoints, launch under
+debugger, stack, variables, stepping, continue/stop.
+<strong>Why:</strong> reproducible debugging from chat without manually
+copying stack traces.</p>
+<ul>
+<li><strong>Purpose:</strong> one DAP debugging session to a target .NET
+process or launch under the debugger.</li>
+<li><strong>Motivation:</strong> agent and human see the same facts
+(stack, variables) when IDE integration is set up; otherwise at least a
+predictable loop from chat.</li>
+<li><strong>Vision:</strong> the same “single layer” of state as the IDE
+UI (breakpoints, stops); in CascadeIDE see
+<code>Financial/software/open/cascade-ide/docs/debug-human-agent-parity-v1.md</code>.</li>
+<li><strong>Scope:</strong> netcoredbg, breakpoints from JSON workspace,
+attach/launch per host agreement.</li>
+<li><strong>Non-goals:</strong> debugger UI inside another app (unless
+designed that way); replacing the system debugger in all scenarios.</li>
+<li><strong>For the agent:</strong> before rebuilding target DLL end the
+session (<code>debug_stop</code>), else PDB is locked; attach vs launch;
+do not kill netcoredbg externally. Parameters and limits — repo
+README.</li>
+</ul></li>
+<li><p><strong><a
+href="https://github.com/KarataevDmitry/dotnet-build-test-mcp">dotnet-build-test-mcp</a></strong>
+— <code>dotnet build</code> / <code>dotnet test</code> with a queue and
+structured error/test output. <strong>Why:</strong> so the AI sees the
+essence of build and test failures without log walls.</p>
+<ul>
+<li><strong>Purpose:</strong> standardized build and test invocation
+with a queue (single-flight) and compact output for the model.</li>
+<li><strong>Motivation:</strong> the agent gets error lists and failed
+tests without manual console parsing.</li>
+<li><strong>Vision:</strong> reliable queue on heavy repos; async jobs
+and chunked log reads when needed.</li>
+<li><strong>Scope:</strong> <code>dotnet build</code>,
+<code>dotnet test</code>, path to solution/folder.</li>
+<li><strong>Non-goals:</strong> C# semantics and refactorings (Roslyn
+MCP); stepping debug (dotnet-debug-mcp).</li>
+<li><strong>For the agent:</strong> pass <code>solution_path</code>;
+large <code>raw_output</code> only when explicitly needed; do not
+duplicate compiler checks where Roslyn already applies.</li>
+</ul></li>
+<li><p><strong><a
+href="https://github.com/KarataevDmitry/webcam-mcp">webcam-mcp</a></strong>
+— webcam and audio capture, analysis, and transcription (Whisper).
+<strong>Why:</strong> multimodal scenarios (voice/video) in the
+assistant pipeline.</p>
+<ul>
+<li><strong>Purpose:</strong> local media capture and derived artifacts
+(frames, wav, mp4 if needed) in the workspace.</li>
+<li><strong>Motivation:</strong> “show screen/self”, voice input,
+follow-up analysis without manual file upload to chat.</li>
+<li><strong>Vision:</strong> predictable save paths, optional pairing
+with a separate analysis MCP for OCR/reports.</li>
+<li><strong>Scope:</strong> devices by index, duration/FPS parameters,
+formats per repo README.</li>
+<li><strong>Non-goals:</strong> cloud processing by default; replacing
+OS privacy settings.</li>
+<li><strong>For the agent:</strong> almost always needs
+<code>workspace_path</code>; Whisper model from env or parameter; check
+README for split capture/analysis if the repo is split.</li>
+</ul></li>
+</ul>
+<p>Licenses and details are in each repository’s README.</p>
+<h2 id="additional-information">Additional information</h2>
+<p><strong>Medical context (transparent for employers):</strong>
+<strong>Group I disability</strong> (cerebral palsy; mobility with elbow
+crutches). <strong>Does not affect</strong> the ability to perform
+developer duties — I state this upfront to avoid surprises at offer
+stage.</p>
+<p><strong>Beyond development I can help with:</strong></p>
+<ul>
+<li>automating documentation creation;</li>
+<li>shaping processes that are painless for participants;</li>
+<li>sensible Agile adoption, working through the Agile manifesto, and
+cross-functional collaboration.</li>
+</ul>
+</body>
+</html>
