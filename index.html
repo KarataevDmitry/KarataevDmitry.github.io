@@ -1,38 +1,503 @@
-<!doctype html>
-<html lang="ru">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Каратаев Дмитрий — CV</title>
+  <title>Dmitry Karataev — Software Engineer &amp; Agent Infrastructure Builder</title>
+  <meta name="description" content="Backend Software Engineer (C#/.NET, 8+ years). Building MCP servers that give AI assistants access to compilers, debuggers, and build systems." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F4BB;</text></svg>" />
   <style>
-    :root { color-scheme: light dark; }
-    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 2rem auto; padding: 0 1rem; max-width: 900px; line-height: 1.45; }
-    h1 { margin: 0 0 0.5rem 0; }
-    ul { padding-left: 1.2rem; }
-    a { text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .muted { opacity: 0.75; }
-    .card { border: 1px solid rgba(127,127,127,0.35); border-radius: 12px; padding: 1rem 1.2rem; margin: 1rem 0; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f172a;
+      --bg-surface: #1e293b;
+      --bg-card: #1e293b;
+      --bg-card-hover: #334155;
+      --text: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --accent: #2dd4bf;
+      --accent-hover: #5eead4;
+      --accent-dim: rgba(45, 212, 191, 0.12);
+      --border: #334155;
+      --radius: 12px;
+      --font: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      background: var(--accent);
+      color: var(--bg);
+      padding: 0.5rem 1rem;
+      border-radius: 0 0 var(--radius) var(--radius);
+      z-index: 100;
+      font-weight: 600;
+    }
+    .skip-link:focus { top: 0; }
+
+    a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--accent-hover); }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 1.5rem;
+    }
+    nav .nav-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 56px;
+    }
+    nav .logo { font-weight: 700; font-size: 1.1rem; color: var(--text); }
+    nav .logo span { color: var(--accent); }
+    nav ul { list-style: none; display: flex; gap: 1.5rem; }
+    nav ul a { color: var(--text-secondary); font-size: 0.9rem; font-weight: 500; }
+    nav ul a:hover { color: var(--accent); }
+
+    @media (max-width: 640px) {
+      nav ul { gap: 0.8rem; }
+      nav ul a { font-size: 0.8rem; }
+    }
+
+    /* LAYOUT */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+    section { padding: 4rem 0; }
+    .section-title {
+      font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text);
+    }
+    .section-subtitle { color: var(--text-secondary); margin-bottom: 2rem; }
+
+    /* HERO */
+    .hero {
+      min-height: calc(100vh - 56px);
+      display: flex; align-items: center;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: -50%; right: -20%; width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(45,212,191,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 720px; }
+    .hero-label {
+      display: inline-block;
+      padding: 0.35rem 0.9rem;
+      background: var(--accent-dim);
+      border: 1px solid rgba(45,212,191,0.2);
+      border-radius: 999px;
+      font-size: 0.85rem; font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 800; line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+    .hero h1 .accent { color: var(--accent); }
+    .hero .lead {
+      font-size: 1.15rem; color: var(--text-secondary);
+      line-height: 1.65; margin-bottom: 2rem; max-width: 600px;
+    }
+    .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.7rem 1.4rem;
+      border-radius: var(--radius); font-weight: 600; font-size: 0.95rem;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: var(--accent); color: var(--bg);
+    }
+    .btn-primary:hover { background: var(--accent-hover); color: var(--bg); }
+    .btn-outline {
+      border: 1px solid var(--border); color: var(--text);
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+    .about-card {
+      padding: 1.5rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: border-color 0.2s;
+    }
+    .about-card:hover { border-color: rgba(45,212,191,0.3); }
+    .about-card .icon {
+      font-size: 1.5rem; margin-bottom: 0.75rem;
+    }
+    .about-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.4rem; }
+    .about-card p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.55; }
+
+    /* PROJECTS */
+    .projects-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.25rem;
+    }
+    .project-card {
+      padding: 1.5rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: border-color 0.2s, transform 0.2s;
+      display: flex; flex-direction: column;
+    }
+    .project-card:hover { border-color: rgba(45,212,191,0.35); transform: translateY(-2px); }
+    @media (prefers-reduced-motion: reduce) { .project-card:hover { transform: none; } }
+    .project-card .card-header {
+      display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;
+    }
+    .project-card .card-icon {
+      width: 40px; height: 40px;
+      background: var(--accent-dim); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+    .project-card h3 { font-size: 1rem; font-weight: 650; }
+    .project-card h3 a { color: var(--text); }
+    .project-card h3 a:hover { color: var(--accent); }
+    .project-card .desc {
+      font-size: 0.88rem; color: var(--text-secondary); line-height: 1.55;
+      flex: 1; margin-bottom: 1rem;
+    }
+    .project-card .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .tag {
+      font-size: 0.75rem; padding: 0.2rem 0.6rem;
+      background: rgba(45,212,191,0.08);
+      border: 1px solid rgba(45,212,191,0.15);
+      border-radius: 999px; color: var(--accent);
+      white-space: nowrap;
+    }
+
+    /* EXPERIENCE */
+    .timeline { max-width: 720px; }
+    .timeline-item {
+      position: relative;
+      padding: 0 0 2rem 2rem;
+      border-left: 2px solid var(--border);
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-item::before {
+      content: '';
+      position: absolute; left: -5px; top: 6px;
+      width: 8px; height: 8px;
+      background: var(--accent); border-radius: 50%;
+    }
+    .timeline-item.current::before {
+      box-shadow: 0 0 0 3px var(--accent-dim);
+    }
+    .timeline-date {
+      font-size: 0.8rem; color: var(--text-muted);
+      font-weight: 500; margin-bottom: 0.25rem;
+    }
+    .timeline-title {
+      font-size: 1rem; font-weight: 600; margin-bottom: 0.15rem;
+    }
+    .timeline-company {
+      font-size: 0.85rem; color: var(--accent); font-weight: 500;
+    }
+    .timeline-desc {
+      font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.35rem; line-height: 1.5;
+    }
+
+    /* DOCUMENTS */
+    .docs-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    .doc-card {
+      padding: 1.25rem 1.5rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: border-color 0.2s;
+    }
+    .doc-card:hover { border-color: rgba(45,212,191,0.3); }
+    .doc-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .doc-card .links { display: flex; gap: 1rem; font-size: 0.9rem; }
+    .doc-card .links a { font-weight: 500; }
+
+    /* FOOTER */
+    footer {
+      padding: 3rem 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+    }
+    .contact-links {
+      display: flex; justify-content: center; gap: 2rem;
+      margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .contact-links a { font-weight: 500; font-size: 0.95rem; }
+
+    /* UTILS */
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
   </style>
 </head>
 <body>
-  <h1>Каратаев Дмитрий</h1>
-  <p class="muted">CV/Resume: HTML + PDF.</p>
+  <a href="#main" class="skip-link">Skip to content</a>
 
-  <div class="card">
-    <h2>Документы</h2>
-    <ul>
-      <li>CV: <a href="cv.html">HTML</a> · <a href="cv.pdf">PDF</a></li>
-      <li>Resume: <a href="resume.html">HTML</a> · <a href="resume.pdf">PDF</a></li>
-      <li>One-pager: <a href="resume-short.html">HTML</a> · <a href="resume-short.pdf">PDF</a></li>
-    </ul>
-  </div>
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <div class="logo">D<span>.</span>Karataev</div>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#documents">Docs</a></li>
+      </ul>
+    </div>
+  </nav>
 
-  <div class="card">
-    <h2>Профиль</h2>
-    <ul>
-      <li><a href="https://github.com/KarataevDmitry">GitHub</a></li>
-    </ul>
-  </div>
+  <main id="main">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-label">Open to remote opportunities</div>
+          <h1>
+            Dmitry Karataev<br />
+            <span class="accent">Software Engineer</span>
+          </h1>
+          <p class="lead">
+            8+ years of C#/.NET backend engineering. Building open-source
+            <strong>MCP servers</strong> that give AI assistants access to
+            compilers, debuggers, and build systems &mdash; bridging the gap
+            between AI and real developer tooling.
+          </p>
+          <div class="hero-buttons">
+            <a href="https://github.com/KarataevDmitry" class="btn btn-primary">
+              GitHub
+            </a>
+            <a href="#projects" class="btn btn-outline">
+              View Projects
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">What I Do</h2>
+        <p class="section-subtitle">Backend engineering by day, agent infrastructure by passion.</p>
+        <div class="about-grid">
+          <div class="about-card">
+            <div class="icon" aria-hidden="true">&#x2699;&#xFE0F;</div>
+            <h3>Backend &amp; Architecture</h3>
+            <p>Microservices, REST&nbsp;API, GraphQL, SOA. Full SDLC experience: from monolith decomposition to DI adoption, unit testing, and Agile process&nbsp;design.</p>
+          </div>
+          <div class="about-card">
+            <div class="icon" aria-hidden="true">&#x1F916;</div>
+            <h3>Agent Infrastructure (MCP)</h3>
+            <p>A suite of Model Context Protocol servers giving AI assistants access to Roslyn, DAP debugger, build/test systems, and multimodal inputs. 1.5+ years of daily AI-assisted engineering.</p>
+          </div>
+          <div class="about-card">
+            <div class="icon" aria-hidden="true">&#x1F4D6;</div>
+            <h3>agent-first-learn</h3>
+            <p>A practical methodology and open guide for productive human&ndash;AI collaboration: context discipline, guardrails, knowledge management, and verifiable&nbsp;results.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title">Open Source Projects</h2>
+        <p class="section-subtitle">MCP servers &mdash; giving AI assistants real developer tools, not just file text.</p>
+        <div class="projects-grid">
+
+          <div class="project-card">
+            <div class="card-header">
+              <div class="card-icon" aria-hidden="true">&#x1F50D;</div>
+              <h3><a href="https://github.com/KarataevDmitry/RoslynMcp">RoslynMcp</a></h3>
+            </div>
+            <p class="desc">MCP over Roslyn: diagnostics, quick fixes, go-to-definition, find usages, rename, solution structure. AI gets the same code analysis layer as the IDE.</p>
+            <div class="tags">
+              <span class="tag">C#</span>
+              <span class="tag">Roslyn</span>
+              <span class="tag">MCP</span>
+              <span class="tag">Semantic Analysis</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="card-header">
+              <div class="card-icon" aria-hidden="true">&#x1F41B;</div>
+              <h3><a href="https://github.com/KarataevDmitry/dotnet-debug-mcp">dotnet-debug-mcp</a></h3>
+            </div>
+            <p class="desc">.NET debugging via DAP (netcoredbg): breakpoints, launch/attach, stack traces, variables, stepping, continue/stop. Reproducible debugging from chat.</p>
+            <div class="tags">
+              <span class="tag">C#</span>
+              <span class="tag">DAP</span>
+              <span class="tag">Debugging</span>
+              <span class="tag">MCP</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="card-header">
+              <div class="card-icon" aria-hidden="true">&#x1F3D7;&#xFE0F;</div>
+              <h3><a href="https://github.com/KarataevDmitry/dotnet-build-test-mcp">dotnet-build-test-mcp</a></h3>
+            </div>
+            <p class="desc"><code>dotnet build</code> / <code>dotnet test</code> with single-flight queue and structured error output. AI sees the essence of failures, not log walls.</p>
+            <div class="tags">
+              <span class="tag">C#</span>
+              <span class="tag">Build</span>
+              <span class="tag">Testing</span>
+              <span class="tag">MCP</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="card-header">
+              <div class="card-icon" aria-hidden="true">&#x1F4F7;</div>
+              <h3><a href="https://github.com/KarataevDmitry/webcam-mcp">webcam-mcp</a></h3>
+            </div>
+            <p class="desc">Webcam &amp; screen capture, audio recording, burst sequences, analysis, and Whisper transcription. Multimodal scenarios in the AI assistant pipeline.</p>
+            <div class="tags">
+              <span class="tag">C#</span>
+              <span class="tag">Multimodal</span>
+              <span class="tag">Whisper</span>
+              <span class="tag">MCP</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="card-header">
+              <div class="card-icon" aria-hidden="true">&#x1F4DA;</div>
+              <h3><a href="https://github.com/KarataevDmitry/agent-first-learn">agent-first-learn</a></h3>
+            </div>
+            <p class="desc">A practical guide to productive AI-assisted engineering: context management, summarization protocols, guardrails, energy-first training, and the environment-over-model philosophy.</p>
+            <div class="tags">
+              <span class="tag">Methodology</span>
+              <span class="tag">AI Safety</span>
+              <span class="tag">Best Practices</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="container">
+        <h2 class="section-title">Experience</h2>
+        <p class="section-subtitle">8+ years of backend development across energy, document management, and enterprise systems.</p>
+        <div class="timeline">
+
+          <div class="timeline-item current">
+            <div class="timeline-date">Sep 2023 &mdash; Present</div>
+            <div class="timeline-title">Technical Expert &amp; Support Engineer</div>
+            <div class="timeline-company">NOVA Energies (Moscow, remote)</div>
+            <p class="timeline-desc">
+              Engineering data management systems for EPC digital twins. .NET&nbsp;9, ASP.NET Core, Blazor WASM, GraphQL (HotChocolate), SQL&nbsp;Server. Introduced DI, unit testing, Agile practices, and a team knowledge base.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">Feb 2022 &mdash; Sep 2023</div>
+            <div class="timeline-title">Co-founder / Senior Backend Developer</div>
+            <div class="timeline-company">Wissance</div>
+            <p class="timeline-desc">
+              Cross-functional SDLC: analysis, documentation, development, estimation. .NET backend systems.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">Aug 2020 &mdash; Feb 2022</div>
+            <div class="timeline-title">Software Developer</div>
+            <div class="timeline-company">Electron-Service</div>
+            <p class="timeline-desc">
+              .NET Core web services and SOA controllers. Entity Framework Core, REST API, SQL&nbsp;Server stored procedures.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">Sep 2017 &mdash; Mar 2020</div>
+            <div class="timeline-title">Lead .NET Developer</div>
+            <div class="timeline-company">Gazprom Neft &mdash; Digital Solutions</div>
+            <p class="timeline-desc">
+              Electronic document storage on IBM ECM. TWAIN scanning pipeline, SAP integration, microservice extraction from monolith. Memory dump debugging, .NET&nbsp;Reflection, COM&nbsp;interop, Rx.NET.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- DOCUMENTS -->
+    <section id="documents">
+      <div class="container">
+        <h2 class="section-title">Documents</h2>
+        <p class="section-subtitle">Detailed CV and resume in Russian. English materials available on&nbsp;request.</p>
+        <div class="docs-grid">
+          <div class="doc-card">
+            <h3>CV (full, RU)</h3>
+            <div class="links">
+              <a href="docs/assets/html/cv.html">HTML</a>
+              <a href="docs/cv.pdf">PDF</a>
+            </div>
+          </div>
+          <div class="doc-card">
+            <h3>Resume (RU)</h3>
+            <div class="links">
+              <a href="docs/assets/html/resume.html">HTML</a>
+              <a href="docs/resume.pdf">PDF</a>
+            </div>
+          </div>
+          <div class="doc-card">
+            <h3>One-Pager (RU)</h3>
+            <div class="links">
+              <a href="docs/assets/html/resume-short.html">HTML</a>
+              <a href="docs/resume-short.pdf">PDF</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="contact">
+    <div class="container">
+      <div class="contact-links">
+        <a href="mailto:dkarataev1990@gmail.com">Email</a>
+        <a href="https://t.me/Krawler">Telegram</a>
+        <a href="https://github.com/KarataevDmitry">GitHub</a>
+      </div>
+      <p>Dmitry Karataev &copy; 2025. Built with zero dependencies.</p>
+    </div>
+  </footer>
 </body>
 </html>
