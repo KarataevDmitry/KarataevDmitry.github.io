@@ -88,6 +88,6 @@ Agent-First Learn — **компактное место** для этой поз
 
 Про **дух Agile** в среде люди+агент — см. [Почему среда «человек–агент» по духу Agile](/ru/writing/agent-workspace-agile.html).
 
-Про **Cascade IDE** и как IDE держит редактор, инструменты и агента в одном читаемом контуре — см. [Зачем Cascade IDE позаимствовала модель внимания кокпита](/ru/writing/cascade-ide-attention-cockpit.html).
+Про [**модель внимания Cascade IDE**](/ru/writing/cascade-ide-attention-cockpit.html) — как IDE держит редактор, инструменты и агента в одном читаемом контуре.
 
 Про **базу знаний, доверие и любопытство** — см. [База знаний, доверие и любопытство](/ru/writing/knowledge-base-trust-curiosity.html).

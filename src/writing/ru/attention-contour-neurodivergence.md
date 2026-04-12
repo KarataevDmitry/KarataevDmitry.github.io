@@ -6,9 +6,8 @@ date_display: "Апрель 2026"
 order: 6
 ---
 
-Этот текст сводит три нити: **модель внимания Cascade IDE** в духе кокпита
-([Зачем Cascade IDE позаимствовала модель внимания кокпита](/ru/writing/cascade-ide-attention-cockpit.html)),
-идею **трения от среды** (не «плохие люди») и **нейроотличие** — например **СДВГ**,
+Этот текст сводит три нити: [**модель внимания Cascade IDE**](/ru/writing/cascade-ide-attention-cockpit.html)
+в духе кокпита, идею **трения от среды** (не «плохие люди») и **нейроотличие** — например **СДВГ**,
 которое упоминаю, потому что оно часто встречается в инженерных выборках и в
 публичных опросах.
 
@@ -65,7 +64,7 @@ order: 6
 
 ## Связанный текст
 
-- **Модель внимания / кокпит:** [Зачем Cascade IDE позаимствовала модель внимания кокпита](/ru/writing/cascade-ide-attention-cockpit.html)
+- [**Модель внимания Cascade IDE**](/ru/writing/cascade-ide-attention-cockpit.html) — кокпит, PFD/MFD/EICAS
 - **Доверие, KB, любопытство:** [База знаний, доверие и любопытство](/ru/writing/knowledge-base-trust-curiosity.html)
 - **Инструменты и паритет:** [Зачем эти проекты и зачем паритет](/ru/writing/why-these-projects-parity.html)
 - **Методология:** [Зачем появился Agent-First Learn](/ru/writing/why-agent-first-learn.html)

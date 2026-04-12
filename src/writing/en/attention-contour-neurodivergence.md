@@ -6,8 +6,7 @@ date_display: "April 2026"
 order: 6
 ---
 
-This note connects three threads: **Cascade IDE’s cockpit-inspired attention
-model** ([Why Cascade IDE borrows a cockpit attention model](/writing/cascade-ide-attention-cockpit.html)),
+This note connects three threads: [**Cascade IDE’s cockpit-inspired attention model**](/writing/cascade-ide-attention-cockpit.html),
 the idea of **friction from the environment** (not “bad people”), and **neurodivergence**
 —for example **ADHD**, which I mention because it is common in engineering
 samples and in public surveys.
@@ -66,7 +65,7 @@ helps too: less re-derivation of reality from chat prose, more **shared artefact
 
 ## Related
 
-- **Cockpit attention model:** [Why Cascade IDE borrows a cockpit attention model](/writing/cascade-ide-attention-cockpit.html)
+- [**Cascade IDE’s cockpit-inspired attention model**](/writing/cascade-ide-attention-cockpit.html) — cockpit metaphor, PFD/MFD/EICAS
 - **Trust, KB, curiosity:** [Knowledge base, trust, and curiosity](/writing/knowledge-base-trust-curiosity.html)
 - **Tools and parity:** [Why these projects, and why parity matters](/writing/why-these-projects-parity.html)
 - **Methodology:** [Why Agent-First Learn exists](/writing/why-agent-first-learn.html)

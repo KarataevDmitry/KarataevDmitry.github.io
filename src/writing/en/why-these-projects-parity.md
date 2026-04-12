@@ -59,7 +59,7 @@ react when the model is wrong — see [Why Agent-First Learn exists](/writing/wh
 
 For **Agile in spirit** (feedback loops, inspect & adapt, human–agent as a team) — see [Why this human–agent workspace is Agile in spirit](/writing/agent-workspace-agile.html).
 
-For **Cascade IDE** and a cockpit-style attention model (PFD / MFD / EICAS) — see [Why Cascade IDE borrows a cockpit attention model](/writing/cascade-ide-attention-cockpit.html).
+For [**Cascade IDE’s cockpit-inspired attention model**](/writing/cascade-ide-attention-cockpit.html) (PFD / MFD / EICAS).
 
 For **knowledge base, trust, and curiosity** — see [Knowledge base, trust, and curiosity](/writing/knowledge-base-trust-curiosity.html).
 

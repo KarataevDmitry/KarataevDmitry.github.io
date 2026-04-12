@@ -66,5 +66,5 @@ order: 5
 - **Инструменты и паритет:** [Зачем эти проекты и зачем паритет](/ru/writing/why-these-projects-parity.html)
 - **Методология:** [Зачем появился Agent-First Learn](/ru/writing/why-agent-first-learn.html)
 - **Agile по духу:** [Почему среда «человек–агент» по духу Agile](/ru/writing/agent-workspace-agile.html)
-- **Внимание в IDE:** [Зачем Cascade IDE позаимствовала модель внимания кокпита](/ru/writing/cascade-ide-attention-cockpit.html)
+- [**Модель внимания Cascade IDE**](/ru/writing/cascade-ide-attention-cockpit.html) — кокпит, PFD/MFD/EICAS
 - **Внимание, трение, нейроотличие:** [Внимание, трение и нейроотличие в IDE](/ru/writing/attention-contour-neurodivergence.html)
