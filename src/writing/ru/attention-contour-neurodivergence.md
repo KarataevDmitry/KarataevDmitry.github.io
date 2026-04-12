@@ -39,8 +39,8 @@ order: 6
 Та же линия встречается там, где **трение** в продуктах и процессах объясняют через
 **среду**: системы ломаются, когда среда делает неверное поведение проще верного. Снижать **лишнее**
 трение — предсказуемые места для правды, меньше сюрпризов по поверхностям —
-согласуется с этим. См. также [База знаний, доверие и любопытство](/ru/writing/knowledge-base-trust-curiosity.html)
-про **условное доверие** и **проверяемую** опору между человеком и агентом.
+согласуется с этим. [**База знаний, доверие и любопытство**](/ru/writing/knowledge-base-trust-curiosity.html)
+раскрывает **условное доверие** и **проверяемую** опору между человеком и агентом.
 
 ## Где это может пересекаться с СДВГ / нейроотличием (осторожно)
 
@@ -64,7 +64,7 @@ order: 6
 ## Связанный текст
 
 - [**Модель внимания Cascade IDE**](/ru/writing/cascade-ide-attention-cockpit.html) — кокпит, PFD/MFD/EICAS
-- **Доверие, KB, любопытство:** [База знаний, доверие и любопытство](/ru/writing/knowledge-base-trust-curiosity.html)
+- [База знаний, доверие и любопытство](/ru/writing/knowledge-base-trust-curiosity.html) — доверие, KB, любопытство
 - [**Паритет с тулчейном**](/ru/writing/why-these-projects-parity.html) — MCP, общая опора на факты
-- **Методология:** [Зачем появился Agent-First Learn](/ru/writing/why-agent-first-learn.html)
-- **Agile по духу:** [Почему среда «человек–агент» по духу Agile](/ru/writing/agent-workspace-agile.html)
+- [Зачем появился Agent-First Learn](/ru/writing/why-agent-first-learn.html) — методология
+- [Почему среда «человек–агент» по духу Agile](/ru/writing/agent-workspace-agile.html) — Agile по духу

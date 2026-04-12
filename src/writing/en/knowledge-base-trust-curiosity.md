@@ -24,7 +24,7 @@ A knowledge base is a response to **drift**: prompts evaporate, sessions fork,
 and without a **stable place for intent** you renegotiate the same boundaries
 every week. Putting playbooks, integrity rules, and “well-known paths” into a
 repo makes the environment **inspectable** — the same virtue we ask of builds
-and traces. The [agent-notes](https://github.com/KarataevDmitry/agent-notes)
+and traces. The [**agent-notes**](https://github.com/KarataevDmitry/agent-notes)
 workspace is one concrete shape of that idea: not a blog, but **operational
 text** with a claim on continuity.
 
@@ -62,7 +62,7 @@ is operational.
 ## Related
 
 - [**Parity with the toolchain**](/writing/why-these-projects-parity.html) — MCP, shared ground truth
-- **Methodology:** [Why Agent-First Learn exists](/writing/why-agent-first-learn.html)
-- **Agile in spirit:** [Why this human–agent workspace is Agile in spirit](/writing/agent-workspace-agile.html)
+- [Why Agent-First Learn exists](/writing/why-agent-first-learn.html) — methodology
+- [Why this human–agent workspace is Agile in spirit](/writing/agent-workspace-agile.html) — Agile in spirit
 - [**Cascade IDE’s cockpit-inspired attention model**](/writing/cascade-ide-attention-cockpit.html) — cockpit, PFD/MFD/EICAS
-- **Attention, friction, neurodivergence:** [Attention, friction, and neurodivergence in the IDE](/writing/attention-contour-neurodivergence.html)
+- [Attention, friction, and neurodivergence in the IDE](/writing/attention-contour-neurodivergence.html) — attention, friction, neurodivergence

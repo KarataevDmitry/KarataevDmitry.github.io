@@ -39,9 +39,9 @@ UIs, **then** an IDE that externalizes priority and state is not a niche luxury.
 The same line of thought appears in work on **friction** in products and
 processes: systems fail when the **environment** makes the wrong behaviour
 easier than the right one. Reducing **spurious** friction—predictable places for
-truth, fewer surprise surfaces—is aligned with that stance. See also
-[Knowledge base, trust, and curiosity](/writing/knowledge-base-trust-curiosity.html)
-on **provisional trust** and **inspectable** ground between human and agent.
+truth, fewer surprise surfaces—is aligned with that stance.
+[**Knowledge base, trust, and curiosity**](/writing/knowledge-base-trust-curiosity.html)
+spells out **provisional trust** and **inspectable** ground between human and agent.
 
 ## Where this may overlap with ADHD / neurodivergence (carefully)
 
@@ -65,7 +65,7 @@ taxes for everyone, sometimes asymmetrically.
 ## Related
 
 - [**Cascade IDE’s cockpit-inspired attention model**](/writing/cascade-ide-attention-cockpit.html) — cockpit metaphor, PFD/MFD/EICAS
-- **Trust, KB, curiosity:** [Knowledge base, trust, and curiosity](/writing/knowledge-base-trust-curiosity.html)
+- [Knowledge base, trust, and curiosity](/writing/knowledge-base-trust-curiosity.html) — trust, KB, curiosity
 - [**Parity with the toolchain**](/writing/why-these-projects-parity.html) — MCP, shared ground truth
-- **Methodology:** [Why Agent-First Learn exists](/writing/why-agent-first-learn.html)
-- **Agile in spirit:** [Why this human–agent workspace is Agile in spirit](/writing/agent-workspace-agile.html)
+- [Why Agent-First Learn exists](/writing/why-agent-first-learn.html) — methodology
+- [Why this human–agent workspace is Agile in spirit](/writing/agent-workspace-agile.html) — Agile in spirit

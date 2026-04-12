@@ -86,8 +86,8 @@ Agent-First Learn — **компактное место** для этой поз
 
 Про [**паритет с тулчейном**](/ru/writing/why-these-projects-parity.html) — MCP, общая опора на факты.
 
-Про **дух Agile** в среде люди+агент — см. [Почему среда «человек–агент» по духу Agile](/ru/writing/agent-workspace-agile.html).
+[**Почему среда «человек–агент» по духу Agile**](/ru/writing/agent-workspace-agile.html) — про **дух Agile** в среде люди+агент.
 
 Про [**модель внимания Cascade IDE**](/ru/writing/cascade-ide-attention-cockpit.html) — как IDE держит редактор, инструменты и агента в одном читаемом контуре.
 
-Про **базу знаний, доверие и любопытство** — см. [База знаний, доверие и любопытство](/ru/writing/knowledge-base-trust-curiosity.html).
+[**База знаний, доверие и любопытство**](/ru/writing/knowledge-base-trust-curiosity.html) — про условное доверие, проверяемость и любопытство в контуре.

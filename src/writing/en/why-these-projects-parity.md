@@ -54,14 +54,13 @@ you get speed without surrendering judgement.
 
 ## Related
 
-For the **methodology** side — environment, memory, cooperation, and how to
-react when the model is wrong — see [Why Agent-First Learn exists](/writing/why-agent-first-learn.html).
+[**Why Agent-First Learn exists**](/writing/why-agent-first-learn.html) — **methodology**: environment, memory, cooperation, and how to react when the model is wrong.
 
-For **Agile in spirit** (feedback loops, inspect & adapt, human–agent as a team) — see [Why this human–agent workspace is Agile in spirit](/writing/agent-workspace-agile.html).
+[**Why this human–agent workspace is Agile in spirit**](/writing/agent-workspace-agile.html) — **Agile in spirit**: feedback loops, inspect & adapt, human–agent as a team.
 
-For [**Cascade IDE’s cockpit-inspired attention model**](/writing/cascade-ide-attention-cockpit.html) (PFD / MFD / EICAS).
+[**Cascade IDE’s cockpit-inspired attention model**](/writing/cascade-ide-attention-cockpit.html) — PFD / MFD / EICAS.
 
-For **knowledge base, trust, and curiosity** — see [Knowledge base, trust, and curiosity](/writing/knowledge-base-trust-curiosity.html).
+[**Knowledge base, trust, and curiosity**](/writing/knowledge-base-trust-curiosity.html) — shared KB, provisional trust, and curiosity.
 
 ## Why a public site says this
 

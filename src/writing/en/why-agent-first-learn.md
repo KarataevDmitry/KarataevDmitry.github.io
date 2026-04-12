@@ -90,8 +90,8 @@ stay aligned while the work is still messy.
 
 [**Parity with the toolchain**](/writing/why-these-projects-parity.html) — MCP tools and shared ground truth.
 
-For **Agile in spirit** applied to people and models together, see [Why this human–agent workspace is Agile in spirit](/writing/agent-workspace-agile.html).
+[**Why this human–agent workspace is Agile in spirit**](/writing/agent-workspace-agile.html) — **Agile in spirit** for people and models together.
 
 [**Cascade IDE’s cockpit-inspired attention model**](/writing/cascade-ide-attention-cockpit.html) — how the IDE keeps editor, tools, and agent in one legible contour.
 
-For **knowledge base, trust, and curiosity** — see [Knowledge base, trust, and curiosity](/writing/knowledge-base-trust-curiosity.html).
+[**Knowledge base, trust, and curiosity**](/writing/knowledge-base-trust-curiosity.html) — provisional trust, inspectability, and curiosity in the loop.

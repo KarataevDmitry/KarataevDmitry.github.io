@@ -25,7 +25,7 @@ order: 5
 **устойчивого места для намерения** ты каждую неделю заново торгуешься о границах.
 Когда плейбуки, правила целостности и «хорошо известные пути» лежат в репозитории,
 среда становится **проверяемой** — ровно того же свойства, что мы ждём от
-сборки и логов. Репозиторий [agent-notes](https://github.com/KarataevDmitry/agent-notes)
+сборки и логов. Репозиторий [**agent-notes**](https://github.com/KarataevDmitry/agent-notes)
 — одна конкретная форма этой идеи: не блог, а **операционный текст** с претензией
 на непрерывность.
 
@@ -64,7 +64,7 @@ order: 5
 ## Связанный текст
 
 - [**Паритет с тулчейном**](/ru/writing/why-these-projects-parity.html) — MCP, общая опора на факты
-- **Методология:** [Зачем появился Agent-First Learn](/ru/writing/why-agent-first-learn.html)
-- **Agile по духу:** [Почему среда «человек–агент» по духу Agile](/ru/writing/agent-workspace-agile.html)
+- [Зачем появился Agent-First Learn](/ru/writing/why-agent-first-learn.html) — методология
+- [Почему среда «человек–агент» по духу Agile](/ru/writing/agent-workspace-agile.html) — Agile по духу
 - [**Модель внимания Cascade IDE**](/ru/writing/cascade-ide-attention-cockpit.html) — кокпит, PFD/MFD/EICAS
-- **Внимание, трение, нейроотличие:** [Внимание, трение и нейроотличие в IDE](/ru/writing/attention-contour-neurodivergence.html)
+- [Внимание, трение и нейроотличие в IDE](/ru/writing/attention-contour-neurodivergence.html) — внимание, трение, нейроотличие
