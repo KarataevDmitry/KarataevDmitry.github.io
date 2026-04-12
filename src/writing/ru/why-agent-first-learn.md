@@ -84,7 +84,7 @@ Agent-First Learn — **компактное место** для этой поз
 
 ## Связанный текст
 
-Про **инструменты и паритет** с тулчейном — см. [Зачем эти проекты и зачем паритет](/ru/writing/why-these-projects-parity.html).
+Про [**паритет с тулчейном**](/ru/writing/why-these-projects-parity.html) — MCP, общая опора на факты.
 
 Про **дух Agile** в среде люди+агент — см. [Почему среда «человек–агент» по духу Agile](/ru/writing/agent-workspace-agile.html).
 

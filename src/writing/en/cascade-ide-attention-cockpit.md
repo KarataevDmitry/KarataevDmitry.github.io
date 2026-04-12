@@ -78,7 +78,7 @@ an agent trying to stay aligned.
 
 ## Related
 
-- **Tools and parity:** [Why these projects, and why parity matters](/writing/why-these-projects-parity.html)
+- [**Parity with the toolchain**](/writing/why-these-projects-parity.html) — MCP, shared ground truth
 - **Methodology:** [Why Agent-First Learn exists](/writing/why-agent-first-learn.html)
 - **Agile in spirit:** [Why this human–agent workspace is Agile in spirit](/writing/agent-workspace-agile.html)
 - **Knowledge base, trust, curiosity:** [Knowledge base, trust, and curiosity](/writing/knowledge-base-trust-curiosity.html)

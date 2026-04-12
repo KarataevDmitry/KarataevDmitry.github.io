@@ -51,8 +51,7 @@ Executive-function challenges often include **restarting after interruption**,
 not “fix” ADHD—but it can **lower the tax** on the same skills that interruption
 taxes for everyone, sometimes asymmetrically.
 
-**Parity** with the toolchain ([Why these projects, and why parity matters](/writing/why-these-projects-parity.html))
-helps too: less re-derivation of reality from chat prose, more **shared artefacts**
+[**Parity with the toolchain**](/writing/why-these-projects-parity.html) helps too: less re-derivation of reality from chat prose, more **shared artefacts**
 (tests, diagnostics)—another form of **externalized** state.
 
 ## What this is not
@@ -67,6 +66,6 @@ helps too: less re-derivation of reality from chat prose, more **shared artefact
 
 - [**Cascade IDE’s cockpit-inspired attention model**](/writing/cascade-ide-attention-cockpit.html) — cockpit metaphor, PFD/MFD/EICAS
 - **Trust, KB, curiosity:** [Knowledge base, trust, and curiosity](/writing/knowledge-base-trust-curiosity.html)
-- **Tools and parity:** [Why these projects, and why parity matters](/writing/why-these-projects-parity.html)
+- [**Parity with the toolchain**](/writing/why-these-projects-parity.html) — MCP, shared ground truth
 - **Methodology:** [Why Agent-First Learn exists](/writing/why-agent-first-learn.html)
 - **Agile in spirit:** [Why this human–agent workspace is Agile in spirit](/writing/agent-workspace-agile.html)

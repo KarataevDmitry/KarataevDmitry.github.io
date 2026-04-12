@@ -50,8 +50,7 @@ order: 6
 оповещения, не «чинит» СДВГ — но может **снизить налог** на те же навыки, которые
 прерывания обкладывают у всех, иногда асимметрично.
 
-**Паритет** с тулчейном ([Зачем эти проекты и зачем паритет](/ru/writing/why-these-projects-parity.html))
-тоже помогает: меньше восстановления реальности из прозы чата, больше **общих
+[**Паритет с тулчейном**](/ru/writing/why-these-projects-parity.html) тоже помогает: меньше восстановления реальности из прозы чата, больше **общих
 артефактов** (тесты, диагностики) — ещё один вид **вынесенного** состояния.
 
 ## Чем это не является
@@ -66,6 +65,6 @@ order: 6
 
 - [**Модель внимания Cascade IDE**](/ru/writing/cascade-ide-attention-cockpit.html) — кокпит, PFD/MFD/EICAS
 - **Доверие, KB, любопытство:** [База знаний, доверие и любопытство](/ru/writing/knowledge-base-trust-curiosity.html)
-- **Инструменты и паритет:** [Зачем эти проекты и зачем паритет](/ru/writing/why-these-projects-parity.html)
+- [**Паритет с тулчейном**](/ru/writing/why-these-projects-parity.html) — MCP, общая опора на факты
 - **Методология:** [Зачем появился Agent-First Learn](/ru/writing/why-agent-first-learn.html)
 - **Agile по духу:** [Почему среда «человек–агент» по духу Agile](/ru/writing/agent-workspace-agile.html)

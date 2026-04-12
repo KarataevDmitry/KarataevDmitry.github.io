@@ -63,7 +63,7 @@ order: 5
 
 ## Связанный текст
 
-- **Инструменты и паритет:** [Зачем эти проекты и зачем паритет](/ru/writing/why-these-projects-parity.html)
+- [**Паритет с тулчейном**](/ru/writing/why-these-projects-parity.html) — MCP, общая опора на факты
 - **Методология:** [Зачем появился Agent-First Learn](/ru/writing/why-agent-first-learn.html)
 - **Agile по духу:** [Почему среда «человек–агент» по духу Agile](/ru/writing/agent-workspace-agile.html)
 - [**Модель внимания Cascade IDE**](/ru/writing/cascade-ide-attention-cockpit.html) — кокпит, PFD/MFD/EICAS

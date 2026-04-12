@@ -77,7 +77,7 @@ every morning.
 
 ## Related
 
-- **Tools and parity:** [Why these projects, and why parity matters](/writing/why-these-projects-parity.html)
+- [**Parity with the toolchain**](/writing/why-these-projects-parity.html) — MCP, shared ground truth
 - **Methodology and stance:** [Why Agent-First Learn exists](/writing/why-agent-first-learn.html)
 - [**Cascade IDE’s cockpit-inspired attention model**](/writing/cascade-ide-attention-cockpit.html) (Cascade)
 - **Knowledge base & stance:** [Knowledge base, trust, and curiosity](/writing/knowledge-base-trust-curiosity.html)
