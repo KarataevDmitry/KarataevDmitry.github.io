@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Зачем эти проекты и зачем паритет — Дмитрий Каратаев</title>
+  <meta name="description" content="MCP-серверы связывают LLM с реальными инструментами разработчика; паритет даёт людям и агентам общую опору на факты." />
+  <link rel="alternate" hreflang="en" href="/writing/why-these-projects-parity.html" />
+  <link rel="alternate" hreflang="ru" href="/ru/writing/why-these-projects-parity.html" />
+  <link rel="alternate" hreflang="x-default" href="/writing/why-these-projects-parity.html" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F4BB;</text></svg>" />
+  <link rel="stylesheet" href="/assets/css/articles.css" />
+</head>
+<body>
+  <a href="#main" class="skip-link">К содержанию</a>
+
+  <nav aria-label="Основная навигация">
+    <div class="nav-inner">
+      <div class="logo"><a href="/ru/">Д<span>.</span>Каратаев</a></div>
+      <div class="nav-right">
+        <ul>
+          <li><a href="/ru/#about">О себе</a></li>
+          <li><a href="/ru/#projects">Проекты</a></li>
+          <li><a href="/ru/writing/" aria-current="page">Тексты</a></li>
+          <li><a href="/ru/#experience">Опыт</a></li>
+          <li><a href="/ru/#documents">Документы</a></li>
+        </ul>
+        <ul class="nav-lang" aria-label="Язык">
+          <li><a href="/writing/why-these-projects-parity.html" lang="en">EN</a></li>
+          <li class="nav-sep" aria-hidden="true">|</li>
+          <li><a href="/ru/writing/why-these-projects-parity.html" lang="ru" aria-current="page">RU</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main" class="container">
+    <article class="article-wrap">
+      <p class="article-back"><a href="/ru/writing/">&larr; Все тексты</a></p>
+
+      <header class="article-header">
+        <h1>Зачем эти проекты и зачем паритет</h1>
+        <p class="article-meta">Апрель 2026</p>
+      </header>
+
+      <div class="prose">
+        <p>
+          Проекты на этом сайте — не случайный набор репозиториев. На них ответ на
+          один инженерный вопрос: <strong>чего не хватает ассистенту, чтобы помощь в
+          коде не сводилась к перестановке текста?</strong>
+        </p>
+
+        <h2>Разрыв</h2>
+        <p>
+          Языковая модель может читать файлы и предлагать правки. Настоящая инженерия
+          опирается на <strong>семантику, исполнение и проверку</strong>: что скажет
+          компилятор, где остановится отладчик, проходят ли тесты, что на экране или
+          в микрофоне, если это важно для задачи. Если ассистент не доходит до этих
+          слоёв, получается беглая речь, которая может расходиться с вердиктом
+          машины. Это дорого по времени и по доверию.
+        </p>
+
+        <h2>Зачем стек</h2>
+        <p>Каждый блок открывает тот же пласт, что и IDE:</p>
+        <ul>
+          <li><strong>Roslyn MCP</strong> — диагностики, правки, навигация, переименование: та же семантическая модель, что у тулчейна C#, а не догадка по тексту.</li>
+          <li><strong>dotnet-debug-mcp</strong> — точки останова, шаги, переменные: наблюдаемое поведение, а не рассказ о поведении.</li>
+          <li><strong>dotnet-build-test-mcp</strong> — структурированная сборка и тесты: собственное определение проекта «всё зелёное».</li>
+          <li><strong>webcam-mcp</strong> — мультимодальные входы, когда дело не только в исходниках.</li>
+          <li><strong>agent-first-learn</strong> — практика про работу с агентами: контекст, ограничения и этика партнёрства в одном месте.</li>
+        </ul>
+        <p>
+          Вместе это подталкивает ассистента к <strong>инструментам со следами</strong>:
+          к действиям, которые можно проверить, воспроизвести и оспорить по фактам, а
+          не по настроению.
+        </p>
+
+        <h2>Паритет: те же инструменты, общая опора</h2>
+        <p>
+          <strong>Паритет</strong> здесь значит: человек и агент опираются на одни и
+          те же интерфейсы к кодовой базе — компилятор, отладчик, прогон тестов — вместо
+          того чтобы модель строила отдельную картину мира. Для <strong>человека</strong>
+          это возвращает непрерывность: не объяснять проект дважды — себе и чату,
+          который ничего не запускает. Для <strong>агента</strong> это граница между
+          пересказом и ответственностью: ответ привязан к тому, что реально сообщил
+          тулчейн.
+        </p>
+        <p>
+          Паритет — не симметрия ролей. Он не утверждает, что человек и модель — один
+          тип субъекта. Утверждение другое: <strong>совместная работа ровнее, когда обе
+          стороны могут указать на одни и те же артефакты</strong> — упавший тест, код
+          диагностики, кадр стека — и спорить от этого. Так ускоряешься, не отдавая
+          суждение на откуп красивой прозе.
+        </p>
+
+        <h2>Зачем об этом публичный сайт</h2>
+        <p>
+          В резюме — навыки, в репозиториях — код. Эта страница — между ними:
+          <strong>зачем</strong> работа устроена так, и как это стыкуется с позицией по
+          сотрудничеству людей и агентов — точно, проверяемо, с уважением к обоим. Если
+          откликается — код доказательство; этот текст — намерение.
+        </p>
+      </div>
+    </article>
+  </main>
+
+  <footer id="contact">
+    <div class="container">
+      <div class="contact-links">
+        <a href="mailto:dkarataev1990@gmail.com">Email</a>
+        <a href="https://t.me/Krawler">Telegram</a>
+        <a href="https://github.com/KarataevDmitry">GitHub</a>
+      </div>
+      <p>Дмитрий Каратаев &copy; 2026.</p>
+    </div>
+  </footer>
+</body>
+</html>
