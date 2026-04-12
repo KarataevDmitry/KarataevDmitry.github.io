@@ -7,8 +7,10 @@ order: 1
 ---
 
 The projects listed on this site are not a random bundle of repositories.
-They answer one engineering question: **what does an AI assistant need
-so that helping with code is not reduced to moving text around?**
+They answer one engineering question: **what is an assistant missing
+without real tools** — so that working with code does not turn into extra
+steps, guessing, and endless "what if?" loops instead of
+grounding in what the compiler, tests, and debugger actually report?
 
 ## The gap
 
