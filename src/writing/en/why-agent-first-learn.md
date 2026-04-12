@@ -91,3 +91,5 @@ stay aligned while the work is still messy.
 For **MCP tools and parity** with the toolchain, see [Why these projects, and why parity matters](/writing/why-these-projects-parity.html).
 
 For **Agile in spirit** applied to people and models together, see [Why this human–agent workspace is Agile in spirit](/writing/agent-workspace-agile.html).
+
+For **Cascade IDE** and how the IDE keeps editor, tools, and agent in one legible contour — see [Why Cascade IDE borrows a cockpit attention model](/writing/cascade-ide-attention-cockpit.html).

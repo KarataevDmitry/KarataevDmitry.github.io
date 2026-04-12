@@ -59,6 +59,8 @@ react when the model is wrong — see [Why Agent-First Learn exists](/writing/wh
 
 For **Agile in spirit** (feedback loops, inspect & adapt, human–agent as a team) — see [Why this human–agent workspace is Agile in spirit](/writing/agent-workspace-agile.html).
 
+For **Cascade IDE** and a cockpit-style attention model (PFD / MFD / EICAS) — see [Why Cascade IDE borrows a cockpit attention model](/writing/cascade-ide-attention-cockpit.html).
+
 ## Why a public site says this
 
 CVs list skills; repositories hold code. This page is the line between them:

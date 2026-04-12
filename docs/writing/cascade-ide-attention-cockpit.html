@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Why Cascade IDE borrows a cockpit attention model — Dmitry Karataev</title>
+  <meta name="description" content="Signal overload, context switches, and a deliberate hierarchy of zones — PFD, MFD, EICAS — so the editor stays primary and the agent stays observable." />
+  <link rel="alternate" hreflang="en" href="/writing/cascade-ide-attention-cockpit.html" />
+  <link rel="alternate" hreflang="ru" href="/ru/writing/cascade-ide-attention-cockpit.html" />
+  <link rel="alternate" hreflang="x-default" href="/writing/cascade-ide-attention-cockpit.html" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F4BB;</text></svg>" />
+  <link rel="stylesheet" href="/assets/css/articles.css" />
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <div class="logo"><a href="/">D<span>.</span>Karataev</a></div>
+      <div class="nav-right">
+        <ul>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#projects">Projects</a></li>
+          <li><a href="/writing/" aria-current="page">Writing</a></li>
+          <li><a href="/#experience">Experience</a></li>
+          <li><a href="/#documents">Docs</a></li>
+        </ul>
+        <ul class="nav-lang" aria-label="Language">
+          <li><a href="/writing/cascade-ide-attention-cockpit.html" lang="en" aria-current="page">EN</a></li>
+          <li class="nav-sep" aria-hidden="true">|</li>
+          <li><a href="/ru/writing/cascade-ide-attention-cockpit.html" lang="ru">RU</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main" class="container">
+    <article class="article-wrap">
+      <p class="article-back"><a href="/writing/">&larr; All writing</a></p>
+
+      <header class="article-header">
+        <h1>Why Cascade IDE borrows a cockpit attention model</h1>
+        <p class="article-meta">April 2026</p>
+      </header>
+
+      <div class="prose">
+        <p><strong>Cascade IDE</strong> is a .NET-focused IDE meant to be <strong>driven by an agent through MCP</strong>
+        while keeping <strong>humans and tools in the same observable loop</strong>. One of its design
+        threads is explicit: <strong>where your eyes should go, and when</strong> — borrowed from
+        how cockpits manage attention in aviation.</p>
+        <p>This text is a <strong>conceptual sketch</strong>. The full specification lives in the
+        project as <strong>ADR 0021</strong> (PFD / MFD / cockpit attention model). The product is
+        <strong>in active development</strong>; details will move as implementation catches up.</p>
+        <h2 id="the-tax-context-switches">The tax: context switches</h2>
+        <p>A developer juggles code, build output, tests, git, diagnostics, and an agent
+        that may be half a screen away in another app. The productivity hit is not only
+        Alt+Tab — it is <strong>losing the thread</strong>: which channel mattered, what failed last,
+        whether you and the model are looking at the same truth.</p>
+        <p>An IDE that wants <strong>agent-first</strong> work cannot treat “more panels” as neutral.
+        Without a <strong>priority model</strong>, the UI drifts to two bad extremes: everything
+        hidden (no feedback) or everything visible (banner blindness).</p>
+        <h2 id="cockpit-metaphors-are-not-decoration">Cockpit metaphors are not decoration</h2>
+        <p>Airliners split instruments by <strong>role in attention management</strong>: primary flight
+        context, secondary switchable views, a <strong>consolidated alerting</strong> channel. That
+        is not nostalgia — it is a response to <strong>limited attention and high cost of
+        error</strong>.</p>
+        <p>Cascade maps that idea to software work: <strong>stable anchors</strong> for where you look,
+        what is <strong>secondary by conscious choice</strong>, and what <strong>escalates</strong> when something
+        is wrong — instead of every subsystem fighting for the same z-order.</p>
+        <h2 id="a-very-short-map-of-the-zones">A very short map of the zones</h2>
+        <p>In plain language:</p>
+        <ul>
+        <li><strong>Forward / editor</strong> — the object of work; this is where time and space
+        dominate. In-editor overlays (<strong>HUD</strong>-style hints) stay <strong>inside</strong> this anchor;
+        they do not become a fourth competing “window soul.”</li>
+        <li><strong>PFD-shaped region</strong> — “flight context”: solution tree, where you are in the
+        workspace, task focus, compact signals that you are still oriented.</li>
+        <li><strong>MFD-shaped region</strong> — deliberately secondary: git, long logs, browser,
+        full agent trace, terminal — things you <strong>open on purpose</strong>, not permanent
+        competitors to the editor.</li>
+        <li><strong>EICAS-shaped channel</strong> — <strong>alerts and prioritization</strong> (warning / caution /
+        advisory style), not “a third column for fun.” Placement can vary by preset;
+        the <strong>role</strong> is what matters.</li>
+        </ul>
+        <p>The important move in the ADR is separating <strong>spatial anchors</strong> (where regions
+        sit) from <strong>attention policy</strong> (Focus / Balanced / Power, escalation, what
+        counts as loud). Mixing those layers in docs or code is how products quietly
+        return to chaos.</p>
+        <h2 id="everything-in-one-place-without-embedding-the-whole-internet">“Everything in one place” without embedding the whole internet</h2>
+        <p>The north-star wording is <strong>one coherent scene</strong>, not “ship every chat client
+        inside the binary.” Ten different chat UIs inside the IDE mostly add <strong>login
+        surfaces and notification noise</strong>. The cockpit model is there to keep a
+        <strong>sustainable contour</strong>: predictable places for truth, bridges to external hosts
+        when needed, and <strong>no plugin free-for-all</strong> over the editor without declaring
+        which anchor it belongs to.</p>
+        <h2 id="why-this-pairs-with-mcp-and-parity">Why this pairs with MCP and parity</h2>
+        <p>The same philosophy that pushes <strong>Roslyn, debuggers, and tests</strong> through MCP is
+        the philosophy that says the <strong>IDE surface must not lie</strong> about state. An
+        attention model is how you keep that honesty <strong>legible</strong> — for a person and for
+        an agent trying to stay aligned.</p>
+        <h2 id="related">Related</h2>
+        <ul>
+        <li><strong>Tools and parity:</strong> <a href="/writing/why-these-projects-parity.html">Why these projects, and why parity matters</a></li>
+        <li><strong>Methodology:</strong> <a href="/writing/why-agent-first-learn.html">Why Agent-First Learn exists</a></li>
+        <li><strong>Agile in spirit:</strong> <a href="/writing/agent-workspace-agile.html">Why this human–agent workspace is Agile in spirit</a></li>
+        </ul>
+
+      </div>
+    </article>
+  </main>
+
+  <footer id="contact">
+    <div class="container">
+      <div class="contact-links">
+        <a href="mailto:dkarataev1990@gmail.com">Email</a>
+        <a href="https://t.me/Krawler">Telegram</a>
+        <a href="https://github.com/KarataevDmitry">GitHub</a>
+      </div>
+      <p>Dmitry Karataev &copy; 2026.</p>
+    </div>
+  </footer>
+</body>
+</html>

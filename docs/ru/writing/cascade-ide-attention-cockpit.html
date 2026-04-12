@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Зачем Cascade IDE позаимствовала модель внимания кокпита — Дмитрий Каратаев</title>
+  <meta name="description" content="Перегруз сигналами, переключения контекста и явная иерархия зон — PFD, MFD, EICAS — чтобы редактор оставался главным, а агент оставался наблюдаемым." />
+  <link rel="alternate" hreflang="en" href="/writing/cascade-ide-attention-cockpit.html" />
+  <link rel="alternate" hreflang="ru" href="/ru/writing/cascade-ide-attention-cockpit.html" />
+  <link rel="alternate" hreflang="x-default" href="/writing/cascade-ide-attention-cockpit.html" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F4BB;</text></svg>" />
+  <link rel="stylesheet" href="/assets/css/articles.css" />
+</head>
+<body>
+  <a href="#main" class="skip-link">К содержанию</a>
+
+  <nav aria-label="Основная навигация">
+    <div class="nav-inner">
+      <div class="logo"><a href="/ru/">Д<span>.</span>Каратаев</a></div>
+      <div class="nav-right">
+        <ul>
+          <li><a href="/ru/#about">О себе</a></li>
+          <li><a href="/ru/#projects">Проекты</a></li>
+          <li><a href="/ru/writing/" aria-current="page">Тексты</a></li>
+          <li><a href="/ru/#experience">Опыт</a></li>
+          <li><a href="/ru/#documents">Документы</a></li>
+        </ul>
+        <ul class="nav-lang" aria-label="Язык">
+          <li><a href="/writing/cascade-ide-attention-cockpit.html" lang="en">EN</a></li>
+          <li class="nav-sep" aria-hidden="true">|</li>
+          <li><a href="/ru/writing/cascade-ide-attention-cockpit.html" lang="ru" aria-current="page">RU</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main" class="container">
+    <article class="article-wrap">
+      <p class="article-back"><a href="/ru/writing/">&larr; Все тексты</a></p>
+
+      <header class="article-header">
+        <h1>Зачем Cascade IDE позаимствовала модель внимания кокпита</h1>
+        <p class="article-meta">Апрель 2026</p>
+      </header>
+
+      <div class="prose">
+        <p><strong>Cascade IDE</strong> — IDE под .NET, рассчитанная на то, что <strong>агент ведёт работу через MCP</strong>,
+        а <strong>человек и инструменты остаются в одном наблюдаемом контуре</strong>. Один из
+        проектных нитей — явно задать <strong>куда смотреть и когда</strong>: за это отвечает модель,
+        позаимствованная у того, как в авиации устроен <strong>кокпит</strong>.</p>
+        <p>Это текст <strong>уровня идей</strong>. Полная спецификация лежит в репозитории проекта как
+        <strong>ADR 0021</strong> (модель внимания PFD / MFD / кокпит). Продукт <strong>в активной разработке</strong>;
+        детали будут сдвигаться по мере того, как догонит реализация.</p>
+        <h2 id="section">Налог: переключения контекста</h2>
+        <p>Разработчик одновременно держит код, сборку, тесты, git, диагностики и агента,
+        который может жить в <strong>другом</strong> приложении. Цена не только Alt+Tab — это <strong>потеря
+        нити</strong>: что было важным каналом, что упало последним, смотрите ли вы с моделью
+        на одну и ту же правду.</p>
+        <p>IDE, которая хочет <strong>agent-first</strong> работу, не может считать «ещё панелей»
+        нейтральным. Без <strong>модели приоритета</strong> интерфейс скатывается к двум плохим крайностям:
+        «всё спрятано» (нет обратной связи) или «всё видно» (баннерная слепота).</p>
+        <h2 id="section-1">Метафоры кокпита — не украшение</h2>
+        <p>В авиации приборы делят по <strong>роли в управлении вниманием</strong>: первичный контекст
+        полёта, переключаемые вторичные виды, <strong>единый контур оповещений</strong>. Это не
+        ностальгия — ответ на <strong>ограниченное внимание и высокую цену ошибки</strong>.</p>
+        <p>Cascade переносит идею в работу с кодом: <strong>устойчивые якоря</strong> взгляда, что
+        <strong>сознательно вторично</strong>, и что <strong>эскалирует</strong>, когда что-то не так — вместо
+        того чтобы каждая подсистема боролась за один z-order.</p>
+        <h2 id="section-2">Короткая карта зон</h2>
+        <p>По-человечески:</p>
+        <ul>
+        <li><strong>Лобовое / редактор</strong> — предмет работы; здесь живёт основное время и площадь.
+        Оверлеи в духе <strong>HUD</strong> остаются <strong>внутри</strong> этого якоря и не превращаются в
+        четвёртую конкурирующую «душу окна».</li>
+        <li><strong>Регион в духе PFD</strong> — «контекст полёта»: дерево решения, где вы в
+        воркспейсе, фокус задачи, компактные сигналы, что вы ещё ориентируетесь.</li>
+        <li><strong>Регион в духе MFD</strong> — сознательно вторичное: git, длинные логи, браузер,
+        полный trace агента, терминал — то, что вы <strong>открываете намеренно</strong>, а не
+        вечные конкуренты редактора.</li>
+        <li><strong>Канал в духе EICAS</strong> — <strong>оповещения и приоритизация</strong> (уровни в духе
+        warning / caution / advisory), не «третья колонка для красоты». Геометрия
+        может меняться пресетом; важна <strong>роль</strong>.</li>
+        </ul>
+        <p>В ADR отдельно держат <strong>пространственные якоря</strong> (где на экране лежат регионы) и
+        <strong>политику внимания</strong> (режимы, эскалация, что считается громким). Смешивать эти
+        слои в документации и коде — быстрый путь обратно к хаосу.</p>
+        <h2 id="section-3">«Всё в одном месте» без встраивания всего интернета</h2>
+        <p>Северная звезда формулируется как <strong>одна согласованная сцена</strong>, а не как
+        «вшить каждый чат в бинарник». Десять разных чат-UI внутри IDE чаще добавляют
+        <strong>поверхности входа и шум уведомлений</strong>, чем ясность. Модель кокпита как раз про
+        <strong>устойчивый контур внимания</strong>: предсказуемые места для правды, мосты к внешним
+        хостам при необходимости и <strong>нет плагинов «просто поверх всего»</strong> без декларации,
+        к какому якорю они относятся.</p>
+        <h2 id="mcp">Зачем это рядом с MCP и паритетом</h2>
+        <p>Та же линия, по которой <strong>Roslyn, отладчик и тесты</strong> приходят через MCP, —
+        линия, в которой <strong>поверхность IDE не врёт</strong> о состоянии. Модель внимания — это
+        способ сделать эту честность <strong>читаемой</strong> и для человека, и для агента, который
+        пытается остаться согласованным.</p>
+        <h2 id="section-4">Связанный текст</h2>
+        <ul>
+        <li><strong>Инструменты и паритет:</strong> <a href="/ru/writing/why-these-projects-parity.html">Зачем эти проекты и зачем паритет</a></li>
+        <li><strong>Методология:</strong> <a href="/ru/writing/why-agent-first-learn.html">Зачем появился Agent-First Learn</a></li>
+        <li><strong>Agile по духу:</strong> <a href="/ru/writing/agent-workspace-agile.html">Почему среда «человек–агент» по духу Agile</a></li>
+        </ul>
+
+      </div>
+    </article>
+  </main>
+
+  <footer id="contact">
+    <div class="container">
+      <div class="contact-links">
+        <a href="mailto:dkarataev1990@gmail.com">Email</a>
+        <a href="https://t.me/Krawler">Telegram</a>
+        <a href="https://github.com/KarataevDmitry">GitHub</a>
+      </div>
+      <p>Дмитрий Каратаев &copy; 2026.</p>
+    </div>
+  </footer>
+</body>
+</html>

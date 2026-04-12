@@ -87,3 +87,5 @@ Agent-First Learn — **компактное место** для этой поз
 Про **инструменты и паритет** с тулчейном — см. [Зачем эти проекты и зачем паритет](/ru/writing/why-these-projects-parity.html).
 
 Про **дух Agile** в среде люди+агент — см. [Почему среда «человек–агент» по духу Agile](/ru/writing/agent-workspace-agile.html).
+
+Про **Cascade IDE** и как IDE держит редактор, инструменты и агента в одном читаемом контуре — см. [Зачем Cascade IDE позаимствовала модель внимания кокпита](/ru/writing/cascade-ide-attention-cockpit.html).
