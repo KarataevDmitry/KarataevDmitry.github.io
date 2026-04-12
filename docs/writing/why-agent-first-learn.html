@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Why Agent-First Learn exists — Dmitry Karataev</title>
+  <meta name="description" content="A short take on the methodology repo: the gap it fills, environment over model, cooperation, and asking “why” instead of moralizing errors." />
+  <link rel="alternate" hreflang="en" href="/writing/why-agent-first-learn.html" />
+  <link rel="alternate" hreflang="ru" href="/ru/writing/why-agent-first-learn.html" />
+  <link rel="alternate" hreflang="x-default" href="/writing/why-agent-first-learn.html" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F4BB;</text></svg>" />
+  <link rel="stylesheet" href="/assets/css/articles.css" />
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <div class="logo"><a href="/">D<span>.</span>Karataev</a></div>
+      <div class="nav-right">
+        <ul>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#projects">Projects</a></li>
+          <li><a href="/writing/" aria-current="page">Writing</a></li>
+          <li><a href="/#experience">Experience</a></li>
+          <li><a href="/#documents">Docs</a></li>
+        </ul>
+        <ul class="nav-lang" aria-label="Language">
+          <li><a href="/writing/why-agent-first-learn.html" lang="en" aria-current="page">EN</a></li>
+          <li class="nav-sep" aria-hidden="true">|</li>
+          <li><a href="/ru/writing/why-agent-first-learn.html" lang="ru">RU</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main" class="container">
+    <article class="article-wrap">
+      <p class="article-back"><a href="/writing/">&larr; All writing</a></p>
+
+      <header class="article-header">
+        <h1>Why Agent-First Learn exists</h1>
+        <p class="article-meta">April 2026</p>
+      </header>
+
+      <div class="prose">
+        <p><a href="https://github.com/KarataevDmitry/agent-first-learn">Agent-First Learn</a> is not another list of
+        prompt tricks. It is a <strong>practical stance</strong>: you are not “using a chatbot”;
+        you are <strong>building a shared workspace</strong> with something that reads text, acts
+        under constraints, and fails in predictable ways.</p>
+        <h2 id="why-it-appeared">Why it appeared</h2>
+        <p>Mainstream advice often stops at <em>“ask the model nicely”</em> or <em>“here are ten
+        prompts for productivity.”</em> That hides the real bottleneck: <strong>how context is
+        kept, how boundaries are enforced, and how you recover when the model
+        drifts.</strong> Tooling tutorials rarely say how to <strong>own</strong> memory, summarization,
+        and handoff between sessions — the things that decide whether work compounds
+        or resets every day.</p>
+        <p>Agent-First Learn exists to name that <strong>operational layer</strong>: not magic
+        wording, but <strong>environment design</strong> — notes, rules, tools, and habits of
+        dialogue — so that collaboration with an assistant is <strong>reliable enough to
+        build on</strong>.</p>
+        <h2 id="environment-beats-which-model">Environment beats “which model”</h2>
+        <p>A stronger model in a bad room still loses the thread. A modest model in a
+        room with <strong>clear facts, constraints, and verifiable steps</strong> can be more
+        useful day to day.</p>
+        <p><strong>Environment</strong> is: what the assistant is allowed to assume, where the
+        truth lives (repo, tests, logs), how summaries are written so they do not
+        erase decisions, and how you <strong>inspect</strong> outcomes instead of trusting the
+        tone of the answer. That is why the same person can feel “the AI is useless”
+        or “the AI is indispensable” without changing the model — only the <strong>setup</strong>.</p>
+        <h2 id="cooperation-not-a-duel">Cooperation, not a duel</h2>
+        <p>If you treat the assistant as an <strong>enemy who must be punished for mistakes</strong>,
+        you get a fight in the chat window. If you treat it as a <strong>participant with
+        a role and limits</strong>, you get something closer to a <strong>team</strong>: you can assign,
+        check, correct, and move on.</p>
+        <p>Cooperation here does not mean pretending the model is a person. It means
+        <strong>choosing a stance that reduces wasted emotion and increases repairability</strong>
+        — you optimize for <strong>getting the next good step</strong>, not for winning an
+        argument.</p>
+        <h2 id="why-instead-of-outrage">“Why?” instead of outrage</h2>
+        <p>When the model says something wrong, two reactions differ completely:</p>
+        <ul>
+        <li><p><strong>Moralizing</strong> (<em>“how dare you, you idiot”</em>) buys a moment of venting and
+        <strong>destroys signal</strong>. The next turn is not about the bug; it is about
+        status. The model will mirror confusion or defensiveness; you still do not
+        know what went wrong.</p>
+        </li>
+        <li><p><strong>Epistemic curiosity</strong> (<em>“why did you infer X from this file?”</em>, <em>“what
+        would change your answer?”</em>) treats the mistake as <strong>data</strong>. You are
+        debugging <strong>a system</strong> — context, prompts, tools — not prosecuting a
+        villain.</p>
+        </li>
+        </ul>
+        <p>That is not “being soft to the machine.” It is <strong>being precise with
+        yourself</strong>: anger is a bad debugger for the same reason it is a bad reviewer
+        in a human team — it <strong>shortcuts</strong> the path to a <strong>checkable</strong> fix.</p>
+        <h2 id="what-to-take-away">What to take away</h2>
+        <p>Agent-First Learn is a <strong>compact place</strong> for that stance: memory and
+        summarization, guardrails, ethics of partnership, and the honest admission
+        that <strong>reliability comes from the loop you build</strong> — model, notes, and
+        tools — not from a single perfect prompt.</p>
+        <p>If the MCP stack on this site is <strong>how</strong> an assistant reaches the compiler
+        and the debugger, Agent-First Learn is part of <strong>how</strong> you and the assistant
+        stay aligned while the work is still messy.</p>
+        <h2 id="related">Related</h2>
+        <p>For <strong>MCP tools and parity</strong> with the toolchain, see <a href="/writing/why-these-projects-parity.html">Why these projects, and why parity matters</a>.</p>
+
+      </div>
+    </article>
+  </main>
+
+  <footer id="contact">
+    <div class="container">
+      <div class="contact-links">
+        <a href="mailto:dkarataev1990@gmail.com">Email</a>
+        <a href="https://t.me/Krawler">Telegram</a>
+        <a href="https://github.com/KarataevDmitry">GitHub</a>
+      </div>
+      <p>Dmitry Karataev &copy; 2026.</p>
+    </div>
+  </footer>
+</body>
+</html>

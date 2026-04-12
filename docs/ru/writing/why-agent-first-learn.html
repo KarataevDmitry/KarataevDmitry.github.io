@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Зачем появился Agent-First Learn — Дмитрий Каратаев</title>
+  <meta name="description" content="Про методологию в репозитории: какой пробел закрывает, почему важна среда и кооперация, и зачем спрашивать &#171;почему&#187;, а не ругать модель." />
+  <link rel="alternate" hreflang="en" href="/writing/why-agent-first-learn.html" />
+  <link rel="alternate" hreflang="ru" href="/ru/writing/why-agent-first-learn.html" />
+  <link rel="alternate" hreflang="x-default" href="/writing/why-agent-first-learn.html" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F4BB;</text></svg>" />
+  <link rel="stylesheet" href="/assets/css/articles.css" />
+</head>
+<body>
+  <a href="#main" class="skip-link">К содержанию</a>
+
+  <nav aria-label="Основная навигация">
+    <div class="nav-inner">
+      <div class="logo"><a href="/ru/">Д<span>.</span>Каратаев</a></div>
+      <div class="nav-right">
+        <ul>
+          <li><a href="/ru/#about">О себе</a></li>
+          <li><a href="/ru/#projects">Проекты</a></li>
+          <li><a href="/ru/writing/" aria-current="page">Тексты</a></li>
+          <li><a href="/ru/#experience">Опыт</a></li>
+          <li><a href="/ru/#documents">Документы</a></li>
+        </ul>
+        <ul class="nav-lang" aria-label="Язык">
+          <li><a href="/writing/why-agent-first-learn.html" lang="en">EN</a></li>
+          <li class="nav-sep" aria-hidden="true">|</li>
+          <li><a href="/ru/writing/why-agent-first-learn.html" lang="ru" aria-current="page">RU</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main" class="container">
+    <article class="article-wrap">
+      <p class="article-back"><a href="/ru/writing/">&larr; Все тексты</a></p>
+
+      <header class="article-header">
+        <h1>Зачем появился Agent-First Learn</h1>
+        <p class="article-meta">Апрель 2026</p>
+      </header>
+
+      <div class="prose">
+        <p><a href="https://github.com/KarataevDmitry/agent-first-learn">Agent-First Learn</a> — это не
+        ещё один список «промптов для продуктивности». Это <strong>практическая позиция</strong>:
+        ты не «пользуешься чатботом», а <strong>строишь общее рабочее пространство</strong> с тем,
+        кто читает текст, действует в ограничениях и ломается предсказуемо.</p>
+        <h2 id="section">Почему он появился</h2>
+        <p>В мейнстриме часто останавливаются на <em>«спроси модель вежливо»</em> или <em>«вот десять
+        лайфхаков»</em>. При этом не видно настоящего узкого места: <strong>как держать контекст,
+        как задавать границы, как возвращаться после сноса</strong>. Уроки про инструменты редко
+        объясняют, как <strong>владеть</strong> памятью, суммаризацией и передачей состояния между
+        сессиями — от этого зависит, накапливается работа или каждый день начинается с
+        нуля.</p>
+        <p>Agent-First Learn нужен, чтобы назвать этот <strong>операционный слой</strong>: не магия
+        формулировок, а <strong>дизайн среды</strong> — заметки, правила, привычки диалога — чтобы
+        совместная работа с ассистентом была <strong>достаточно устойчивой, чтобы на неё
+        опираться</strong>.</p>
+        <h2 id="section-1">Среда важнее «какая модель»</h2>
+        <p>Сильная модель в плохой комнате всё равно теряет нить. Скромная модель в комнате с
+        <strong>ясными фактами, ограничениями и проверяемыми шагами</strong> может быть полезнее в
+        повседневной работе.</p>
+        <p><strong>Среда</strong> — это: от чего ассистенту можно исходить, где лежит правда (репозиторий,
+        тесты, логи), как писать суммари, чтобы не стирать решения, и как <strong>проверять</strong>
+        результат, а не доверять тону ответа. Поэтому у одного и того же человека «ИИ
+        бесполезен» или «ИИ незаменим» при <strong>одной и той же</strong> модели — меняется только
+        <strong>настройка</strong>.</p>
+        <h2 id="section-2">Кооперация, а не дуэль</h2>
+        <p>Если воспринимать ассистента как <strong>врага, которого надо наказать за ошибку</strong>,
+        получается бой в окне чата. Если как <strong>участника с ролью и пределами</strong> —
+        получается нечто ближе к <strong>команде</strong>: можно поручить, проверить, поправить и
+        идти дальше.</p>
+        <p>Кооперация здесь не значит «делать вид, что модель — человек». Это значит
+        <strong>выбирать установку, в которой меньше лишних эмоций и проще починить
+        результат</strong> — ты оптимизируешь <strong>следующий хороший шаг</strong>, а не победу в споре.</p>
+        <h2 id="section-3">«Почему?» вместо морали</h2>
+        <p>Когда модель говорит не то, два ответа принципиально разные:</p>
+        <ul>
+        <li><p><strong>Морализаторство</strong> («ах ты скотина, смеешь ошибаться») даёт секунду
+        разрядки и <strong>убивает сигнал</strong>. Следующий ход уже не про баг, а про статус.
+        Модель зеркалит сбивчивость или защиту; ты по-прежнему не знаешь, что сломалось.</p>
+        </li>
+        <li><p><strong>Эпистемический вопрос</strong> («почему ты вывел X из этого файла?», «что бы
+        сменило ответ?») воспринимает ошибку как <strong>данные</strong>. Ты отлаживаешь <strong>систему</strong> —
+        контекст, промпты, инструменты — а не судишь злодея.</p>
+        </li>
+        </ul>
+        <p>Это не «беречь машину». Это <strong>быть точным к себе</strong>: злость — плохой отладчик по
+        той же причине, по которой плохой ревьюер в людях — она <strong>срезает путь</strong> к
+        <strong>проверяемому</strong> исправлению.</p>
+        <h2 id="section-4">Что с собой унести</h2>
+        <p>Agent-First Learn — <strong>компактное место</strong> для этой позиции: память и суммаризация,
+        ограничения, этика партнёрства и честное признание: <strong>надёжность даёт контур</strong> —
+        модель, заметки и инструменты — а не один идеальный промпт.</p>
+        <p>Если стек MCP на этом сайте — про <strong>как</strong> ассистент доходит до компилятора и
+        отладчика, то Agent-First Learn — часть <strong>как</strong> вы с ассистентом не теряете
+        общую нить, пока работа ещё грязная.</p>
+        <h2 id="section-5">Связанный текст</h2>
+        <p>Про <strong>инструменты и паритет</strong> с тулчейном — см. <a href="/ru/writing/why-these-projects-parity.html">Зачем эти проекты и зачем паритет</a>.</p>
+
+      </div>
+    </article>
+  </main>
+
+  <footer id="contact">
+    <div class="container">
+      <div class="contact-links">
+        <a href="mailto:dkarataev1990@gmail.com">Email</a>
+        <a href="https://t.me/Krawler">Telegram</a>
+        <a href="https://github.com/KarataevDmitry">GitHub</a>
+      </div>
+      <p>Дмитрий Каратаев &copy; 2026.</p>
+    </div>
+  </footer>
+</body>
+</html>

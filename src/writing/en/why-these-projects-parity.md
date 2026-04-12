@@ -52,6 +52,11 @@ better when both sides can point to the same artefacts** — a failing
 test, a diagnostic ID, a stack frame — and negotiate from there. That is how
 you get speed without surrendering judgement.
 
+## Related
+
+For the **methodology** side — environment, memory, cooperation, and how to
+react when the model is wrong — see [Why Agent-First Learn exists](/writing/why-agent-first-learn.html).
+
 ## Why a public site says this
 
 CVs list skills; repositories hold code. This page is the line between them:
