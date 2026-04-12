@@ -61,6 +61,8 @@ For **Agile in spirit** (feedback loops, inspect & adapt, human–agent as a tea
 
 For **Cascade IDE** and a cockpit-style attention model (PFD / MFD / EICAS) — see [Why Cascade IDE borrows a cockpit attention model](/writing/cascade-ide-attention-cockpit.html).
 
+For **knowledge base, trust, and curiosity** — see [Knowledge base, trust, and curiosity](/writing/knowledge-base-trust-curiosity.html).
+
 ## Why a public site says this
 
 CVs list skills; repositories hold code. This page is the line between them:

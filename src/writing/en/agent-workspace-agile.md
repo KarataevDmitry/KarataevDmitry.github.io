@@ -80,3 +80,4 @@ every morning.
 - **Tools and parity:** [Why these projects, and why parity matters](/writing/why-these-projects-parity.html)
 - **Methodology and stance:** [Why Agent-First Learn exists](/writing/why-agent-first-learn.html)
 - **IDE attention (Cascade):** [Why Cascade IDE borrows a cockpit attention model](/writing/cascade-ide-attention-cockpit.html)
+- **Knowledge base & stance:** [Knowledge base, trust, and curiosity](/writing/knowledge-base-trust-curiosity.html)

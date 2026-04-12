@@ -93,3 +93,5 @@ For **MCP tools and parity** with the toolchain, see [Why these projects, and wh
 For **Agile in spirit** applied to people and models together, see [Why this human–agent workspace is Agile in spirit](/writing/agent-workspace-agile.html).
 
 For **Cascade IDE** and how the IDE keeps editor, tools, and agent in one legible contour — see [Why Cascade IDE borrows a cockpit attention model](/writing/cascade-ide-attention-cockpit.html).
+
+For **knowledge base, trust, and curiosity** — see [Knowledge base, trust, and curiosity](/writing/knowledge-base-trust-curiosity.html).

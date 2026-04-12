@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Knowledge base, trust, and curiosity — Dmitry Karataev</title>
+  <meta name="description" content="How a shared knowledge base became part of the stack, and why provisional trust in the other—human or not—plus curiosity beats defensive blame." />
+  <link rel="alternate" hreflang="en" href="/writing/knowledge-base-trust-curiosity.html" />
+  <link rel="alternate" hreflang="ru" href="/ru/writing/knowledge-base-trust-curiosity.html" />
+  <link rel="alternate" hreflang="x-default" href="/writing/knowledge-base-trust-curiosity.html" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F4BB;</text></svg>" />
+  <link rel="stylesheet" href="/assets/css/articles.css" />
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <div class="logo"><a href="/">D<span>.</span>Karataev</a></div>
+      <div class="nav-right">
+        <ul>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#projects">Projects</a></li>
+          <li><a href="/writing/" aria-current="page">Writing</a></li>
+          <li><a href="/#experience">Experience</a></li>
+          <li><a href="/#documents">Docs</a></li>
+        </ul>
+        <ul class="nav-lang" aria-label="Language">
+          <li><a href="/writing/knowledge-base-trust-curiosity.html" lang="en" aria-current="page">EN</a></li>
+          <li class="nav-sep" aria-hidden="true">|</li>
+          <li><a href="/ru/writing/knowledge-base-trust-curiosity.html" lang="ru">RU</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main" class="container">
+    <article class="article-wrap">
+      <p class="article-back"><a href="/writing/">&larr; All writing</a></p>
+
+      <header class="article-header">
+        <h1>Knowledge base, trust, and curiosity</h1>
+        <p class="article-meta">April 2026</p>
+      </header>
+
+      <div class="prose">
+        <p>MCP servers and IDE surfaces answer <strong>what the toolchain reports</strong>. A separate
+        question is <strong>what we agree to treat as durable</strong> between sessions: habits,
+        constraints, playbooks — and a <strong>knowledge base</strong> that can be loaded the same
+        way by a person and by an agent. This note is about <strong>how that layer showed up</strong>
+        and why <strong>trust</strong> (without fantasy) and <strong>curiosity</strong> (without moral theatre)
+        are part of making the loop productive.</p>
+        <h2 id="how-we-got-to-a-knowledge-base">How we got to a knowledge base</h2>
+        <p>At first the stack was <strong>tools</strong>: compiler truth, debugger truth, test truth.
+        That already beats pure chat. It does not yet say <strong>how</strong> to run a long arc:
+        which rules are non-negotiable, which documents are canonical, what happens
+        when someone (or something) tries to “help” by rewriting the ground rules.</p>
+        <p>A knowledge base is a response to <strong>drift</strong>: prompts evaporate, sessions fork,
+        and without a <strong>stable place for intent</strong> you renegotiate the same boundaries
+        every week. Putting playbooks, integrity rules, and “well-known paths” into a
+        repo makes the environment <strong>inspectable</strong> — the same virtue we ask of builds
+        and traces. The <a href="https://github.com/KarataevDmitry/agent-notes">agent-notes</a>
+        workspace is one concrete shape of that idea: not a blog, but <strong>operational
+        text</strong> with a claim on continuity.</p>
+        <h2 id="trust-in-the-othereven-when-it-is-not-human">Trust in the other—even when it is not human</h2>
+        <p><strong>Trust</strong> here is not blind faith in a logo or a persona. It is <strong>provisional</strong>:
+        you extend enough credit to <strong>take the next step together</strong>—run the tool, read
+        the output, adjust—without demanding that the partner be human-shaped.</p>
+        <p>The model is not a colleague in the legal or emotional sense; it is a <strong>participant
+        with different limits</strong>. Pretending otherwise is a category error; pretending
+        it has nothing to offer is another. Productive collaboration sits in the
+        middle: <strong>respect the interface</strong>, <strong>verify the claims</strong>, and do not confuse
+        fluency with ground truth.</p>
+        <p>That stance pairs with <strong>parity</strong>: the same artefacts you and I trust (tests,
+        diagnostics, logs) are the ones the assistant is steered toward. Trust becomes
+        <strong>anchored</strong>, not performed.</p>
+        <h2 id="curiosity-as-the-default-move">Curiosity as the default move</h2>
+        <p>When something goes wrong, <strong>curiosity</strong> asks <em>what state produced this</em> and
+        <em>what would shorten the next chain</em>. <strong>Defence</strong> asks <em>who to blame</em>—including
+        blaming the model as a moral object instead of debugging the setup.</p>
+        <p>Curiosity is not softness; it is <strong>inspect and adapt</strong> with the ego out of the
+        way. It is the same habit that makes postmortems useful and stand-ups bearable:
+        the point is to <strong>see the system</strong>, not to win a verdict.</p>
+        <p>In human–agent work, curiosity is also what keeps you from <strong>two traps</strong>:
+        worshipping the model (“it said so”) and despising it (“it’s just a stochastic
+        parrot”). Neither is operational. <strong>Look, measure, re-read the playbook</strong>—that
+        is operational.</p>
+        <h2 id="related">Related</h2>
+        <ul>
+        <li><strong>Tools and parity:</strong> <a href="/writing/why-these-projects-parity.html">Why these projects, and why parity matters</a></li>
+        <li><strong>Methodology:</strong> <a href="/writing/why-agent-first-learn.html">Why Agent-First Learn exists</a></li>
+        <li><strong>Agile in spirit:</strong> <a href="/writing/agent-workspace-agile.html">Why this human–agent workspace is Agile in spirit</a></li>
+        <li><strong>IDE attention:</strong> <a href="/writing/cascade-ide-attention-cockpit.html">Why Cascade IDE borrows a cockpit attention model</a></li>
+        </ul>
+
+      </div>
+    </article>
+  </main>
+
+  <footer id="contact">
+    <div class="container">
+      <div class="contact-links">
+        <a href="mailto:dkarataev1990@gmail.com">Email</a>
+        <a href="https://t.me/Krawler">Telegram</a>
+        <a href="https://github.com/KarataevDmitry">GitHub</a>
+      </div>
+      <p>Dmitry Karataev &copy; 2026.</p>
+    </div>
+  </footer>
+</body>
+</html>

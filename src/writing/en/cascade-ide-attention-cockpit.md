@@ -79,3 +79,4 @@ an agent trying to stay aligned.
 - **Tools and parity:** [Why these projects, and why parity matters](/writing/why-these-projects-parity.html)
 - **Methodology:** [Why Agent-First Learn exists](/writing/why-agent-first-learn.html)
 - **Agile in spirit:** [Why this human–agent workspace is Agile in spirit](/writing/agent-workspace-agile.html)
+- **Knowledge base, trust, curiosity:** [Knowledge base, trust, and curiosity](/writing/knowledge-base-trust-curiosity.html)
