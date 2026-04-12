@@ -52,7 +52,8 @@ performing outrage.
 ## Systems, not villains (nothing new under the sun)
 
 Engineering and safety have been writing this for decades. Sidney Dekker, in
-*The Field Guide to Understanding Human Error*, contrasts an **old view**
+[*The Field Guide to Understanding Human Error*](https://sidneydekker.com/the-field-guide-to-understanding-human-error),
+contrasts an **old view**
 (mistakes prove bad people) with a **new view**: **human error as a symptom**
 of how the work and organization were set up. The [Google SRE book](https://sre.google/sre-book/postmortem-culture/)
 (Chapter 15, “Postmortem Culture”) puts the same idea into practice as

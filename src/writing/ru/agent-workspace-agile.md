@@ -52,7 +52,7 @@ order: 3
 Об этом писали задолго до чат-ботов: в инженерной и авиационной безопасности
 различают «старую» картину (ошибка = плохой человек) и **системную** —
 человеческая ошибка как **симптом** того, как устроены работа и организация
-(Sidney Dekker, *The Field Guide to Understanding Human Error*). В практике
+(Sidney Dekker, [*The Field Guide to Understanding Human Error*](https://sidneydekker.com/the-field-guide-to-understanding-human-error)). В практике
 SRE тот же смысл закреплён в **blameless postmortem**: разбор про то, **как**
 стало возможно сбойное событие и что менять в **процессах и среде** — людей
 «не пропатчишь», зато можно изменить то, что они видят и что им позволяет среда
