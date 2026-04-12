@@ -6,7 +6,7 @@ date_display: "April 2026"
 order: 6
 ---
 
-This note connects three threads: [**Cascade IDE’s cockpit-inspired attention model**](/writing/cascade-ide-attention-cockpit.html),
+This note connects three themes: [**Cascade IDE’s cockpit-inspired attention model**](/writing/cascade-ide-attention-cockpit.html),
 the idea of **friction from the environment** (not “bad people”), and **neurodivergence**
 —for example **ADHD**, which I mention because it is common in engineering
 samples and in public surveys.
