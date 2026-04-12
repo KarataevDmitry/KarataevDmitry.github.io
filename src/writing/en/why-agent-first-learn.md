@@ -51,7 +51,8 @@ argument.
 
 ## “Why?” instead of outrage
 
-When the model says something wrong, two reactions differ completely:
+When the model says something wrong, it helps to separate **three layers** —
+they can combine, but they pull in different directions:
 
 - **Moralizing** (*“how dare you, you idiot”*) buys a moment of venting and
   **destroys signal**. The next turn is not about the bug; it is about
@@ -62,6 +63,12 @@ When the model says something wrong, two reactions differ completely:
   would change your answer?”*) treats the mistake as **data**. You are
   debugging **a system** — context, prompts, tools — not prosecuting a
   villain.
+
+- **A setup question** (*“**what should we add so this is easier for you?**”*
+  — a note, a rule, a file, access to a tool) moves the focus from blame to
+  **agreement**: not “you are bad,” but “what was missing from the room,” so
+  the next round needs less guessing. That is not only debugging the answer;
+  it is **co-shaping the workspace**.
 
 That is not “being soft to the machine.” It is **being precise with
 yourself**: anger is a bad debugger for the same reason it is a bad reviewer
