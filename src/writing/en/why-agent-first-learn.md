@@ -89,3 +89,5 @@ stay aligned while the work is still messy.
 ## Related
 
 For **MCP tools and parity** with the toolchain, see [Why these projects, and why parity matters](/writing/why-these-projects-parity.html).
+
+For **Agile in spirit** applied to people and models together, see [Why this human–agent workspace is Agile in spirit](/writing/agent-workspace-agile.html).

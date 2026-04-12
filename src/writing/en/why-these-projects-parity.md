@@ -57,6 +57,8 @@ you get speed without surrendering judgement.
 For the **methodology** side — environment, memory, cooperation, and how to
 react when the model is wrong — see [Why Agent-First Learn exists](/writing/why-agent-first-learn.html).
 
+For **Agile in spirit** (feedback loops, inspect & adapt, human–agent as a team) — see [Why this human–agent workspace is Agile in spirit](/writing/agent-workspace-agile.html).
+
 ## Why a public site says this
 
 CVs list skills; repositories hold code. This page is the line between them:
