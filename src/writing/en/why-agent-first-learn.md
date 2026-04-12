@@ -70,9 +70,10 @@ they can combine, but they pull in different directions:
   the next round needs less guessing. That is not only debugging the answer;
   it is **co-shaping the workspace**.
 
-That is not “being soft to the machine.” It is **being precise with
-yourself**: anger is a bad debugger for the same reason it is a bad reviewer
-in a human team — it **shortcuts** the path to a **checkable** fix.
+That is not “being soft to the machine.” It is **keeping the task in focus**:
+anger gets in the way of finding causes — in a chat with a model and in code
+review between humans. While “who is to blame” matters more than “what is
+reproducible,” a **checkable** fix stays further away.
 
 ## What to take away
 
