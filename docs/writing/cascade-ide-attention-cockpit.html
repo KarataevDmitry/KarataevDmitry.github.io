@@ -48,9 +48,11 @@
         while keeping <strong>humans and tools in the same observable loop</strong>. One of its design
         threads is explicit: <strong>where your eyes should go, and when</strong> — borrowed from
         how cockpits manage attention in aviation.</p>
-        <p>This text is a <strong>conceptual sketch</strong>. The full specification lives in the
-        project as <strong>ADR 0021</strong> (PFD / MFD / cockpit attention model). The product is
-        <strong>in active development</strong>; details will move as implementation catches up.</p>
+        <p>This text is a <strong>conceptual sketch</strong>. A fuller specification exists <strong>inside the
+        Cascade IDE repository</strong> as an architecture decision record (working name <strong>ADR 0021</strong>,
+        PFD / MFD / cockpit attention model). The repository is <strong>not public yet</strong>, so this
+        page is the readable entry point. The product is <strong>in active development</strong>; details
+        will move as implementation catches up.</p>
         <h2 id="the-tax-context-switches">The tax: context switches</h2>
         <p>A developer juggles code, build output, tests, git, diagnostics, and an agent
         that may be half a screen away in another app. The productivity hit is not only
@@ -82,7 +84,7 @@
         advisory style), not “a third column for fun.” Placement can vary by preset;
         the <strong>role</strong> is what matters.</li>
         </ul>
-        <p>The important move in the ADR is separating <strong>spatial anchors</strong> (where regions
+        <p>The important move in that specification is separating <strong>spatial anchors</strong> (where regions
         sit) from <strong>attention policy</strong> (Focus / Balanced / Power, escalation, what
         counts as loud). Mixing those layers in docs or code is how products quietly
         return to chaos.</p>

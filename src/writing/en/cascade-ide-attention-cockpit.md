@@ -11,9 +11,11 @@ while keeping **humans and tools in the same observable loop**. One of its desig
 threads is explicit: **where your eyes should go, and when** — borrowed from
 how cockpits manage attention in aviation.
 
-This text is a **conceptual sketch**. The full specification lives in the
-project as **ADR 0021** (PFD / MFD / cockpit attention model). The product is
-**in active development**; details will move as implementation catches up.
+This text is a **conceptual sketch**. A fuller specification exists **inside the
+Cascade IDE repository** as an architecture decision record (working name **ADR 0021**,
+PFD / MFD / cockpit attention model). The repository is **not public yet**, so this
+page is the readable entry point. The product is **in active development**; details
+will move as implementation catches up.
 
 ## The tax: context switches
 
@@ -53,7 +55,7 @@ In plain language:
   advisory style), not “a third column for fun.” Placement can vary by preset;
   the **role** is what matters.
 
-The important move in the ADR is separating **spatial anchors** (where regions
+The important move in that specification is separating **spatial anchors** (where regions
 sit) from **attention policy** (Focus / Balanced / Power, escalation, what
 counts as loud). Mixing those layers in docs or code is how products quietly
 return to chaos.

@@ -17,7 +17,7 @@ oriented—and that cost matters for many brains, including neurodivergent ones.
 
 ## What “attention contour” is trying to buy
 
-The cockpit metaphor in **ADR 0021** is about **roles**, not wallpaper: a stable
+The cockpit metaphor in Cascade’s attention model is about **roles**, not wallpaper: a stable
 **forward / editor** anchor, **secondary** surfaces you open on purpose (MFD-shaped),
 and a **consolidated alerting** channel (EICAS-shaped)—instead of every tool
 fighting for the same z-order.
