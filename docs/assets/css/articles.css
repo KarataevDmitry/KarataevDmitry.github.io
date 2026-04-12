@@ -131,7 +131,25 @@ nav ul.nav-lang .nav-sep { color: var(--text-muted); padding: 0 0.1rem; font-wei
   border-radius: 6px;
   border: 1px solid var(--border);
 }
-.prose a { font-weight: 500; }
+
+/* Тело статьи: ссылки заметны (глобально a { text-decoration: none }). */
+.prose a {
+  color: var(--accent);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: rgba(45, 212, 191, 0.5);
+  text-underline-offset: 0.2em;
+  transition: color 0.2s, text-decoration-color 0.2s;
+}
+.prose a:hover {
+  color: var(--accent-hover);
+  text-decoration-color: rgba(94, 234, 212, 0.75);
+}
+/* Иначе **ссылка** даёт <a><strong></strong></a> и .prose strong красит текст как обычный акцент — ссылка «пропадает». */
+.prose a strong {
+  color: inherit;
+  font-weight: 600;
+}
 
 .writing-list {
   list-style: none;
