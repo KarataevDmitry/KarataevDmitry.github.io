@@ -57,7 +57,7 @@ order: 1
 
 [**Почему среда «человек–агент» по духу Agile**](/ru/writing/agent-workspace-agile.html) — **дух Agile**: петли обратной связи, проверка и адаптация, команда люди+агент.
 
-Про [**модель внимания Cascade IDE**](/ru/writing/cascade-ide-attention-cockpit.html) в духе кокпита (PFD / MFD / EICAS).
+[**Модель внимания Cascade IDE**](/ru/writing/cascade-ide-attention-cockpit.html) в духе кокпита (PFD / MFD / EICAS).
 
 [**База знаний, доверие и любопытство**](/ru/writing/knowledge-base-trust-curiosity.html) — про общую KB, условное доверие и любопытство.
 
