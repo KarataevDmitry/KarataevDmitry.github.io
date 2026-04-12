@@ -49,6 +49,23 @@ before you declare moral failure.
 That lines up with cooperation over a duel, and with asking *why* instead of
 performing outrage.
 
+## Systems, not villains (nothing new under the sun)
+
+Engineering and safety have been writing this for decades. Sidney Dekker, in
+*The Field Guide to Understanding Human Error*, contrasts an **old view**
+(mistakes prove bad people) with a **new view**: **human error as a symptom**
+of how the work and organization were set up. The [Google SRE book](https://sre.google/sre-book/postmortem-culture/)
+(Chapter 15, “Postmortem Culture”) puts the same idea into practice as
+**blameless postmortems**: focus on **how** failure was possible and what to
+fix in **systems and processes** — you cannot “patch” people, but you can
+change what they see and what the environment allows. Industry guides (e.g.
+[PagerDuty’s blameless postmortem notes](https://postmortems.pagerduty.com/culture/blameless),
+which cite Dekker) spell out why hunting for a scapegoat hides the signal.
+
+With a model in the loop, the parallel is direct: the productive question is
+not moral outrage, but **why this setup made the next step look reasonable**
+— and what to add to context, tools, or rules so the next chain is shorter.
+
 ## Not a claim to Scrum
 
 Nothing here says “we run two-week sprints with a Scrum Master.” The claim is
