@@ -80,3 +80,4 @@ an agent trying to stay aligned.
 - **Methodology:** [Why Agent-First Learn exists](/writing/why-agent-first-learn.html)
 - **Agile in spirit:** [Why this human–agent workspace is Agile in spirit](/writing/agent-workspace-agile.html)
 - **Knowledge base, trust, curiosity:** [Knowledge base, trust, and curiosity](/writing/knowledge-base-trust-curiosity.html)
+- **Attention, friction, neurodivergence:** [Attention, friction, and neurodivergence in the IDE](/writing/attention-contour-neurodivergence.html)

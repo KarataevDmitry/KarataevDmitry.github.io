@@ -67,3 +67,4 @@ order: 5
 - **Методология:** [Зачем появился Agent-First Learn](/ru/writing/why-agent-first-learn.html)
 - **Agile по духу:** [Почему среда «человек–агент» по духу Agile](/ru/writing/agent-workspace-agile.html)
 - **Внимание в IDE:** [Зачем Cascade IDE позаимствовала модель внимания кокпита](/ru/writing/cascade-ide-attention-cockpit.html)
+- **Внимание, трение, нейроотличие:** [Внимание, трение и нейроотличие в IDE](/ru/writing/attention-contour-neurodivergence.html)

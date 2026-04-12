@@ -65,3 +65,4 @@ is operational.
 - **Methodology:** [Why Agent-First Learn exists](/writing/why-agent-first-learn.html)
 - **Agile in spirit:** [Why this human–agent workspace is Agile in spirit](/writing/agent-workspace-agile.html)
 - **IDE attention:** [Why Cascade IDE borrows a cockpit attention model](/writing/cascade-ide-attention-cockpit.html)
+- **Attention, friction, neurodivergence:** [Attention, friction, and neurodivergence in the IDE](/writing/attention-contour-neurodivergence.html)

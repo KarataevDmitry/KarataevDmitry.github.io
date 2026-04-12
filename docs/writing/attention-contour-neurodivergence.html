@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Attention, friction, and neurodivergence in the IDE — Dmitry Karataev</title>
+  <meta name="description" content="A design hypothesis: a stable cockpit-style attention hierarchy can reduce unnecessary friction for many developers—including challenges often reported by neurodivergent engineers. Not medical advice." />
+  <link rel="alternate" hreflang="en" href="/writing/attention-contour-neurodivergence.html" />
+  <link rel="alternate" hreflang="ru" href="/ru/writing/attention-contour-neurodivergence.html" />
+  <link rel="alternate" hreflang="x-default" href="/writing/attention-contour-neurodivergence.html" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F4BB;</text></svg>" />
+  <link rel="stylesheet" href="/assets/css/articles.css" />
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <div class="logo"><a href="/">D<span>.</span>Karataev</a></div>
+      <div class="nav-right">
+        <ul>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#projects">Projects</a></li>
+          <li><a href="/writing/" aria-current="page">Writing</a></li>
+          <li><a href="/#experience">Experience</a></li>
+          <li><a href="/#documents">Docs</a></li>
+        </ul>
+        <ul class="nav-lang" aria-label="Language">
+          <li><a href="/writing/attention-contour-neurodivergence.html" lang="en" aria-current="page">EN</a></li>
+          <li class="nav-sep" aria-hidden="true">|</li>
+          <li><a href="/ru/writing/attention-contour-neurodivergence.html" lang="ru">RU</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main" class="container">
+    <article class="article-wrap">
+      <p class="article-back"><a href="/writing/">&larr; All writing</a></p>
+
+      <header class="article-header">
+        <h1>Attention, friction, and neurodivergence in the IDE</h1>
+        <p class="article-meta">April 2026</p>
+      </header>
+
+      <div class="prose">
+        <p>This note connects three threads: <strong>Cascade IDE’s cockpit-inspired attention
+        model</strong> (<a href="/writing/cascade-ide-attention-cockpit.html">Why Cascade IDE borrows a cockpit attention model</a>),
+        the idea of <strong>friction from the environment</strong> (not “bad people”), and <strong>neurodivergence</strong>
+        —for example <strong>ADHD</strong>, which I mention because it is common in engineering
+        samples and in public surveys.</p>
+        <p>It is <strong>not</strong> a claim that an interface treats a diagnosis. It <strong>is</strong> an argument
+        that <strong>how attention is structured in software</strong> changes the cost of staying
+        oriented—and that cost matters for many brains, including neurodivergent ones.</p>
+        <h2 id="what-attention-contour-is-trying-to-buy">What “attention contour” is trying to buy</h2>
+        <p>The cockpit metaphor in <strong>ADR 0021</strong> is about <strong>roles</strong>, not wallpaper: a stable
+        <strong>forward / editor</strong> anchor, <strong>secondary</strong> surfaces you open on purpose (MFD-shaped),
+        and a <strong>consolidated alerting</strong> channel (EICAS-shaped)—instead of every tool
+        fighting for the same z-order.</p>
+        <p>That targets a familiar pain in knowledge work: <strong>context switches</strong>, <strong>competing
+        demands</strong>, <strong>banner blindness</strong>, and the slow rebuild of “what mattered last.”
+        Those pains show up in qualitative work on <strong>software engineers with ADHD</strong> and
+        in large <strong>self-report</strong> surveys (e.g. Stack Overflow Developer Survey items on
+        concentration/memory—often cited in academic papers at roughly <strong>~10%</strong> of
+        respondents; compare to general-population ADHD prevalence estimates, which are
+        lower and methodology-sensitive).</p>
+        <p>Nothing here replaces a clinician. The point is narrower: <strong>if</strong> a profession
+        clusters people who struggle with sustained attention under interruption-heavy
+        UIs, <strong>then</strong> an IDE that externalizes priority and state is not a niche luxury.</p>
+        <h2 id="friction-first-environment-first">Friction-first, environment-first</h2>
+        <p>The same line of thought appears in work on <strong>friction</strong> in products and
+        processes: systems fail when the <strong>environment</strong> makes the wrong behaviour
+        easier than the right one. Reducing <strong>spurious</strong> friction—predictable places for
+        truth, fewer surprise surfaces—is aligned with that stance. See also
+        <a href="/writing/knowledge-base-trust-curiosity.html">Knowledge base, trust, and curiosity</a>
+        on <strong>provisional trust</strong> and <strong>inspectable</strong> ground between human and agent.</p>
+        <h2 id="where-this-may-overlap-with-adhd-neurodivergence-carefully">Where this may overlap with ADHD / neurodivergence (carefully)</h2>
+        <p>Executive-function challenges often include <strong>restarting after interruption</strong>,
+        <strong>prioritizing under noise</strong>, and <strong>holding several channels in mind</strong>. A UI that
+        <strong>separates</strong> primary work from secondary tools and <strong>centralizes</strong> alerts does
+        not “fix” ADHD—but it can <strong>lower the tax</strong> on the same skills that interruption
+        taxes for everyone, sometimes asymmetrically.</p>
+        <p><strong>Parity</strong> with the toolchain (<a href="/writing/why-these-projects-parity.html">Why these projects, and why parity matters</a>)
+        helps too: less re-derivation of reality from chat prose, more <strong>shared artefacts</strong>
+        (tests, diagnostics)—another form of <strong>externalized</strong> state.</p>
+        <h2 id="what-this-is-not">What this is not</h2>
+        <ul>
+        <li>Not a substitute for accommodations, coaching, or medical care.</li>
+        <li>Not a promise that one layout fits all: neurodivergence is heterogeneous;
+        some people need <strong>flexibility</strong> and <strong>density controls</strong>, not only structure.</li>
+        <li>Not finished product evidence: Cascade is <strong>in development</strong>; this is a
+        <strong>design rationale</strong> bridge for readers.</li>
+        </ul>
+        <h2 id="related">Related</h2>
+        <ul>
+        <li><strong>Cockpit attention model:</strong> <a href="/writing/cascade-ide-attention-cockpit.html">Why Cascade IDE borrows a cockpit attention model</a></li>
+        <li><strong>Trust, KB, curiosity:</strong> <a href="/writing/knowledge-base-trust-curiosity.html">Knowledge base, trust, and curiosity</a></li>
+        <li><strong>Tools and parity:</strong> <a href="/writing/why-these-projects-parity.html">Why these projects, and why parity matters</a></li>
+        <li><strong>Methodology:</strong> <a href="/writing/why-agent-first-learn.html">Why Agent-First Learn exists</a></li>
+        <li><strong>Agile in spirit:</strong> <a href="/writing/agent-workspace-agile.html">Why this human–agent workspace is Agile in spirit</a></li>
+        </ul>
+
+      </div>
+    </article>
+  </main>
+
+  <footer id="contact">
+    <div class="container">
+      <div class="contact-links">
+        <a href="mailto:dkarataev1990@gmail.com">Email</a>
+        <a href="https://t.me/Krawler">Telegram</a>
+        <a href="https://github.com/KarataevDmitry">GitHub</a>
+      </div>
+      <p>Dmitry Karataev &copy; 2026.</p>
+    </div>
+  </footer>
+</body>
+</html>
