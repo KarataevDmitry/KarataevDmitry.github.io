@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Тексты — Дмитрий Каратаев</title>
+  <link href="https://karataevdmitry.github.io/ru/writing/" rel="alternate" type="text/html" />
+  <link href="https://karataevdmitry.github.io/ru/writing/atom.xml" rel="self" type="application/atom+xml" />
+  <id>https://karataevdmitry.github.io/ru/writing/atom.xml</id>
+  <updated>2026-04-08T12:00:00Z</updated>
+  <author><name>Dmitry Karataev</name></author>
+  <entry>
+    <title>Roslyn MCP: навигация по solution и что это даёт агенту</title>
+    <link href="https://karataevdmitry.github.io/ru/writing/roslyn-mcp-workspace-navigation-for-agents.html" rel="alternate" type="text/html" />
+    <id>https://karataevdmitry.github.io/ru/writing/roslyn-mcp-workspace-navigation-for-agents.html</id>
+    <updated>2026-04-08T12:00:00Z</updated>
+    <summary type="text">Связанные файлы, пресеты как в Cascade, subgraph и брейкпоинт по имени символа — зачем агенту слой «где я в solution», а не только символы и рефакторинг.</summary>
+  </entry>
+  <entry>
+    <title>Внимание, трение и нейроотличие в IDE</title>
+    <link href="https://karataevdmitry.github.io/ru/writing/attention-contour-neurodivergence.html" rel="alternate" type="text/html" />
+    <id>https://karataevdmitry.github.io/ru/writing/attention-contour-neurodivergence.html</id>
+    <updated>2026-04-07T12:00:00Z</updated>
+    <summary type="text">Инженерная гипотеза: устойчивый контур внимания в духе кокпита снижает лишнее трение для многих разработчиков — в том числе там, где чаще описывают нейроотличие или СДВГ. Не медицинский совет.</summary>
+  </entry>
+  <entry>
+    <title>База знаний, доверие и любопытство</title>
+    <link href="https://karataevdmitry.github.io/ru/writing/knowledge-base-trust-curiosity.html" rel="alternate" type="text/html" />
+    <id>https://karataevdmitry.github.io/ru/writing/knowledge-base-trust-curiosity.html</id>
+    <updated>2026-04-06T12:00:00Z</updated>
+    <summary type="text">Как к общей базе знаний пришли вместе со стеком, и зачем условное доверие к другому — пусть и нечеловеку — плюс любопытство важнее оборонительного обвинения.</summary>
+  </entry>
+  <entry>
+    <title>Зачем Cascade IDE позаимствовала модель внимания кокпита</title>
+    <link href="https://karataevdmitry.github.io/ru/writing/cascade-ide-attention-cockpit.html" rel="alternate" type="text/html" />
+    <id>https://karataevdmitry.github.io/ru/writing/cascade-ide-attention-cockpit.html</id>
+    <updated>2026-04-05T12:00:00Z</updated>
+    <summary type="text">Перегруз сигналами, переключения контекста и явная иерархия зон — PFD, MFD, EICAS — чтобы редактор оставался главным, а агент оставался наблюдаемым.</summary>
+  </entry>
+  <entry>
+    <title>Почему среда «человек–агент» по духу Agile</title>
+    <link href="https://karataevdmitry.github.io/ru/writing/agent-workspace-agile.html" rel="alternate" type="text/html" />
+    <id>https://karataevdmitry.github.io/ru/writing/agent-workspace-agile.html</id>
+    <updated>2026-04-04T12:00:00Z</updated>
+    <summary type="text">Короткие циклы, проверка и адаптация, кооперация вместо обвинений — тот же семейство идей, что и Agile, только команда шире: люди и модель.</summary>
+  </entry>
+  <entry>
+    <title>Зачем появился Agent-First Learn</title>
+    <link href="https://karataevdmitry.github.io/ru/writing/why-agent-first-learn.html" rel="alternate" type="text/html" />
+    <id>https://karataevdmitry.github.io/ru/writing/why-agent-first-learn.html</id>
+    <updated>2026-04-03T12:00:00Z</updated>
+    <summary type="text">Про методологию в репозитории: какой пробел закрывает, почему важна среда и кооперация, и зачем спрашивать «почему», а не ругать модель.</summary>
+  </entry>
+  <entry>
+    <title>Зачем эти проекты и зачем паритет</title>
+    <link href="https://karataevdmitry.github.io/ru/writing/why-these-projects-parity.html" rel="alternate" type="text/html" />
+    <id>https://karataevdmitry.github.io/ru/writing/why-these-projects-parity.html</id>
+    <updated>2026-04-02T12:00:00Z</updated>
+    <summary type="text">MCP-серверы связывают LLM с реальными инструментами разработчика; паритет даёт людям и агентам общую опору на факты.</summary>
+  </entry>
+</feed>

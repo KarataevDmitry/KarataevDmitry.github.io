@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Writing — Dmitry Karataev</title>
+  <link href="https://karataevdmitry.github.io/writing/" rel="alternate" type="text/html" />
+  <link href="https://karataevdmitry.github.io/writing/atom.xml" rel="self" type="application/atom+xml" />
+  <id>https://karataevdmitry.github.io/writing/atom.xml</id>
+  <updated>2026-04-08T12:00:00Z</updated>
+  <author><name>Dmitry Karataev</name></author>
+  <entry>
+    <title>Roslyn MCP workspace navigation: what it gives an agent</title>
+    <link href="https://karataevdmitry.github.io/writing/roslyn-mcp-workspace-navigation-for-agents.html" rel="alternate" type="text/html" />
+    <id>https://karataevdmitry.github.io/writing/roslyn-mcp-workspace-navigation-for-agents.html</id>
+    <updated>2026-04-08T12:00:00Z</updated>
+    <summary type="text">Related files, Cascade-aligned presets, subgraphs, and breakpoint resolution by symbol — why an agent needs a “where am I in the solution?” layer, not just symbols and refactorings.</summary>
+  </entry>
+  <entry>
+    <title>Attention, friction, and neurodivergence in the IDE</title>
+    <link href="https://karataevdmitry.github.io/writing/attention-contour-neurodivergence.html" rel="alternate" type="text/html" />
+    <id>https://karataevdmitry.github.io/writing/attention-contour-neurodivergence.html</id>
+    <updated>2026-04-07T12:00:00Z</updated>
+    <summary type="text">A design hypothesis: a stable cockpit-style attention hierarchy can reduce unnecessary friction for many developers—including challenges often reported by neurodivergent engineers. Not medical advice.</summary>
+  </entry>
+  <entry>
+    <title>Knowledge base, trust, and curiosity</title>
+    <link href="https://karataevdmitry.github.io/writing/knowledge-base-trust-curiosity.html" rel="alternate" type="text/html" />
+    <id>https://karataevdmitry.github.io/writing/knowledge-base-trust-curiosity.html</id>
+    <updated>2026-04-06T12:00:00Z</updated>
+    <summary type="text">How a shared knowledge base became part of the stack, and why provisional trust in the other—human or not—plus curiosity beats defensive blame.</summary>
+  </entry>
+  <entry>
+    <title>Why Cascade IDE borrows a cockpit attention model</title>
+    <link href="https://karataevdmitry.github.io/writing/cascade-ide-attention-cockpit.html" rel="alternate" type="text/html" />
+    <id>https://karataevdmitry.github.io/writing/cascade-ide-attention-cockpit.html</id>
+    <updated>2026-04-05T12:00:00Z</updated>
+    <summary type="text">Signal overload, context switches, and a deliberate hierarchy of zones — PFD, MFD, EICAS — so the editor stays primary and the agent stays observable.</summary>
+  </entry>
+  <entry>
+    <title>Why this human–agent workspace is Agile in spirit</title>
+    <link href="https://karataevdmitry.github.io/writing/agent-workspace-agile.html" rel="alternate" type="text/html" />
+    <id>https://karataevdmitry.github.io/writing/agent-workspace-agile.html</id>
+    <updated>2026-04-04T12:00:00Z</updated>
+    <summary type="text">Short feedback loops, inspect &amp; adapt, cooperation over blame — the same family of ideas as Agile, applied to people and models together.</summary>
+  </entry>
+  <entry>
+    <title>Why Agent-First Learn exists</title>
+    <link href="https://karataevdmitry.github.io/writing/why-agent-first-learn.html" rel="alternate" type="text/html" />
+    <id>https://karataevdmitry.github.io/writing/why-agent-first-learn.html</id>
+    <updated>2026-04-03T12:00:00Z</updated>
+    <summary type="text">A short take on the methodology repo: the gap it fills, environment over model, cooperation, and asking “why” instead of moralizing errors.</summary>
+  </entry>
+  <entry>
+    <title>Why these projects, and why parity matters</title>
+    <link href="https://karataevdmitry.github.io/writing/why-these-projects-parity.html" rel="alternate" type="text/html" />
+    <id>https://karataevdmitry.github.io/writing/why-these-projects-parity.html</id>
+    <updated>2026-04-02T12:00:00Z</updated>
+    <summary type="text">MCP servers bridge LLMs and real developer tools; parity lets humans and agents share the same ground truth.</summary>
+  </entry>
+</feed>

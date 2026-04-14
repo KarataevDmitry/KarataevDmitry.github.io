@@ -51,7 +51,10 @@ WriteIndex(ruArticles.OrderBy(x => x.Order).ThenBy(x => x.Slug).ToList(), "ru", 
 WriteTagDirectory(enArticles, "en", writingEnOut, "/writing/");
 WriteTagDirectory(ruArticles, "ru", writingRuOut, "/ru/writing/");
 
-Console.WriteLine($"Writing: {enArticles.Count} EN + {ruArticles.Count} RU articles → docs/writing/ (+ tags)");
+WriteAtomFeed(enArticles, "en", writingEnOut, "/writing/");
+WriteAtomFeed(ruArticles, "ru", writingRuOut, "/ru/writing/");
+
+Console.WriteLine($"Writing: {enArticles.Count} EN + {ruArticles.Count} RU articles → docs/writing/ (+ tags, atom)");
 
 static List<Article> LoadArticles(string dir, IDeserializer yaml, MarkdownPipeline mdPipeline)
 {
@@ -82,8 +85,26 @@ static IReadOnlyList<ArticleTag> NormalizeTags(List<string> raw)
     {
         if (string.IsNullOrWhiteSpace(t))
             continue;
-        var display = t.Trim();
-        var slug = TagToSlug(display);
+        var s = t.Trim();
+        string display;
+        string slug;
+        var colon = s.IndexOf(':');
+        if (colon > 0 && colon < s.Length - 1)
+        {
+            display = s[..colon].Trim();
+            var slugRaw = s[(colon + 1)..].Trim();
+            slug = TagToSlug(slugRaw);
+            if (string.IsNullOrEmpty(slug))
+                slug = TagToSlug(display);
+            if (string.IsNullOrEmpty(display))
+                display = string.IsNullOrEmpty(slugRaw) ? slug : slugRaw;
+        }
+        else
+        {
+            display = s;
+            slug = TagToSlug(s);
+        }
+
         if (string.IsNullOrEmpty(slug))
             continue;
         if (!map.ContainsKey(slug))
@@ -156,6 +177,7 @@ static void WriteArticlePage(Article a, string lang, string outDir, string writi
     sb.AppendLine($"  <link rel=\"alternate\" hreflang=\"x-default\" href=\"{enUrl}\" />");
     sb.AppendLine("  <link rel=\"icon\" href=\"data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F4BB;</text></svg>\" />");
     sb.AppendLine("  <link rel=\"stylesheet\" href=\"/assets/css/articles.css\" />");
+    sb.AppendLine($"  <link rel=\"alternate\" type=\"application/atom+xml\" title=\"{(isEn ? "Writing (Atom)" : "Тексты (Atom)")}\" href=\"{(isEn ? "/writing/atom.xml" : "/ru/writing/atom.xml")}\" />");
     sb.AppendLine("</head>");
     sb.AppendLine("<body>");
     sb.AppendLine($"  <a href=\"#main\" class=\"skip-link\">{labels.SkipToContent}</a>");
@@ -182,7 +204,7 @@ static void WriteArticlePage(Article a, string lang, string outDir, string writi
     sb.AppendLine();
     sb.AppendLine("  <main id=\"main\" class=\"container\">");
     sb.AppendLine("    <article class=\"article-wrap\">");
-    sb.AppendLine($"      <p class=\"article-back\"><a href=\"{writingBase}\">&larr; {labels.AllWriting}</a> · <a href=\"{writingBase}tags.html\">{labels.AllTags}</a></p>");
+    sb.AppendLine($"      <p class=\"article-back\"><a href=\"{writingBase}\">&larr; {labels.AllWriting}</a> · <a href=\"{writingBase}tags.html\">{labels.AllTags}</a> · <a href=\"{writingBase}atom.xml\">{(isEn ? "Atom feed" : "Лента Atom")}</a></p>");
     sb.AppendLine();
     sb.AppendLine("      <header class=\"article-header\">");
     sb.AppendLine($"        <h1>{WebUtility.HtmlEncode(a.Title)}</h1>");
@@ -265,6 +287,7 @@ static void WriteIndex(List<Article> articles, string lang, string outDir)
     sb.AppendLine("  <link rel=\"alternate\" hreflang=\"x-default\" href=\"/writing/\" />");
     sb.AppendLine("  <link rel=\"icon\" href=\"data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F4BB;</text></svg>\" />");
     sb.AppendLine("  <link rel=\"stylesheet\" href=\"/assets/css/articles.css\" />");
+    sb.AppendLine($"  <link rel=\"alternate\" type=\"application/atom+xml\" title=\"{(isEn ? "Writing (Atom)" : "Тексты (Atom)")}\" href=\"{(isEn ? "/writing/atom.xml" : "/ru/writing/atom.xml")}\" />");
     sb.AppendLine("</head>");
     sb.AppendLine("<body>");
     sb.AppendLine($"  <a href=\"#main\" class=\"skip-link\">{labels.SkipToContent}</a>");
@@ -294,9 +317,9 @@ static void WriteIndex(List<Article> articles, string lang, string outDir)
     sb.AppendLine($"      <p class=\"article-back\"><a href=\"{home}\">&larr; {back}</a></p>");
     sb.AppendLine($"      <h1 class=\"page-title\">{WebUtility.HtmlEncode(h1)}</h1>");
     sb.AppendLine($"      <p class=\"page-intro\">{intro}</p>");
+    sb.AppendLine($"      <p class=\"tags-browse\"><a href=\"{writingBase}tags.html\">{labels.AllTags}</a> · <a href=\"{writingBase}atom.xml\">{(isEn ? "Atom feed" : "Лента Atom")}</a></p>");
     if (tagCounts.Count > 0)
     {
-        sb.AppendLine($"      <p class=\"tags-browse\"><a href=\"{writingBase}tags.html\">{labels.AllTags}</a></p>");
         sb.AppendLine("      <ul class=\"tag-cloud\" aria-label=\"tags\">");
         foreach (var kv in tagCounts.OrderByDescending(x => x.Value.Count).ThenBy(x => x.Key))
         {
@@ -401,6 +424,7 @@ static void WriteTagsIndexPage(
     sb.AppendLine("  <link rel=\"alternate\" hreflang=\"x-default\" href=\"/writing/tags.html\" />");
     sb.AppendLine("  <link rel=\"icon\" href=\"data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F4BB;</text></svg>\" />");
     sb.AppendLine("  <link rel=\"stylesheet\" href=\"/assets/css/articles.css\" />");
+    sb.AppendLine($"  <link rel=\"alternate\" type=\"application/atom+xml\" title=\"{(isEn ? "Writing (Atom)" : "Тексты (Atom)")}\" href=\"{(isEn ? "/writing/atom.xml" : "/ru/writing/atom.xml")}\" />");
     sb.AppendLine("</head>");
     sb.AppendLine("<body>");
     sb.AppendLine($"  <a href=\"#main\" class=\"skip-link\">{labels.SkipToContent}</a>");
@@ -427,7 +451,7 @@ static void WriteTagsIndexPage(
     sb.AppendLine();
     sb.AppendLine("  <main id=\"main\" class=\"container\">");
     sb.AppendLine("    <div class=\"article-wrap\">");
-    sb.AppendLine($"      <p class=\"article-back\"><a href=\"{writingBase}\">&larr; {back}</a></p>");
+    sb.AppendLine($"      <p class=\"article-back\"><a href=\"{writingBase}\">&larr; {back}</a> · <a href=\"{writingBase}atom.xml\">{(isEn ? "Atom feed" : "Лента Atom")}</a></p>");
     sb.AppendLine($"      <h1 class=\"page-title\">{WebUtility.HtmlEncode(h1)}</h1>");
     sb.AppendLine($"      <p class=\"page-intro\">{intro}</p>");
     sb.AppendLine("      <ul class=\"tags-index-list\">");
@@ -482,6 +506,7 @@ static void WriteTagPage(string slug, string display, List<Article> items, strin
     sb.AppendLine($"  <title>{WebUtility.HtmlEncode(pageTitle)}</title>");
     sb.AppendLine("  <link rel=\"icon\" href=\"data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F4BB;</text></svg>\" />");
     sb.AppendLine("  <link rel=\"stylesheet\" href=\"/assets/css/articles.css\" />");
+    sb.AppendLine($"  <link rel=\"alternate\" type=\"application/atom+xml\" title=\"{(isEn ? "Writing (Atom)" : "Тексты (Atom)")}\" href=\"{(isEn ? "/writing/atom.xml" : "/ru/writing/atom.xml")}\" />");
     sb.AppendLine("</head>");
     sb.AppendLine("<body>");
     sb.AppendLine($"  <a href=\"#main\" class=\"skip-link\">{labels.SkipToContent}</a>");
@@ -508,7 +533,7 @@ static void WriteTagPage(string slug, string display, List<Article> items, strin
     sb.AppendLine();
     sb.AppendLine("  <main id=\"main\" class=\"container\">");
     sb.AppendLine("    <div class=\"article-wrap\">");
-    sb.AppendLine($"      <p class=\"article-back\"><a href=\"{writingBase}\">&larr; {back}</a> · <a href=\"{writingBase}tags.html\">{labels.AllTags}</a></p>");
+    sb.AppendLine($"      <p class=\"article-back\"><a href=\"{writingBase}\">&larr; {back}</a> · <a href=\"{writingBase}tags.html\">{labels.AllTags}</a> · <a href=\"{writingBase}atom.xml\">{(isEn ? "Atom feed" : "Лента Atom")}</a></p>");
     sb.AppendLine($"      <h1 class=\"page-title\">{WebUtility.HtmlEncode(h1)}</h1>");
     sb.AppendLine("      <ul class=\"writing-list\">");
     foreach (var a in items)
@@ -537,6 +562,58 @@ static void WriteTagPage(string slug, string display, List<Article> items, strin
     sb.AppendLine("</html>");
 
     File.WriteAllText(Path.Combine(tagOutDir, slug + ".html"), sb.ToString(), new UTF8Encoding(encoderShouldEmitUTF8Identifier: false));
+}
+
+static void WriteAtomFeed(List<Article> articles, string lang, string outDir, string writingBase)
+{
+    const string siteOrigin = "https://karataevdmitry.github.io";
+    var isEn = lang == "en";
+    var feedTitle = isEn ? "Writing — Dmitry Karataev" : "Тексты — Дмитрий Каратаев";
+    var selfUrl = siteOrigin + (isEn ? "/writing/atom.xml" : "/ru/writing/atom.xml");
+    var htmlBase = siteOrigin + writingBase.TrimEnd('/') + "/";
+    var sorted = articles.OrderByDescending(x => x.Order).ThenBy(x => x.Slug).ToList();
+    var feedUpdated = new DateTimeOffset(2026, 4, 1, 12, 0, 0, TimeSpan.Zero);
+    foreach (var a in sorted)
+    {
+        var u = AtomDate(a);
+        if (u > feedUpdated)
+            feedUpdated = u;
+    }
+
+    var sb = new StringBuilder();
+    sb.AppendLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
+    sb.AppendLine("<feed xmlns=\"http://www.w3.org/2005/Atom\">");
+    sb.AppendLine($"  <title>{XmlText(feedTitle)}</title>");
+    sb.AppendLine($"  <link href=\"{htmlBase}\" rel=\"alternate\" type=\"text/html\" />");
+    sb.AppendLine($"  <link href=\"{selfUrl}\" rel=\"self\" type=\"application/atom+xml\" />");
+    sb.AppendLine($"  <id>{selfUrl}</id>");
+    sb.AppendLine($"  <updated>{feedUpdated:yyyy-MM-ddTHH:mm:ssZ}</updated>");
+    sb.AppendLine("  <author><name>Dmitry Karataev</name></author>");
+
+    foreach (var a in sorted)
+    {
+        var updated = AtomDate(a);
+        var entryUrl = siteOrigin + writingBase.TrimEnd('/') + "/" + a.Slug + ".html";
+        sb.AppendLine("  <entry>");
+        sb.AppendLine($"    <title>{XmlText(a.Title)}</title>");
+        sb.AppendLine($"    <link href=\"{entryUrl}\" rel=\"alternate\" type=\"text/html\" />");
+        sb.AppendLine($"    <id>{entryUrl}</id>");
+        sb.AppendLine($"    <updated>{updated:yyyy-MM-ddTHH:mm:ssZ}</updated>");
+        sb.AppendLine($"    <summary type=\"text\">{XmlText(a.Description)}</summary>");
+        sb.AppendLine("  </entry>");
+    }
+
+    sb.AppendLine("</feed>");
+    File.WriteAllText(Path.Combine(outDir, "atom.xml"), sb.ToString(), new UTF8Encoding(false));
+}
+
+static DateTimeOffset AtomDate(Article a) =>
+    new DateTimeOffset(2026, 4, 1, 12, 0, 0, TimeSpan.Zero).AddDays(a.Order);
+
+static string XmlText(string s)
+{
+    if (string.IsNullOrEmpty(s)) return "";
+    return s.Replace("&", "&amp;").Replace("<", "&lt;").Replace(">", "&gt;");
 }
 
 static string Indent(string html, string prefix)
