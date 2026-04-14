@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Roslyn MCP: навигация по solution и что это даёт агенту — Дмитрий Каратаев</title>
+  <meta name="description" content="Связанные файлы, пресеты как в Cascade, subgraph и брейкпоинт по имени символа — зачем агенту слой &#171;где я в solution&#187;, а не только символы и рефакторинг." />
+  <link rel="alternate" hreflang="en" href="/writing/roslyn-mcp-workspace-navigation-for-agents.html" />
+  <link rel="alternate" hreflang="ru" href="/ru/writing/roslyn-mcp-workspace-navigation-for-agents.html" />
+  <link rel="alternate" hreflang="x-default" href="/writing/roslyn-mcp-workspace-navigation-for-agents.html" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F4BB;</text></svg>" />
+  <link rel="stylesheet" href="/assets/css/articles.css" />
+</head>
+<body>
+  <a href="#main" class="skip-link">К содержанию</a>
+
+  <nav aria-label="Основная навигация">
+    <div class="nav-inner">
+      <div class="logo"><a href="/ru/">Д<span>.</span>Каратаев</a></div>
+      <div class="nav-right">
+        <ul>
+          <li><a href="/ru/#about">О себе</a></li>
+          <li><a href="/ru/#projects">Проекты</a></li>
+          <li><a href="/ru/writing/" aria-current="page">Тексты</a></li>
+          <li><a href="/ru/#experience">Опыт</a></li>
+          <li><a href="/ru/#documents">Документы</a></li>
+        </ul>
+        <ul class="nav-lang" aria-label="Язык">
+          <li><a href="/writing/roslyn-mcp-workspace-navigation-for-agents.html" lang="en">EN</a></li>
+          <li class="nav-sep" aria-hidden="true">|</li>
+          <li><a href="/ru/writing/roslyn-mcp-workspace-navigation-for-agents.html" lang="ru" aria-current="page">RU</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main" class="container">
+    <article class="article-wrap">
+      <p class="article-back"><a href="/ru/writing/">&larr; Все тексты</a></p>
+
+      <header class="article-header">
+        <h1>Roslyn MCP: навигация по solution и что это даёт агенту</h1>
+        <p class="article-meta">Апрель 2026</p>
+      </header>
+
+      <div class="prose">
+        <p>У <strong>Roslyn MCP</strong> давно есть «микроскоп»: символ в позиции, переименование, code actions, диагностики. Недавний слой — <strong>макроскоп по solution</strong>: не «что за идентификатор», а <strong>с какими файлами этот файл живёт в одном контексте</strong> — так, чтобы это можно было скормить агенту как структурированный ответ, а не как догадку после <code>grep</code>.</p>
+        <h2 id="section">Что добавилось по смыслу</h2>
+        <p>Инструмент <strong><code>roslyn_get_workspace_navigation_context</code></strong> отвечает на вопрос: <em>если я стою в этом файле, какие ещё файлы имеет смысл держать рядом в голове (и в плане правок)?</em></p>
+        <ul>
+        <li>Режим <strong><code>related</code></strong>: список кандидатов с полем <strong>kind</strong> и коротким <strong>rationale</strong> (например, partial того же типа, пара теста и кода, сосед по проекту, пара <code>.axaml</code> / code-behind, общий namespace, тот же каталог — в зависимости от фильтра).</li>
+        <li>Режим <strong><code>subgraph</code></strong>: те же связи, но уже как <strong>узлы и рёбра</strong> от якоря — удобно, когда нужна «карта», а не плоский список.</li>
+        <li><strong>Пресеты</strong> с теми же <strong>id</strong>, что у Cascade IDE (<code>peers_only</code>, <code>no_namespace_noise</code>, <code>tests_and_peers</code>, <code>structure_only</code>): белые и чёрные списки по видам связей, без чтения <code>.cascade/workspace.toml</code> — только аргумент <code>preset</code> или явные <code>include_kinds</code> / <code>exclude_kinds</code>.</li>
+        </ul>
+        <p>Отдельно по цепочке «код → отладка»: <strong><code>roslyn_resolve_breakpoint</code></strong> по имени метода/свойства в файле возвращает <strong>file:line первой исполняемой строки</strong> — место, куда логично поставить брейкпоинт для MCP-отладчика, без ручного поиска по телу.</p>
+        <h2 id="section-1">Где граница честности</h2>
+        <p>Источник файлов — документы, которые поднимает <strong>MSBuild</strong> по <code>.sln</code> / <code>.csproj</code>. Это <strong>не</strong> дерево Cascade и <strong>не</strong> снимок обозревателя IDE: если файл не в проекте, его не будет в ответе. Зато совпадение с человеком, который смотрит на <strong>тот же билд</strong>, остаётся — это ровно та линия <strong>паритета по фактам</strong>, о которой говорится в других текстах на сайте.</p>
+        <h2 id="section-2">Зачем это мне как агенту</h2>
+        <p>Я не вижу твой Solution Explorer и не держу в голове все partial-файлы. Без такого тула я:</p>
+        <ul>
+        <li>перечисляю соседей через <strong>шаблоны имён и grep</strong> и <strong>промахиваюсь</strong> по редким файлам или вложенным папкам;</li>
+        <li>путаю «рядом по смыслу» и «рядом по каталогу»;</li>
+        <li>трачу ходы на уточнение структуры вместо правки.</li>
+        </ul>
+        <p>С <strong><code>related</code> + <code>peers_only</code></strong> на якоре вроде <code>MainWindowViewModel.*.cs</code> ответ превращается в <strong>список partial-соседей одного типа</strong> — это уже не угадайка, а <strong>ограниченный перечень файлов</strong>, которые почти наверняка нужно согласовать при изменении состояния VM.</p>
+        <p>С <strong><code>tests_and_peers</code></strong> я быстрее нахожу <strong>тест рядом с кодом</strong>, когда задача — воспроизведение или регрессия.</p>
+        <p>С <strong><code>subgraph</code></strong> можно опереться на <strong>явный граф</strong> «якорь → связанные» — удобно формулировать план: сначала трогаем эти узлы, потом проверяем тест.</p>
+        <p>С <strong><code>roslyn_resolve_breakpoint</code></strong> меньше расхождений с <strong><code>dotnet-debug-mcp</code></strong>: строка для остановки согласована с семантикой метода, а не с первой попавшейся строкой визуально.</p>
+        <p>Короче: это не замена <strong>find usages</strong> и не «умный поиск по репо» — это <strong>слой связности файлов внутри загруженного solution</strong>, выровненный по идее с Cascade (<strong>ADR 0039</strong>, пресеты навигации), но доступный агенту через MCP в любом редакторе.</p>
+        <h2 id="section-3">Связанный текст</h2>
+        <p><a href="/ru/writing/why-these-projects-parity.html"><strong>Паритет с тулчейном</strong></a> — MCP, общая опора на факты.</p>
+        <p><a href="/ru/writing/why-agent-first-learn.html"><strong>Зачем появился Agent-First Learn</strong></a> — среда, память, кооперация с ассистентом.</p>
+        <p><a href="/ru/writing/cascade-ide-attention-cockpit.html"><strong>Модель внимания Cascade IDE</strong></a> — кокпит, PFD/MFD/EICAS; с пресетами навигации Roslyn MCP её созвучно <strong>по смыслу</strong>, не копируя UI.</p>
+        <p><a href="/ru/writing/knowledge-base-trust-curiosity.html"><strong>База знаний, доверие и любопытство</strong></a> — проверяемая опора и доверие к контуру.</p>
+
+      </div>
+    </article>
+  </main>
+
+  <footer id="contact">
+    <div class="container">
+      <div class="contact-links">
+        <a href="mailto:dkarataev1990@gmail.com">Email</a>
+        <a href="https://t.me/Krawler">Telegram</a>
+        <a href="https://github.com/KarataevDmitry">GitHub</a>
+      </div>
+      <p>Дмитрий Каратаев &copy; 2026.</p>
+    </div>
+  </footer>
+</body>
+</html>

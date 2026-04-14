@@ -62,6 +62,8 @@ you get speed without surrendering judgement.
 
 [**Knowledge base, trust, and curiosity**](/writing/knowledge-base-trust-curiosity.html) — shared KB, provisional trust, and curiosity.
 
+[**Roslyn MCP workspace navigation for agents**](/writing/roslyn-mcp-workspace-navigation-for-agents.html) — related files, Cascade-aligned presets, breakpoint by symbol name.
+
 ## Why a public site says this
 
 CVs list skills; repositories hold code. This page is the line between them:

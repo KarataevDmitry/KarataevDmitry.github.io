@@ -61,6 +61,8 @@ order: 1
 
 [**База знаний, доверие и любопытство**](/ru/writing/knowledge-base-trust-curiosity.html) — про общую KB, условное доверие и любопытство.
 
+[**Roslyn MCP: навигация по solution и агент**](/ru/writing/roslyn-mcp-workspace-navigation-for-agents.html) — связанные файлы, пресеты как в Cascade, брейкпоинт по имени символа.
+
 ## Зачем об этом публичный сайт
 
 В резюме — навыки, в репозиториях — код. Эта страница — между ними:

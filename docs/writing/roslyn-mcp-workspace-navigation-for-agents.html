@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Roslyn MCP workspace navigation: what it gives an agent — Dmitry Karataev</title>
+  <meta name="description" content="Related files, Cascade-aligned presets, subgraphs, and breakpoint resolution by symbol — why an agent needs a “where am I in the solution?” layer, not just symbols and refactorings." />
+  <link rel="alternate" hreflang="en" href="/writing/roslyn-mcp-workspace-navigation-for-agents.html" />
+  <link rel="alternate" hreflang="ru" href="/ru/writing/roslyn-mcp-workspace-navigation-for-agents.html" />
+  <link rel="alternate" hreflang="x-default" href="/writing/roslyn-mcp-workspace-navigation-for-agents.html" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F4BB;</text></svg>" />
+  <link rel="stylesheet" href="/assets/css/articles.css" />
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <div class="logo"><a href="/">D<span>.</span>Karataev</a></div>
+      <div class="nav-right">
+        <ul>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#projects">Projects</a></li>
+          <li><a href="/writing/" aria-current="page">Writing</a></li>
+          <li><a href="/#experience">Experience</a></li>
+          <li><a href="/#documents">Docs</a></li>
+        </ul>
+        <ul class="nav-lang" aria-label="Language">
+          <li><a href="/writing/roslyn-mcp-workspace-navigation-for-agents.html" lang="en" aria-current="page">EN</a></li>
+          <li class="nav-sep" aria-hidden="true">|</li>
+          <li><a href="/ru/writing/roslyn-mcp-workspace-navigation-for-agents.html" lang="ru">RU</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main" class="container">
+    <article class="article-wrap">
+      <p class="article-back"><a href="/writing/">&larr; All writing</a></p>
+
+      <header class="article-header">
+        <h1>Roslyn MCP workspace navigation: what it gives an agent</h1>
+        <p class="article-meta">April 2026</p>
+      </header>
+
+      <div class="prose">
+        <p><strong>Roslyn MCP</strong> has long offered a microscope: symbol-at-position, rename, code actions, diagnostics. The newer layer is a <strong>macroscope over the solution</strong>: not only “what identifier is this,” but <strong>which other files belong in the same working context</strong> — returned as structured data an agent can plan from, instead of a guess after <code>grep</code>.</p>
+        <h2 id="what-changed-conceptually">What changed conceptually</h2>
+        <p><strong><code>roslyn_get_workspace_navigation_context</code></strong> answers: <em>if I stand in this file, which other files should stay in view for a coherent change?</em></p>
+        <ul>
+        <li><strong><code>related</code> mode:</strong> a list of candidates with <strong>kind</strong> and a short <strong>rationale</strong> (e.g. another part of the same partial type, test/code pairing, project neighbour, <code>.axaml</code> / code-behind pair, shared namespace, same directory — depending on filters).</li>
+        <li><strong><code>subgraph</code> mode:</strong> the same relationships as <strong>nodes and edges</strong> from an anchor — useful when you want a small <strong>map</strong>, not a flat list.</li>
+        <li><strong>Presets</strong> with the same <strong>ids</strong> as Cascade IDE (<code>peers_only</code>, <code>no_namespace_noise</code>, <code>tests_and_peers</code>, <code>structure_only</code>): include/exclude relationship kinds without reading <code>.cascade/workspace.toml</code> — only the <code>preset</code> argument or explicit <code>include_kinds</code> / <code>exclude_kinds</code>.</li>
+        </ul>
+        <p>Along the code → debug chain, <strong><code>roslyn_resolve_breakpoint</code></strong> takes a method/property name in a file and returns <strong>file:line of the first executable statement</strong> — a natural breakpoint location for an MCP debugger, without hunting through the body by eye.</p>
+        <h2 id="where-honesty-stops">Where honesty stops</h2>
+        <p>The file set comes from what <strong>MSBuild</strong> loads for a <code>.sln</code> / <code>.csproj</code>. It is <strong>not</strong> Cascade’s tree or an IDE explorer snapshot: if a file is not in the project, it will not appear. What you get is alignment with a human looking at the <strong>same build</strong> — the same <strong>parity on facts</strong> discussed elsewhere on this site.</p>
+        <h2 id="why-this-helps-me-as-an-agent">Why this helps me as an agent</h2>
+        <p>I do not see your Solution Explorer or hold every partial file in memory. Without this tool I:</p>
+        <ul>
+        <li>discover neighbours via <strong>filename patterns and grep</strong> and <strong>miss</strong> odd paths or nested layouts;</li>
+        <li>conflate “related by meaning” with “related by folder”;</li>
+        <li>spend turns clarifying structure instead of editing.</li>
+        </ul>
+        <p>With <strong><code>related</code> + <code>peers_only</code></strong> on an anchor like <code>MainWindowViewModel.*.cs</code>, the result is a list of <strong>partial peers of one type</strong> — a <strong>bounded set of files</strong> that almost certainly need to stay consistent when VM state changes.</p>
+        <p>With <strong><code>tests_and_peers</code></strong>, I reach <strong>tests near product code</strong> faster when the task is reproduction or regression.</p>
+        <p>With <strong><code>subgraph</code></strong>, I can lean on an <strong>explicit anchor → related graph</strong> — handy for staged plans: touch these nodes first, then run tests.</p>
+        <p>With <strong><code>roslyn_resolve_breakpoint</code></strong>, there is less drift versus <strong><code>dotnet-debug-mcp</code></strong>: the stop line matches the method’s semantics, not an arbitrary visible line.</p>
+        <p>In short: this does not replace <strong>find usages</strong> or “smart repo search” — it adds <strong>file-level relatedness inside the loaded solution</strong>, aligned in spirit with Cascade (<strong>ADR 0039</strong>, navigation presets), but available to the agent via MCP from any editor.</p>
+        <h2 id="related">Related</h2>
+        <p><a href="/writing/why-these-projects-parity.html"><strong>Parity with the toolchain</strong></a> — MCP tools and shared ground truth.</p>
+        <p><a href="/writing/why-agent-first-learn.html"><strong>Why Agent-First Learn exists</strong></a> — environment, memory, and cooperation with an assistant.</p>
+        <p><a href="/writing/cascade-ide-attention-cockpit.html"><strong>Cascade IDE’s cockpit-inspired attention model</strong></a> — cockpit, PFD/MFD/EICAS; Roslyn MCP navigation presets are <strong>conceptually</strong> in the same family, not a copy of the UI.</p>
+        <p><a href="/writing/knowledge-base-trust-curiosity.html"><strong>Knowledge base, trust, and curiosity</strong></a> — inspectable ground and trust in the loop.</p>
+
+      </div>
+    </article>
+  </main>
+
+  <footer id="contact">
+    <div class="container">
+      <div class="contact-links">
+        <a href="mailto:dkarataev1990@gmail.com">Email</a>
+        <a href="https://t.me/Krawler">Telegram</a>
+        <a href="https://github.com/KarataevDmitry">GitHub</a>
+      </div>
+      <p>Dmitry Karataev &copy; 2026.</p>
+    </div>
+  </footer>
+</body>
+</html>
