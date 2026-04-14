@@ -204,6 +204,24 @@
       border-radius: 999px; color: var(--accent);
       white-space: nowrap;
     }
+    .project-links {
+      margin-top: 0.9rem;
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+    .project-links a {
+      font-size: 0.78rem;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.3rem 0.55rem;
+      color: var(--text-secondary);
+    }
+    .project-links a:hover {
+      color: var(--accent);
+      border-color: rgba(45,212,191,0.45);
+    }
 
     /* EXPERIENCE */
     .timeline { max-width: 720px; }
@@ -351,7 +369,7 @@
     <section id="projects">
       <div class="container">
         <h2 class="section-title">Открытые проекты</h2>
-        <p class="section-subtitle">MCP-серверы &mdash; ИИ получает инструменты разработчика, а не только текст файлов. <a href="/ru/writing/why-these-projects-parity.html">Зачем эти проекты?</a></p>
+        <p class="section-subtitle">MCP-серверы &mdash; ИИ получает инструменты разработчика, а не только текст файлов. <a href="/ru/writing/why-these-projects-parity.html">Зачем эти проекты?</a> <a href="/ru/projects/">Страницы проектов</a></p>
         <div class="projects-grid">
 
           <div class="project-card">
@@ -365,6 +383,10 @@
               <span class="tag">Roslyn</span>
               <span class="tag">MCP</span>
               <span class="tag">Semantic Analysis</span>
+            </div>
+            <div class="project-links">
+              <a href="/ru/projects/roslyn-mcp.html">Детали</a>
+              <a href="https://github.com/KarataevDmitry/RoslynMcp">GitHub</a>
             </div>
           </div>
 
@@ -380,6 +402,10 @@
               <span class="tag">Debugging</span>
               <span class="tag">MCP</span>
             </div>
+            <div class="project-links">
+              <a href="/ru/projects/dotnet-debug-mcp.html">Детали</a>
+              <a href="https://github.com/KarataevDmitry/dotnet-debug-mcp">GitHub</a>
+            </div>
           </div>
 
           <div class="project-card">
@@ -393,6 +419,28 @@
               <span class="tag">Build</span>
               <span class="tag">Testing</span>
               <span class="tag">MCP</span>
+            </div>
+            <div class="project-links">
+              <a href="/ru/projects/dotnet-build-test-mcp.html">Детали</a>
+              <a href="https://github.com/KarataevDmitry/dotnet-build-test-mcp">GitHub</a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="card-header">
+              <div class="card-icon" aria-hidden="true">&#x2708;&#xFE0F;</div>
+              <h3><a href="https://github.com/KarataevDmitry/cascade-ide">cascade-ide</a></h3>
+            </div>
+            <p class="desc">IDE с кокпит-моделью внимания для контура человек-агент: зоны PFD/MFD/EICAS, MCP-оркестрация и читаемое состояние среды.</p>
+            <div class="tags">
+              <span class="tag">C#</span>
+              <span class="tag">Avalonia</span>
+              <span class="tag">MCP</span>
+              <span class="tag">IDE UX</span>
+            </div>
+            <div class="project-links">
+              <a href="/ru/projects/cascade-ide.html">Детали</a>
+              <a href="https://github.com/KarataevDmitry/cascade-ide">GitHub</a>
             </div>
           </div>
 
