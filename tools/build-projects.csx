@@ -97,7 +97,7 @@ static void WriteIndex(List<ProjectPage> projects, string lang, string outDir)
     var intro = isEn
         ? "Feature-oriented pages for core projects. Each page includes a capability matrix and links to implementation docs."
         : "Технические страницы ключевых проектов с таблицей возможностей и ссылками на реализацию.";
-    var solutionsPrefix = isEn ? "Solutions" : "Решения";
+    var solutionsPrefix = isEn ? "Projects" : "Проекты";
     var solutionsAll = isEn ? "All" : "Все";
     var back = isEn ? "Back to homepage projects" : "Назад к проектам на главной";
     var logo = isEn ? "D<span>.</span>Karataev" : "Д<span>.</span>Каратаев";
@@ -181,7 +181,7 @@ static void WriteProjectPage(ProjectPage p, List<ProjectPage> allProjects, strin
     var enUrl = "/projects/" + p.Slug + ".html";
     var ruUrl = "/ru/projects/" + p.Slug + ".html";
     var pageTitle = p.Title + (isEn ? " — Projects" : " — Проекты");
-    var solutionsPrefix = isEn ? "Solutions" : "Решения";
+    var solutionsPrefix = isEn ? "Projects" : "Проекты";
     var solutionsAll = isEn ? "All" : "Все";
     var logo = isEn ? "D<span>.</span>Karataev" : "Д<span>.</span>Каратаев";
     var siteName = isEn ? "Dmitry Karataev" : "Дмитрий Каратаев";
