@@ -272,7 +272,7 @@ static string RenderProjectMenu(List<ProjectPage> projects, string basePath, str
     sb.Append($"<a href=\"{basePath}\"");
     if (string.IsNullOrEmpty(currentSlug))
         sb.Append(" aria-current=\"page\"");
-    sb.Append($">{WebUtility.HtmlEncode(prefix)} &gt; {WebUtility.HtmlEncode(allLabel)}</a> ");
+    sb.Append($">{WebUtility.HtmlEncode(allLabel)}</a> ");
 
     foreach (var item in projects.OrderBy(x => x.Order).ThenBy(x => x.Slug))
     {
@@ -280,8 +280,6 @@ static string RenderProjectMenu(List<ProjectPage> projects, string basePath, str
         if (item.Slug == currentSlug)
             sb.Append(" aria-current=\"page\"");
         sb.Append(">");
-        sb.Append(WebUtility.HtmlEncode(prefix));
-        sb.Append(" &gt; ");
         sb.Append(WebUtility.HtmlEncode(item.Title));
         sb.Append("</a> ");
     }
