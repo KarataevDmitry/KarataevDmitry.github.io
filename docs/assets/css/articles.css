@@ -253,6 +253,23 @@ nav ul.nav-lang .nav-sep { color: var(--text-muted); padding: 0 0.1rem; font-wei
   gap: 0.35rem;
 }
 
+.solutions-menu {
+  margin: 0.4rem 0 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.8rem;
+  font-size: 0.86rem;
+}
+.solutions-menu a {
+  color: var(--text-secondary);
+  border-bottom: 1px dashed rgba(148, 163, 184, 0.35);
+}
+.solutions-menu a:hover,
+.solutions-menu a[aria-current="page"] {
+  color: var(--accent);
+  border-bottom-color: rgba(45, 212, 191, 0.55);
+}
+
 .tags-index-list {
   list-style: none;
   margin: 0;

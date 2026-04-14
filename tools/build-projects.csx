@@ -39,9 +39,9 @@ WriteIndex(enItems.OrderBy(x => x.Order).ThenBy(x => x.Slug).ToList(), "en", out
 WriteIndex(ruItems.OrderBy(x => x.Order).ThenBy(x => x.Slug).ToList(), "ru", outRu);
 
 foreach (var p in enItems)
-    WriteProjectPage(p, "en", outEn);
+    WriteProjectPage(p, enItems, "en", outEn);
 foreach (var p in ruItems)
-    WriteProjectPage(p, "ru", outRu);
+    WriteProjectPage(p, ruItems, "ru", outRu);
 
 Console.WriteLine($"Projects: {enItems.Count} EN + {ruItems.Count} RU → docs/projects/");
 
@@ -97,6 +97,8 @@ static void WriteIndex(List<ProjectPage> projects, string lang, string outDir)
     var intro = isEn
         ? "Feature-oriented pages for core projects. Each page includes a capability matrix and links to implementation docs."
         : "Технические страницы ключевых проектов с таблицей возможностей и ссылками на реализацию.";
+    var solutionsPrefix = isEn ? "Solutions" : "Решения";
+    var solutionsAll = isEn ? "All" : "Все";
     var back = isEn ? "Back to homepage projects" : "Назад к проектам на главной";
     var logo = isEn ? "D<span>.</span>Karataev" : "Д<span>.</span>Каратаев";
     var siteName = isEn ? "Dmitry Karataev" : "Дмитрий Каратаев";
@@ -141,6 +143,9 @@ static void WriteIndex(List<ProjectPage> projects, string lang, string outDir)
     sb.AppendLine($"      <p class=\"article-back\"><a href=\"{home}#projects\">&larr; {back}</a></p>");
     sb.AppendLine($"      <h1 class=\"page-title\">{WebUtility.HtmlEncode(h1)}</h1>");
     sb.AppendLine($"      <p class=\"page-intro\">{WebUtility.HtmlEncode(intro)}</p>");
+    sb.AppendLine("      <p class=\"solutions-menu\">");
+    sb.AppendLine(RenderProjectMenu(projects, basePath, "", solutionsPrefix, solutionsAll));
+    sb.AppendLine("      </p>");
     sb.AppendLine("      <ul class=\"writing-list\">");
     foreach (var p in projects)
     {
@@ -168,7 +173,7 @@ static void WriteIndex(List<ProjectPage> projects, string lang, string outDir)
     File.WriteAllText(Path.Combine(outDir, "index.html"), sb.ToString(), new UTF8Encoding(false));
 }
 
-static void WriteProjectPage(ProjectPage p, string lang, string outDir)
+static void WriteProjectPage(ProjectPage p, List<ProjectPage> allProjects, string lang, string outDir)
 {
     var isEn = lang == "en";
     var home = isEn ? "/" : "/ru/";
@@ -176,6 +181,8 @@ static void WriteProjectPage(ProjectPage p, string lang, string outDir)
     var enUrl = "/projects/" + p.Slug + ".html";
     var ruUrl = "/ru/projects/" + p.Slug + ".html";
     var pageTitle = p.Title + (isEn ? " — Projects" : " — Проекты");
+    var solutionsPrefix = isEn ? "Solutions" : "Решения";
+    var solutionsAll = isEn ? "All" : "Все";
     var logo = isEn ? "D<span>.</span>Karataev" : "Д<span>.</span>Каратаев";
     var siteName = isEn ? "Dmitry Karataev" : "Дмитрий Каратаев";
 
@@ -218,6 +225,9 @@ static void WriteProjectPage(ProjectPage p, string lang, string outDir)
     sb.AppendLine($"        <h1>{WebUtility.HtmlEncode(p.Title)}</h1>");
     if (!string.IsNullOrWhiteSpace(p.Subtitle))
         sb.AppendLine($"        <p class=\"article-meta\">{WebUtility.HtmlEncode(p.Subtitle)}</p>");
+    sb.AppendLine("        <p class=\"solutions-menu\">");
+    sb.AppendLine(RenderProjectMenu(allProjects, basePath, p.Slug, solutionsPrefix, solutionsAll));
+    sb.AppendLine("        </p>");
     sb.AppendLine("      </header>");
     sb.AppendLine("      <div class=\"prose\">");
     sb.AppendLine(Indent(p.BodyHtml, "        "));
@@ -254,6 +264,28 @@ static string Indent(string html, string prefix)
     }
 
     return sb.ToString();
+}
+
+static string RenderProjectMenu(List<ProjectPage> projects, string basePath, string currentSlug, string prefix, string allLabel)
+{
+    var sb = new StringBuilder();
+    sb.Append($"<a href=\"{basePath}\"");
+    if (string.IsNullOrEmpty(currentSlug))
+        sb.Append(" aria-current=\"page\"");
+    sb.Append($">{WebUtility.HtmlEncode(prefix)} &gt; {WebUtility.HtmlEncode(allLabel)}</a> ");
+
+    foreach (var item in projects.OrderBy(x => x.Order).ThenBy(x => x.Slug))
+    {
+        sb.Append($"<a href=\"{basePath}{item.Slug}.html\"");
+        if (item.Slug == currentSlug)
+            sb.Append(" aria-current=\"page\"");
+        sb.Append(">");
+        sb.Append(WebUtility.HtmlEncode(prefix));
+        sb.Append(" &gt; ");
+        sb.Append(WebUtility.HtmlEncode(item.Title));
+        sb.Append("</a> ");
+    }
+    return sb.ToString().TrimEnd();
 }
 
 record ProjectPage(string Slug, string Title, string Description, string Subtitle, string RepoUrl, int Order, string BodyHtml);
