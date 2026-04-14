@@ -4,6 +4,11 @@ title: "Roslyn MCP workspace navigation: what it gives an agent"
 description: "Related files, Cascade-aligned presets, subgraphs, and breakpoint resolution by symbol — why an agent needs a “where am I in the solution?” layer, not just symbols and refactorings."
 date_display: "April 2026"
 order: 7
+tags:
+  - mcp
+  - roslyn
+  - agents
+  - tooling
 ---
 
 **Roslyn MCP** has long offered a microscope: symbol-at-position, rename, code actions, diagnostics. The newer layer is a **macroscope over the solution**: not only “what identifier is this,” but **which other files belong in the same working context** — returned as structured data an agent can plan from, instead of a guess after `grep`.

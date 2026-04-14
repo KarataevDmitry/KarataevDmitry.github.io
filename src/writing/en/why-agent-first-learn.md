@@ -4,6 +4,9 @@ title: "Why Agent-First Learn exists"
 description: "A short take on the methodology repo: the gap it fills, environment over model, cooperation, and asking “why” instead of moralizing errors."
 date_display: "April 2026"
 order: 2
+tags:
+  - agents
+  - methodology
 ---
 
 [Agent-First Learn](https://github.com/KarataevDmitry/agent-first-learn) is not another list of

@@ -4,6 +4,10 @@ title: "Attention, friction, and neurodivergence in the IDE"
 description: "A design hypothesis: a stable cockpit-style attention hierarchy can reduce unnecessary friction for many developers—including challenges often reported by neurodivergent engineers. Not medical advice."
 date_display: "April 2026"
 order: 6
+tags:
+  - cascade
+  - ide
+  - accessibility
 ---
 
 This note connects three themes: [**Cascade IDE’s cockpit-inspired attention model**](/writing/cascade-ide-attention-cockpit.html),

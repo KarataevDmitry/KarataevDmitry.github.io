@@ -4,6 +4,10 @@ title: "Why Cascade IDE borrows a cockpit attention model"
 description: "Signal overload, context switches, and a deliberate hierarchy of zones — PFD, MFD, EICAS — so the editor stays primary and the agent stays observable."
 date_display: "April 2026"
 order: 4
+tags:
+  - cascade
+  - ide
+  - design
 ---
 
 **Cascade IDE** is a .NET-focused IDE meant to be **driven by an agent through MCP**

@@ -4,6 +4,10 @@ title: "Why these projects, and why parity matters"
 description: "MCP servers bridge LLMs and real developer tools; parity lets humans and agents share the same ground truth."
 date_display: "April 2026"
 order: 1
+tags:
+  - mcp
+  - parity
+  - tooling
 ---
 
 The projects listed on this site are not a random bundle of repositories.

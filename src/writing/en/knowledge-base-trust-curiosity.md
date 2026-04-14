@@ -4,6 +4,9 @@ title: "Knowledge base, trust, and curiosity"
 description: "How a shared knowledge base became part of the stack, and why provisional trust in the other—human or not—plus curiosity beats defensive blame."
 date_display: "April 2026"
 order: 5
+tags:
+  - agents
+  - knowledge-base
 ---
 
 MCP servers and IDE surfaces answer **what the toolchain reports**. A separate

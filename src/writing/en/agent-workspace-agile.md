@@ -4,6 +4,10 @@ title: "Why this human–agent workspace is Agile in spirit"
 description: "Short feedback loops, inspect & adapt, cooperation over blame — the same family of ideas as Agile, applied to people and models together."
 date_display: "April 2026"
 order: 3
+tags:
+  - agents
+  - agile
+  - methodology
 ---
 
 **Agile** is often sold as ceremonies and certificates. The useful part is

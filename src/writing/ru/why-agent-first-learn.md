@@ -4,6 +4,9 @@ title: "Зачем появился Agent-First Learn"
 description: "Про методологию в репозитории: какой пробел закрывает, почему важна среда и кооперация, и зачем спрашивать «почему», а не ругать модель."
 date_display: "Апрель 2026"
 order: 2
+tags:
+  - agents
+  - methodology
 ---
 
 [Agent-First Learn](https://github.com/KarataevDmitry/agent-first-learn) — это не
