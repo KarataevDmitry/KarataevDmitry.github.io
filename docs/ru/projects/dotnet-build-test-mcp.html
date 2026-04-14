@@ -1,1 +1,88 @@
-<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>dotnet-build-test-mcp — Проекты</title><meta name="description" content="dotnet-build-test-mcp: таблица возможностей и сценарии применения." /><link rel="alternate" hreflang="en" href="/projects/dotnet-build-test-mcp.html" /><link rel="alternate" hreflang="ru" href="/ru/projects/dotnet-build-test-mcp.html" /><link rel="stylesheet" href="/assets/css/articles.css" /><style>.prose table{width:100%;border-collapse:collapse;margin:1rem 0}.prose th,.prose td{border:1px solid #334155;padding:.55rem;text-align:left}.prose th{color:#f1f5f9;background:#1e293b}</style></head><body><a href="#main" class="skip-link">К содержанию</a><nav aria-label="Основная навигация"><div class="nav-inner"><div class="logo"><a href="/ru/">Д<span>.</span>Каратаев</a></div><div class="nav-right"><ul><li><a href="/ru/#projects" aria-current="page">Проекты</a></li><li><a href="/ru/writing/">Тексты</a></li></ul><ul class="nav-lang" aria-label="Язык"><li><a href="/projects/dotnet-build-test-mcp.html" lang="en">EN</a></li><li class="nav-sep" aria-hidden="true">|</li><li><a href="/ru/projects/dotnet-build-test-mcp.html" lang="ru" aria-current="page">RU</a></li></ul></div></div></nav><main id="main" class="container"><article class="article-wrap"><p class="article-back"><a href="/ru/projects/">&larr; Все проекты</a></p><header class="article-header"><h1>dotnet-build-test-mcp</h1><p class="article-meta">Структурированный build/test для ассистентов</p></header><div class="prose"><p>dotnet-build-test-mcp запускает <code>dotnet build</code> и <code>dotnet test</code> с очередью и нормализованным выводом, чтобы ассистент работал от сути ошибок.</p><table><thead><tr><th>Возможность</th><th>Зачем нужна</th><th>Статус</th></tr></thead><tbody><tr><td>Очередь build (single-flight)</td><td>Исключает конфликтующие параллельные прогоны</td><td>Production</td></tr><tr><td>Структурированные ошибки</td><td>Машиночитаемые диагнозы вместо стены логов</td><td>Production</td></tr><tr><td>Сводки тестов</td><td>Быстрый pass/fail и целевой контекст на следующий шаг</td><td>Production</td></tr><tr><td>Связка с Roslyn diagnostics</td><td>Сочетает статическую и runtime-проверку</td><td>Recommended workflow</td></tr></tbody></table><p><strong>Репозиторий:</strong> <a href="https://github.com/KarataevDmitry/dotnet-build-test-mcp">github.com/KarataevDmitry/dotnet-build-test-mcp</a></p></div></article></main><footer id="contact"><div class="container"><div class="contact-links"><a href="mailto:dkarataev1990@gmail.com">Email</a><a href="https://t.me/Krawler">Telegram</a><a href="https://github.com/KarataevDmitry">GitHub</a></div><p>Дмитрий Каратаев &copy; 2026.</p></div></footer></body></html>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>dotnet-build-test-mcp — Проекты</title>
+  <meta name="description" content="Структурированный build/test с очередью и компактной подачей ошибок для агентных сценариев." />
+  <link rel="alternate" hreflang="en" href="/projects/dotnet-build-test-mcp.html" />
+  <link rel="alternate" hreflang="ru" href="/ru/projects/dotnet-build-test-mcp.html" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F4BB;</text></svg>" />
+  <link rel="stylesheet" href="/assets/css/articles.css" />
+  <style>.prose table{width:100%;border-collapse:collapse;margin:1rem 0}.prose th,.prose td{border:1px solid #334155;padding:.55rem;text-align:left}.prose th{color:#f1f5f9;background:#1e293b}</style>
+</head>
+<body>
+  <a href="#main" class="skip-link">К содержанию</a>
+  <nav aria-label="Основная навигация">
+    <div class="nav-inner">
+      <div class="logo"><a href="/ru/">Д<span>.</span>Каратаев</a></div>
+      <div class="nav-right">
+        <ul>
+          <li><a href="/ru/#projects" aria-current="page">Проекты</a></li>
+          <li><a href="/ru/writing/">Тексты</a></li>
+        </ul>
+        <ul class="nav-lang" aria-label="Язык">
+          <li><a href="/projects/dotnet-build-test-mcp.html" lang="en">EN</a></li>
+          <li class="nav-sep" aria-hidden="true">|</li>
+          <li><a href="/ru/projects/dotnet-build-test-mcp.html" lang="ru" aria-current="page">RU</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <main id="main" class="container">
+    <article class="article-wrap">
+      <p class="article-back"><a href="/ru/projects/">&larr; Все проекты</a></p>
+      <header class="article-header">
+        <h1>dotnet-build-test-mcp</h1>
+        <p class="article-meta">Структурированный build/test для ассистентов</p>
+      </header>
+      <div class="prose">
+        <p>dotnet-build-test-mcp запускает <code>dotnet build</code> и <code>dotnet test</code> с очередью и нормализованным выводом, чтобы ассистент работал от сути ошибок.</p>
+        <table>
+        <thead>
+        <tr>
+        <th>Возможность</th>
+        <th>Зачем нужна</th>
+        <th>Статус</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>Очередь build (single-flight)</td>
+        <td>Исключает конфликтующие параллельные прогоны</td>
+        <td>Production</td>
+        </tr>
+        <tr>
+        <td>Структурированные ошибки</td>
+        <td>Машиночитаемые диагнозы вместо стены логов</td>
+        <td>Production</td>
+        </tr>
+        <tr>
+        <td>Сводки тестов</td>
+        <td>Быстрый pass/fail и целевой контекст на следующий шаг</td>
+        <td>Production</td>
+        </tr>
+        <tr>
+        <td>Связка с Roslyn diagnostics</td>
+        <td>Сочетает статическую и runtime-проверку</td>
+        <td>Recommended workflow</td>
+        </tr>
+        </tbody>
+        </table>
+
+        <p><strong>Репозиторий:</strong> <a href="https://github.com/KarataevDmitry/dotnet-build-test-mcp">https://github.com/KarataevDmitry/dotnet-build-test-mcp</a></p>
+      </div>
+    </article>
+  </main>
+  <footer id="contact">
+    <div class="container">
+      <div class="contact-links">
+        <a href="mailto:dkarataev1990@gmail.com">Email</a>
+        <a href="https://t.me/Krawler">Telegram</a>
+        <a href="https://github.com/KarataevDmitry">GitHub</a>
+      </div>
+      <p>Дмитрий Каратаев &copy; 2026.</p>
+    </div>
+  </footer>
+</body>
+</html>

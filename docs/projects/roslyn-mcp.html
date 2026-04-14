@@ -1,1 +1,89 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>RoslynMcp — Projects</title><meta name="description" content="RoslynMcp capabilities and feature matrix." /><link rel="alternate" hreflang="en" href="/projects/roslyn-mcp.html" /><link rel="alternate" hreflang="ru" href="/ru/projects/roslyn-mcp.html" /><link rel="stylesheet" href="/assets/css/articles.css" /><style>.prose table{width:100%;border-collapse:collapse;margin:1rem 0}.prose th,.prose td{border:1px solid #334155;padding:.55rem;text-align:left}.prose th{color:#f1f5f9;background:#1e293b}</style></head><body><a href="#main" class="skip-link">Skip to content</a><nav aria-label="Main navigation"><div class="nav-inner"><div class="logo"><a href="/">D<span>.</span>Karataev</a></div><div class="nav-right"><ul><li><a href="/#projects" aria-current="page">Projects</a></li><li><a href="/writing/">Writing</a></li></ul><ul class="nav-lang" aria-label="Language"><li><a href="/projects/roslyn-mcp.html" lang="en" aria-current="page">EN</a></li><li class="nav-sep" aria-hidden="true">|</li><li><a href="/ru/projects/roslyn-mcp.html" lang="ru">RU</a></li></ul></div></div></nav><main id="main" class="container"><article class="article-wrap"><p class="article-back"><a href="/projects/">&larr; All projects</a></p><header class="article-header"><h1>RoslynMcp</h1><p class="article-meta">MCP over Roslyn for C# semantic operations</p></header><div class="prose"><p>RoslynMcp gives an assistant IDE-grade semantic context: symbols, diagnostics, code actions, navigation, and controlled refactoring tools.</p><table><thead><tr><th>Capability</th><th>Why it matters</th><th>Status</th></tr></thead><tbody><tr><td>Diagnostics + code actions</td><td>Fix compile and analyzer issues from structured positions</td><td>Production</td></tr><tr><td>Find usages / rename</td><td>Safe cross-solution refactors instead of text replacements</td><td>Production</td></tr><tr><td>Workspace navigation context</td><td>Related-file graph for planning edits in partial/test-heavy repos</td><td>New</td></tr><tr><td>Breakpoint resolution by symbol</td><td>Bridges semantic code selection and debugger entry points</td><td>New</td></tr></tbody></table><p><strong>Repository:</strong> <a href="https://github.com/KarataevDmitry/RoslynMcp">github.com/KarataevDmitry/RoslynMcp</a></p><p><strong>Related writing:</strong> <a href="/writing/roslyn-mcp-workspace-navigation-for-agents.html">Roslyn MCP workspace navigation for agents</a></p></div></article></main><footer id="contact"><div class="container"><div class="contact-links"><a href="mailto:dkarataev1990@gmail.com">Email</a><a href="https://t.me/Krawler">Telegram</a><a href="https://github.com/KarataevDmitry">GitHub</a></div><p>Dmitry Karataev &copy; 2026.</p></div></footer></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RoslynMcp — Projects</title>
+  <meta name="description" content="MCP over Roslyn: diagnostics, symbol intelligence, and safe refactoring flows for agents." />
+  <link rel="alternate" hreflang="en" href="/projects/roslyn-mcp.html" />
+  <link rel="alternate" hreflang="ru" href="/ru/projects/roslyn-mcp.html" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F4BB;</text></svg>" />
+  <link rel="stylesheet" href="/assets/css/articles.css" />
+  <style>.prose table{width:100%;border-collapse:collapse;margin:1rem 0}.prose th,.prose td{border:1px solid #334155;padding:.55rem;text-align:left}.prose th{color:#f1f5f9;background:#1e293b}</style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <div class="logo"><a href="/">D<span>.</span>Karataev</a></div>
+      <div class="nav-right">
+        <ul>
+          <li><a href="/#projects" aria-current="page">Projects</a></li>
+          <li><a href="/writing/">Writing</a></li>
+        </ul>
+        <ul class="nav-lang" aria-label="Language">
+          <li><a href="/projects/roslyn-mcp.html" lang="en" aria-current="page">EN</a></li>
+          <li class="nav-sep" aria-hidden="true">|</li>
+          <li><a href="/ru/projects/roslyn-mcp.html" lang="ru">RU</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <main id="main" class="container">
+    <article class="article-wrap">
+      <p class="article-back"><a href="/projects/">&larr; All projects</a></p>
+      <header class="article-header">
+        <h1>RoslynMcp</h1>
+        <p class="article-meta">MCP over Roslyn for C# semantic operations</p>
+      </header>
+      <div class="prose">
+        <p>RoslynMcp gives an assistant IDE-grade semantic context: symbols, diagnostics, code actions, navigation, and controlled refactoring tools.</p>
+        <table>
+        <thead>
+        <tr>
+        <th>Capability</th>
+        <th>Why it matters</th>
+        <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>Diagnostics + code actions</td>
+        <td>Fix compile and analyzer issues from structured positions</td>
+        <td>Production</td>
+        </tr>
+        <tr>
+        <td>Find usages / rename</td>
+        <td>Safe cross-solution refactors instead of text replacements</td>
+        <td>Production</td>
+        </tr>
+        <tr>
+        <td>Workspace navigation context</td>
+        <td>Related-file graph for planning edits in partial/test-heavy repos</td>
+        <td>New</td>
+        </tr>
+        <tr>
+        <td>Breakpoint resolution by symbol</td>
+        <td>Bridges semantic code selection and debugger entry points</td>
+        <td>New</td>
+        </tr>
+        </tbody>
+        </table>
+        <p><strong>Related writing:</strong> <a href="/writing/roslyn-mcp-workspace-navigation-for-agents.html">Roslyn MCP workspace navigation for agents</a></p>
+
+        <p><strong>Repository:</strong> <a href="https://github.com/KarataevDmitry/RoslynMcp">https://github.com/KarataevDmitry/RoslynMcp</a></p>
+      </div>
+    </article>
+  </main>
+  <footer id="contact">
+    <div class="container">
+      <div class="contact-links">
+        <a href="mailto:dkarataev1990@gmail.com">Email</a>
+        <a href="https://t.me/Krawler">Telegram</a>
+        <a href="https://github.com/KarataevDmitry">GitHub</a>
+      </div>
+      <p>Dmitry Karataev &copy; 2026.</p>
+    </div>
+  </footer>
+</body>
+</html>
