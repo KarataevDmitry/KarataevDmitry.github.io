@@ -13,7 +13,7 @@ RoslynMcp даёт ассистенту IDE-уровень понимания к
 |---|---|---|
 | Диагностики + code actions | Исправление компиляции и анализаторов по точным позициям | Production |
 | Find usages / rename | Безопасные сквозные рефакторинги вместо текстовых замен | Production |
-| Workspace navigation context | Граф связанных файлов для планирования правок | New |
+| [Workspace navigation context](/ru/writing/roslyn-mcp-workspace-navigation-for-agents.html) | Граф связанных файлов для планирования правок | New |
 | Resolve breakpoint by symbol | Связка семантики кода и точки входа в отладку | New |
 
-**Связанный текст:** [Roslyn MCP: навигация по solution и что это даёт агенту](/ru/writing/roslyn-mcp-workspace-navigation-for-agents.html)
+

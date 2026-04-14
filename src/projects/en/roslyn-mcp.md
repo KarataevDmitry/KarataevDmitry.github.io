@@ -13,7 +13,7 @@ RoslynMcp gives an assistant IDE-grade semantic context: symbols, diagnostics, c
 |---|---|---|
 | Diagnostics + code actions | Fix compile and analyzer issues from structured positions | Production |
 | Find usages / rename | Safe cross-solution refactors instead of text replacements | Production |
-| Workspace navigation context | Related-file graph for planning edits in partial/test-heavy repos | New |
+| [Workspace navigation context](/writing/roslyn-mcp-workspace-navigation-for-agents.html) | Related-file graph for planning edits in partial/test-heavy repos | New |
 | Breakpoint resolution by symbol | Bridges semantic code selection and debugger entry points | New |
 
-**Related writing:** [Roslyn MCP workspace navigation for agents](/writing/roslyn-mcp-workspace-navigation-for-agents.html)
+
