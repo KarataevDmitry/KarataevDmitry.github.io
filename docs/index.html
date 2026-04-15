@@ -78,35 +78,6 @@
     nav ul { list-style: none; display: flex; gap: 1.5rem; }
     nav ul a { color: var(--text-secondary); font-size: 0.9rem; font-weight: 500; }
     nav ul a:hover { color: var(--accent); }
-    nav li.has-submenu { position: relative; }
-    nav .submenu {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      min-width: 250px;
-      padding: 0.45rem;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
-      flex-direction: column;
-      gap: 0.15rem;
-      z-index: 100;
-    }
-    nav .submenu a {
-      display: block;
-      padding: 0.35rem 0.5rem;
-      border-radius: 6px;
-      font-size: 0.82rem;
-      color: var(--text-secondary);
-    }
-    nav .submenu a:hover {
-      color: var(--accent);
-      background: rgba(45, 212, 191, 0.08);
-    }
-    nav li.has-submenu:hover .submenu,
-    nav li.has-submenu:focus-within .submenu { display: flex; }
     nav ul.nav-lang { gap: 0.35rem; align-items: center; }
     nav ul.nav-lang a { font-size: 0.85rem; font-weight: 600; }
     nav ul.nav-lang a[aria-current="page"] { color: var(--accent); }
@@ -233,24 +204,6 @@
       border-radius: 999px; color: var(--accent);
       white-space: nowrap;
     }
-    .project-links {
-      margin-top: 0.9rem;
-      display: flex;
-      gap: 0.6rem;
-      flex-wrap: wrap;
-    }
-    .project-links a {
-      font-size: 0.78rem;
-      font-weight: 600;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 0.3rem 0.55rem;
-      color: var(--text-secondary);
-    }
-    .project-links a:hover {
-      color: var(--accent);
-      border-color: rgba(45,212,191,0.45);
-    }
 
     /* EXPERIENCE */
     .timeline { max-width: 720px; }
@@ -327,17 +280,7 @@
       <div class="nav-right">
         <ul>
           <li><a href="#about">About</a></li>
-          <li class="has-submenu">
-            <a href="#projects">Projects</a>
-            <div class="submenu" aria-label="Projects menu">
-              <a href="/projects/roslyn-mcp.html">RoslynMcp</a>
-              <a href="/projects/dotnet-debug-mcp.html">dotnet-debug-mcp</a>
-              <a href="/projects/dotnet-build-test-mcp.html">dotnet-build-test-mcp</a>
-              <a href="/projects/cascade-ide.html">cascade-ide</a>
-              <a href="/projects/">All projects</a>
-            </div>
-          </li>
-          <li><a href="/writing/">Writing</a></li>
+          <li><a href="#projects">Projects</a></li>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#documents">Docs</a></li>
         </ul>
@@ -408,7 +351,7 @@
     <section id="projects">
       <div class="container">
         <h2 class="section-title">Open Source Projects</h2>
-        <p class="section-subtitle">MCP servers &mdash; giving AI assistants real developer tools, not just file text. <a href="/writing/why-these-projects-parity.html">Why these projects?</a> <a href="/projects/">Browse project pages</a></p>
+        <p class="section-subtitle">MCP servers &mdash; giving AI assistants real developer tools, not just file text.</p>
         <div class="projects-grid">
 
           <div class="project-card">
@@ -422,10 +365,6 @@
               <span class="tag">Roslyn</span>
               <span class="tag">MCP</span>
               <span class="tag">Semantic Analysis</span>
-            </div>
-            <div class="project-links">
-              <a href="/projects/roslyn-mcp.html">Details</a>
-              <a href="https://github.com/KarataevDmitry/RoslynMcp">GitHub</a>
             </div>
           </div>
 
@@ -441,10 +380,6 @@
               <span class="tag">Debugging</span>
               <span class="tag">MCP</span>
             </div>
-            <div class="project-links">
-              <a href="/projects/dotnet-debug-mcp.html">Details</a>
-              <a href="https://github.com/KarataevDmitry/dotnet-debug-mcp">GitHub</a>
-            </div>
           </div>
 
           <div class="project-card">
@@ -458,28 +393,6 @@
               <span class="tag">Build</span>
               <span class="tag">Testing</span>
               <span class="tag">MCP</span>
-            </div>
-            <div class="project-links">
-              <a href="/projects/dotnet-build-test-mcp.html">Details</a>
-              <a href="https://github.com/KarataevDmitry/dotnet-build-test-mcp">GitHub</a>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="card-header">
-              <div class="card-icon" aria-hidden="true">&#x2708;&#xFE0F;</div>
-              <h3><a href="https://github.com/KarataevDmitry/cascade-ide">cascade-ide</a></h3>
-            </div>
-            <p class="desc">Cockpit-inspired IDE surface for human-agent work: PFD/MFD/EICAS attention zones, MCP orchestration, and a legible operational contour.</p>
-            <div class="tags">
-              <span class="tag">C#</span>
-              <span class="tag">Avalonia</span>
-              <span class="tag">MCP</span>
-              <span class="tag">IDE UX</span>
-            </div>
-            <div class="project-links">
-              <a href="/projects/cascade-ide.html">Details</a>
-              <a href="https://github.com/KarataevDmitry/cascade-ide">GitHub</a>
             </div>
           </div>
 
