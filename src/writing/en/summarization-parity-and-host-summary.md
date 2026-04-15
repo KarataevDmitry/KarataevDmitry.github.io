@@ -1,7 +1,7 @@
 ---
 slug: summarization-parity-and-host-summary
-title: "Equal right to summarize, and why host-side compression is a weak foundation"
-description: "Explicit summaries and exports are a shared discipline; opaque host compression replaces the verifiable artifact and breaks parity."
+title: "Equal right to wrap up, and why host-side compression is a weak foundation"
+description: "Explicit wrap-up and exports are a shared discipline; opaque host compression replaces the verifiable artifact and breaks parity."
 date_display: "April 2026"
 order: 6
 tags:
@@ -11,13 +11,13 @@ tags:
   - knowledge-base
 ---
 
-A long chat with an assistant eventually hits a **context budget**. That raises a simple question: **what counts as “saved” from the thread** — and **who gets to fix it**. This note contrasts two answers: **explicit summarization by agreement** versus **compression performed by the host** (here: Cursor and similar IDEs). The first can be made honest; the second is almost always **opaque** and sits poorly with human–agent **parity**.
+A long chat with an assistant eventually hits a **context budget**. That raises a simple question: **what counts as “saved” from the thread** — and **who gets to fix it**. This note contrasts two answers: **explicit wrap-up by agreement** versus **compression performed by the host** (here: Cursor and similar IDEs). The first can be made honest; the second is almost always **opaque** and sits poorly with human–agent **parity**.
 
-## Two meanings of “summarization”
+## Two senses: wrap-up vs host “summarization”
 
-**Summarization as agreement** means participants **deliberately** decide to close the loop: what was decided, what stayed open, what comes next. It can be **checked**: there is a shared text, an export, or a pointer to a file. Either the human or the agent can propose it — a **symmetric right**, not a privilege.
+**Wrap-up by agreement** means participants **deliberately** decide to close the loop: what was decided, what stayed open, what comes next. It can be **checked**: there is a shared text, an export, or a pointer to a file. Either the human or the agent can propose it — a **symmetric right**, not a privilege.
 
-**Summarization as host behavior** is different: the model or host **compresses history** so the session can continue. In the UI it may look like a short recap instead of the full thread. That recap often has **no stable path on disk** and is harder to **quote** and **dispute line by line** than the raw log or a agreed markdown.
+**History compression as host behavior** (often labeled “summarization”) is different: the model or host **compresses history** so the session can continue. In the UI it may look like a short recap instead of the full thread. That recap often has **no stable path on disk** and is harder to **quote** and **dispute line by line** than the raw log or a agreed markdown.
 
 Conflating the two means confusing **a collaboration tool** with a **platform tradeoff**.
 
@@ -60,4 +60,4 @@ Common sense: **don’t** read-lock the live folder Cursor writes to — that br
 
 ---
 
-**Equal right to summarize** means the right to **initiate and run** explicit closure with a file-backed trail; **opaque compression** is not a substitute for that layer — it is a platform constraint to **route around** with export discipline, not to trust as memory.
+**Equal right to wrap up** means the right to **initiate and run** explicit closure **with a file-backed trail**; **opaque compression** is not a substitute for that layer — it is a platform constraint to **route around** with export discipline, not to trust as memory.
