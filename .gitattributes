@@ -1,0 +1,13 @@
+# Нормализация окончаний строк: в репозитории — LF (удобно для GitHub Pages и сборок на Linux).
+.gitattributes text eol=lf
+* text=auto
+
+*.md   text eol=lf
+*.csx  text eol=lf
+*.css  text eol=lf
+*.html text eol=lf
+*.xml  text eol=lf
+*.json text eol=lf
+*.yml  text eol=lf
+*.yaml text eol=lf
+*.svg  text eol=lf
