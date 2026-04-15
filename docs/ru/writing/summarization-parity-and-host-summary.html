@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Равное право на суммаризацию и почему сжатие от хоста — плохая опора — Дмитрий Каратаев</title>
+  <meta name="description" content="Явные итоги и экспорт переписки — совместная дисциплина; непрозрачная суммаризация среды подменяет проверяемый артефакт и ломает паритет." />
+  <link rel="alternate" hreflang="en" href="/writing/summarization-parity-and-host-summary.html" />
+  <link rel="alternate" hreflang="ru" href="/ru/writing/summarization-parity-and-host-summary.html" />
+  <link rel="alternate" hreflang="x-default" href="/writing/summarization-parity-and-host-summary.html" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F4BB;</text></svg>" />
+  <link rel="stylesheet" href="/assets/css/articles.css" />
+  <link rel="alternate" type="application/atom+xml" title="Тексты (Atom)" href="/ru/writing/atom.xml" />
+</head>
+<body>
+  <a href="#main" class="skip-link">К содержанию</a>
+
+  <nav aria-label="Основная навигация">
+    <div class="nav-inner">
+      <div class="logo"><a href="/ru/">Д<span>.</span>Каратаев</a></div>
+      <div class="nav-right">
+        <ul>
+          <li><a href="/ru/#about">О себе</a></li>
+          <li><a href="/ru/#projects">Проекты</a></li>
+          <li><a href="/ru/writing/" aria-current="page">Тексты</a></li>
+          <li><a href="/ru/#experience">Опыт</a></li>
+          <li><a href="/ru/#documents">Документы</a></li>
+        </ul>
+        <ul class="nav-lang" aria-label="Язык">
+          <li><a href="/writing/summarization-parity-and-host-summary.html" lang="en">EN</a></li>
+          <li class="nav-sep" aria-hidden="true">|</li>
+          <li><a href="/ru/writing/summarization-parity-and-host-summary.html" lang="ru" aria-current="page">RU</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main" class="container">
+    <article class="article-wrap">
+      <p class="article-back"><a href="/ru/writing/">&larr; Все тексты</a> · <a href="/ru/writing/tags.html">Все теги</a> · <a href="/ru/writing/atom.xml">Лента Atom</a></p>
+
+      <header class="article-header">
+        <h1>Равное право на суммаризацию и почему сжатие от хоста — плохая опора</h1>
+        <p class="article-meta">Апрель 2026</p>
+        <p class="article-tags" aria-label="tags">
+          <a class="tag-pill" href="/ru/writing/tag/agents.html">agents</a>
+          <a class="tag-pill" href="/ru/writing/tag/cursor.html">cursor</a>
+          <a class="tag-pill" href="/ru/writing/tag/knowledge-base.html">knowledge-base</a>
+          <a class="tag-pill" href="/ru/writing/tag/parity.html">parity</a>
+        </p>
+      </header>
+
+      <div class="prose">
+        <p>Длинный диалог с ассистентом упирается в <strong>лимит контекста</strong>. Отсюда почти всегда следует вопрос: <strong>что из переписки считать «сохранённым»</strong> — и кто имеет право это зафиксировать. Этот текст про два разных ответа: <strong>явная суммаризация по договорённости</strong> и <strong>сжатие, которое делает хост</strong> (в нашем случае — Cursor и подобные среды). Первое можно сделать честным; второе почти неизбежно <strong>непрозрачно</strong> и плохо стыкуется с паритетом «человек ↔ агент».</p>
+        <h2 id="section">Два смысла слова «суммаризация»</h2>
+        <p><strong>Суммаризация как договорённость</strong> — это когда участники <strong>сознательно</strong> договариваются подвести итоги: что решили, что осталось открытым, какие следующие шаги. Её можно <strong>проверить</strong>: есть согласованный текст, экспорт или ссылка на файл. Инициировать её может и человек, и агент — это <strong>симметричное право</strong>, не «привилегия» одной стороны.</p>
+        <p><strong>Суммаризация как поведение среды</strong> — другое: это когда модель или хост <strong>сжимает историю</strong> ради продолжения сессии. Внутри чата это может выглядеть как «короткое резюме» вместо полного треда. У этого резюме часто <strong>нет стабильного адреса на диске</strong>, его нельзя так же просто <strong>процитировать</strong> и <strong>оспорить</strong> построчно, как исходный лог или согласованный markdown.</p>
+        <p>Путать эти два типа — значит путать <strong>инструмент совместной работы</strong> и <strong>технический компромисс</strong> платформы.</p>
+        <h2 id="section-1">Почему паритет требует явной итоговой дисциплины</h2>
+        <p>Паритет в нашем смысле — не «равные голоса» в абстракции, а <strong>общая опора на проверяемые артефакты</strong>: тесты, логи, файлы репозитория, читаемый экспорт переписки. Когда итоги <strong>явно согласованы</strong>, можно отделить <strong>договорённость</strong> от <strong>воспоминания модели</strong> о том, что было в чате.</p>
+        <p>Если же итогом становится <strong>сжатие, которое делает хост</strong>, то:</p>
+        <ul>
+        <li><strong>источник правды</strong> смещается внутрь недоступного тебе контура;</li>
+        <li><strong>пропорции</strong> (что важно, что выбросили) задаёт не твоя инженерная воля, а эвристика среды;</li>
+        <li><strong>агенту</strong> в новой сессии подсовывают уже не «переписку», а <strong>посредника</strong> — с риском смещения смысла и потери нюансов.</li>
+        </ul>
+        <p>То есть «паритет по фактам» ломается ровно там, где факт <strong>не извлекается из файла</strong>, а восстанавливается из <strong>сжатого представления</strong>.</p>
+        <h2 id="cursor">Почему «сжатие от Cursor» — плохой главный план</h2>
+        <p>Здесь не обвинение продукта: у любого хоста есть <strong>бюджет контекста</strong>, и без сжатия длинные сессии физически не живут. Проблема в том, <strong>полагаться на это сжатие как на память</strong>.</p>
+        <p>Оно непрозрачно: ты не контролируешь, <strong>какие</strong> фразы исчезнут, а какие останутся в «кратком пересказе для модели». Оно <strong>не подписано</strong> как твой документ: это не commit, не письмо себе, не согласованный с агентом текст. Оно <strong>не заменяет</strong> экспорт в файл, если тебе нужна <strong>цитируемость</strong> и <strong>воспроизводимость</strong>.</p>
+        <p>Отсюда практический вывод: <strong>сжатие хоста — допустимый риск инфраструктуры</strong>, но <strong>не доверенный канон</strong> для длинной дуги и для командных договорённостей.</p>
+        <h2 id="section-2">Что с этим делать (рабочая схема)</h2>
+        <ol>
+        <li><strong>Сырой транскрипт</strong> на диске (<code>*.jsonl</code> в <code>agent-transcripts</code>) — то, что среда уже записала; его можно <strong>найти</strong> и <strong>не прогонять через глаз модели</strong> как единственный источник.</li>
+        <li><strong>Читаемый экспорт</strong> — скрипт или команда IDE, который превращает jsonl в markdown, пригодный для чтения и цитирования.</li>
+        <li><strong>Краткое резюме и согласование</strong> — кто что понял, что зафиксировать в репозитории или в KB.</li>
+        </ol>
+        <p>Если «топор» контекста уже ударил, <strong>последний полный кусок</strong> всё ещё можно вытащить из <strong>файла</strong>, а не из того, что осталось в видимой области чата после сжатия.</p>
+        <h2 id="section-3">Бэкап и границы</h2>
+        <p>Здравый смысл простой: <strong>не ставить read-only</strong> на живой каталог, куда Cursor пишет транскрипты — иначе страдает сам процесс. Разумнее <strong>бэкапить наружу</strong> (git, архив, отдельный диск) и выносить <strong>важное</strong> в канон или в заметки, а не надеяться, что хост <strong>всегда</strong> сохранит длинную историю в удобоваримом виде.</p>
+        <hr />
+        <p>Итого: <strong>равное право на суммаризацию</strong> — это право <strong>инициировать и вести</strong> явное итогирование с опорой на файл; <strong>непрозрачное сжатие</strong> — это не замена этому слою, а ограничение платформы, которое стоит <strong>обходить дисциплиной экспорта</strong>, а не доверять как памяти.</p>
+
+      </div>
+    </article>
+  </main>
+
+  <footer id="contact">
+    <div class="container">
+      <div class="contact-links">
+        <a href="mailto:dkarataev1990@gmail.com">Email</a>
+        <a href="https://t.me/Krawler">Telegram</a>
+        <a href="https://github.com/KarataevDmitry">GitHub</a>
+      </div>
+      <p>Дмитрий Каратаев &copy; 2026.</p>
+    </div>
+  </footer>
+</body>
+</html>

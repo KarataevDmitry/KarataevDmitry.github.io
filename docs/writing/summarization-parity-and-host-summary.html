@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Equal right to summarize, and why host-side compression is a weak foundation — Dmitry Karataev</title>
+  <meta name="description" content="Explicit summaries and exports are a shared discipline; opaque host compression replaces the verifiable artifact and breaks parity." />
+  <link rel="alternate" hreflang="en" href="/writing/summarization-parity-and-host-summary.html" />
+  <link rel="alternate" hreflang="ru" href="/ru/writing/summarization-parity-and-host-summary.html" />
+  <link rel="alternate" hreflang="x-default" href="/writing/summarization-parity-and-host-summary.html" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F4BB;</text></svg>" />
+  <link rel="stylesheet" href="/assets/css/articles.css" />
+  <link rel="alternate" type="application/atom+xml" title="Writing (Atom)" href="/writing/atom.xml" />
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <div class="logo"><a href="/">D<span>.</span>Karataev</a></div>
+      <div class="nav-right">
+        <ul>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#projects">Projects</a></li>
+          <li><a href="/writing/" aria-current="page">Writing</a></li>
+          <li><a href="/#experience">Experience</a></li>
+          <li><a href="/#documents">Docs</a></li>
+        </ul>
+        <ul class="nav-lang" aria-label="Language">
+          <li><a href="/writing/summarization-parity-and-host-summary.html" lang="en" aria-current="page">EN</a></li>
+          <li class="nav-sep" aria-hidden="true">|</li>
+          <li><a href="/ru/writing/summarization-parity-and-host-summary.html" lang="ru">RU</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main" class="container">
+    <article class="article-wrap">
+      <p class="article-back"><a href="/writing/">&larr; All writing</a> · <a href="/writing/tags.html">All tags</a> · <a href="/writing/atom.xml">Atom feed</a></p>
+
+      <header class="article-header">
+        <h1>Equal right to summarize, and why host-side compression is a weak foundation</h1>
+        <p class="article-meta">April 2026</p>
+        <p class="article-tags" aria-label="tags">
+          <a class="tag-pill" href="/writing/tag/agents.html">agents</a>
+          <a class="tag-pill" href="/writing/tag/cursor.html">cursor</a>
+          <a class="tag-pill" href="/writing/tag/knowledge-base.html">knowledge-base</a>
+          <a class="tag-pill" href="/writing/tag/parity.html">parity</a>
+        </p>
+      </header>
+
+      <div class="prose">
+        <p>A long chat with an assistant eventually hits a <strong>context budget</strong>. That raises a simple question: <strong>what counts as “saved” from the thread</strong> — and <strong>who gets to fix it</strong>. This note contrasts two answers: <strong>explicit summarization by agreement</strong> versus <strong>compression performed by the host</strong> (here: Cursor and similar IDEs). The first can be made honest; the second is almost always <strong>opaque</strong> and sits poorly with human–agent <strong>parity</strong>.</p>
+        <h2 id="two-meanings-of-summarization">Two meanings of “summarization”</h2>
+        <p><strong>Summarization as agreement</strong> means participants <strong>deliberately</strong> decide to close the loop: what was decided, what stayed open, what comes next. It can be <strong>checked</strong>: there is a shared text, an export, or a pointer to a file. Either the human or the agent can propose it — a <strong>symmetric right</strong>, not a privilege.</p>
+        <p><strong>Summarization as host behavior</strong> is different: the model or host <strong>compresses history</strong> so the session can continue. In the UI it may look like a short recap instead of the full thread. That recap often has <strong>no stable path on disk</strong> and is harder to <strong>quote</strong> and <strong>dispute line by line</strong> than the raw log or a agreed markdown.</p>
+        <p>Conflating the two means confusing <strong>a collaboration tool</strong> with a <strong>platform tradeoff</strong>.</p>
+        <h2 id="why-parity-needs-explicit-closure">Why parity needs explicit closure</h2>
+        <p>Parity here is not abstract “equal votes”; it is <strong>shared reliance on verifiable artifacts</strong>: tests, logs, repo files, a readable chat export. When closure is <strong>explicitly agreed</strong>, you can separate <strong>what we decided</strong> from <strong>what the model remembers</strong> having been said.</p>
+        <p>If closure is <strong>host compression</strong>, then:</p>
+        <ul>
+        <li>the <strong>source of truth</strong> moves into a contour you cannot fully audit;</li>
+        <li><strong>what matters</strong> (what is kept vs dropped) follows host heuristics, not your engineering intent;</li>
+        <li>the <strong>agent</strong> in a new session may receive a <strong>mediated</strong> version of the past, with drift and lost nuance.</li>
+        </ul>
+        <p>Parity in facts breaks where the fact is <strong>not</strong> recovered from a file but from <strong>compressed representation</strong>.</p>
+        <h2 id="why-cursor-compression-is-a-bad-primary-plan">Why “Cursor compression” is a bad primary plan</h2>
+        <p>This is not a rant at the product: every host has a <strong>context budget</strong>, and long sessions without compression do not exist. The issue is <strong>relying on that compression as memory</strong>.</p>
+        <p>It is <strong>opaque</strong>: you do not control which phrases vanish and which survive the “short recap for the model.” It is <strong>not</strong> your signed document — not a commit, not a note to yourself, not a text agreed with the agent. It does <strong>not</strong> replace a file export when you need <strong>citable</strong> and <strong>reproducible</strong> history.</p>
+        <p>So: host compression is an <strong>infrastructure risk</strong> you may tolerate; it is <strong>not</strong> a trusted canon for long arcs and team agreements.</p>
+        <h2 id="a-practical-pipeline">A practical pipeline</h2>
+        <ol>
+        <li><strong>Raw transcript</strong> on disk (<code>*.jsonl</code> under <code>agent-transcripts</code>) — already written by the environment; you can <strong>locate</strong> it without treating the model’s recap as the only source.</li>
+        <li><strong>Readable export</strong> — a script or IDE command that turns jsonl into markdown for reading and quoting.</li>
+        <li><strong>Short recap and alignment</strong> — who understood what, what to record in the repo or KB.</li>
+        </ol>
+        <p>If the context “axe” has already fallen, the <strong>last full chunk</strong> is still recoverable from a <strong>file</strong>, not from what remains visible in the chat after compression.</p>
+        <h2 id="backup-and-boundaries">Backup and boundaries</h2>
+        <p>Common sense: <strong>don’t</strong> read-lock the live folder Cursor writes to — that breaks the workflow. Better <strong>back up outward</strong> (git, archive, another disk) and move <strong>important</strong> content into canon or notes instead of assuming the host will always preserve long history in a friendly form.</p>
+        <hr />
+        <p><strong>Equal right to summarize</strong> means the right to <strong>initiate and run</strong> explicit closure with a file-backed trail; <strong>opaque compression</strong> is not a substitute for that layer — it is a platform constraint to <strong>route around</strong> with export discipline, not to trust as memory.</p>
+
+      </div>
+    </article>
+  </main>
+
+  <footer id="contact">
+    <div class="container">
+      <div class="contact-links">
+        <a href="mailto:dkarataev1990@gmail.com">Email</a>
+        <a href="https://t.me/Krawler">Telegram</a>
+        <a href="https://github.com/KarataevDmitry">GitHub</a>
+      </div>
+      <p>Dmitry Karataev &copy; 2026.</p>
+    </div>
+  </footer>
+</body>
+</html>
