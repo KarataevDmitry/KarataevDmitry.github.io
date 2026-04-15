@@ -53,6 +53,11 @@ If the context “axe” has already fallen, the **last full chunk** is still re
 
 Common sense: **don’t** read-lock the live folder Cursor writes to — that breaks the workflow. Better **back up outward** (git, archive, another disk) and move **important** content into canon or notes instead of assuming the host will always preserve long history in a friendly form.
 
+## See also
+
+- [Why these projects, and why parity matters](/writing/why-these-projects-parity.html) — where “parity on facts” comes from in this stack.
+- [Knowledge base, trust, and curiosity](/writing/knowledge-base-trust-curiosity.html) — why a durable knowledge layer matters across sessions, and how it pairs with trust in the toolchain.
+
 ---
 
 **Equal right to summarize** means the right to **initiate and run** explicit closure with a file-backed trail; **opaque compression** is not a substitute for that layer — it is a platform constraint to **route around** with export discipline, not to trust as memory.
