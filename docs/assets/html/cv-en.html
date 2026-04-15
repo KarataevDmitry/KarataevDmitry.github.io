@@ -43,6 +43,9 @@ experience</a></li>
 <li><a href="#ai-assisted-engineering-environment"
 id="toc-ai-assisted-engineering-environment">AI-assisted engineering
 environment</a></li>
+<li><a href="#kb-memory-l0l3-layers-and-domains"
+id="toc-kb-memory-l0l3-layers-and-domains">KB memory: L0–L3 layers and
+domains</a></li>
 <li><a href="#open-source-projects-mcp"
 id="toc-open-source-projects-mcp">Open-source projects (MCP)</a></li>
 <li><a href="#additional-information"
@@ -469,6 +472,48 @@ less cognitive load, fewer repeat mistakes, faster delivery.</li>
 <p>Knowledge management, engineering discipline, systems thinking,
 development-process automation, requirements/DoD formalization, quality
 and safety when using AI.</p>
+<h2 id="kb-memory-l0l3-layers-and-domains">KB memory: L0–L3 layers and
+domains</h2>
+<p>A short version of the <strong>layered</strong> model and load
+contract — the same idea as the KB onboarding overview (no full load),
+<strong>without</strong> naming files or paths.</p>
+<p><strong>Mermaid</strong> diagrams render in <strong>HTML</strong> and
+in <strong>PDF printed from a browser</strong>; <strong>DOCX</strong>
+usually does not execute JS — the bullet list mirrors the diagrams.</p>
+<ul>
+<li><strong>L0 — always on:</strong> integrity, epistemics, core when
+barriers fail, principled clarity; <strong>not</strong> tied to the
+current task.</li>
+<li><strong>L1 — operational memory by scope slices:</strong>
+<strong>status → playbook → matrix → kb</strong>; compact artifacts
+first, heavy <code>kb-*</code> only on explicit request.</li>
+<li><strong>L2 — archive and evidence:</strong> revisions, rule batches,
+evidence docs — when facts are missing or history is needed (no “load
+everything at session start”).</li>
+<li><strong>L3 — semantics:</strong> routing by <strong>context
+facets</strong>; moving between <strong>worlds</strong> (domains) only
+through <strong>explicit boundaries</strong>.</li>
+<li><strong>Domains and glue:</strong> Git, PR review, HCI, Developer
+Experience, IT, Knowledge Engineering, psychology, aviation, reading,
+integrity under pressure, etc. — tied together by a <strong>single
+index</strong> and the same load contract.</li>
+</ul>
+<div class="mermaid">
+flowchart TB
+  L0["L0 · integrity, epistemics, core, clarity — always"]
+  L1["L1 · scope: status → playbook → matrix → kb"]
+  L2["L2 · revisions, batches, evidence — on demand"]
+  L0 --> L1
+  L1 -.->|deeper| L2
+</div>
+<div class="mermaid">
+flowchart TB
+  L3["L3"]
+  n1["Routing by context facets"]
+  n2["Cross-domain moves only via explicit boundaries"]
+  L3 --> n1
+  L3 --> n2
+</div>
 <h2 id="open-source-projects-mcp">Open-source projects (MCP)</h2>
 <p>Public GitHub repositories — <strong>Model Context Protocol</strong>
 servers for Cursor and compatible environments: they give the AI
@@ -578,5 +623,10 @@ stage.</p>
 <li>sensible Agile adoption, working through the Agile manifesto, and
 cross-functional collaboration.</li>
 </ul>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>
+  mermaid.initialize({ startOnLoad: true, theme: "neutral", securityLevel: "loose" });
+</script>
 </body>
 </html>

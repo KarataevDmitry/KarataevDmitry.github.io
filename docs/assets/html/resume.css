@@ -78,6 +78,15 @@ nav#TOC a:hover {
   border-bottom-color: rgba(11, 87, 208, 0.25);
 }
 
+/* Mermaid (KB diagrams in AI section; script injected by build-resume.csx) */
+.mermaid {
+  margin: 0.9rem 0 1.1rem 0;
+  padding: 0.75rem 0.5rem;
+  overflow-x: auto;
+  text-align: center;
+  font-size: 0.92rem;
+}
+
 /* Sidebar TOC on wide screens (keep inline TOC on narrow/mobile) */
 @media screen and (min-width: 1100px) {
   body {
