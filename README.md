@@ -23,3 +23,15 @@ dotnet script tools/build-writing.csx -- "D:\path\to\KarataevDmitry.github.io"
 ```
 
 **New article:** add `my-slug.md` under both `src/writing/en/` and `src/writing/ru/` with the same `slug`, run the script, commit `src/` and `docs/`.
+
+## Landing regression guard
+
+Главные страницы `docs/index.html` и `docs/ru/index.html` правятся вручную; при массовой заливке лендинга легко потерять пункты **Writing** / **Тексты** и ссылки «зачем проекты» в блоке проектов.
+
+После правок лендинга (или перед коммитом):
+
+```bash
+pwsh -NoProfile -File tools/assert-landing-invariants.ps1
+```
+
+На **push/PR в `main`** тот же скрипт запускается в GitHub Actions (workflow `.github/workflows/landing-invariants.yml`).

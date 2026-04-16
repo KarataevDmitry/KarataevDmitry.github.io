@@ -1,0 +1,19 @@
+# Regression guard: homepage must keep Writing/Тексты and project blurb links to parity essay.
+# See tools/assert-landing-invariants.ps1 and knowledge/work/.../karataev-github-io/README.md in agent-notes.
+name: Landing invariants
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  assert-landing:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check docs/index.html + docs/ru/index.html
+        shell: pwsh
+        run: pwsh -NoProfile -File tools/assert-landing-invariants.ps1
