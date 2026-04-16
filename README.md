@@ -5,6 +5,7 @@ GitHub Pages site: **Settings → Pages** uses the **`docs/`** folder on **`main
 ## Writing (Markdown → HTML)
 
 - **Source:** `src/writing/en/*.md` and `src/writing/ru/*.md` — YAML front matter (`slug`, `title`, `description`, `date_display`, `order`) + Markdown body.
+- **Optional provenance block** (off by default): see [`src/writing/README-provenance.md`](src/writing/README-provenance.md).
 - **Output (generated, commit after edit):** `docs/writing/` and `docs/ru/writing/` — `index.html` plus one `.html` per slug.
 - **Layout CSS:** `docs/assets/css/articles.css` (hand-edited; not overwritten by the script).
 
