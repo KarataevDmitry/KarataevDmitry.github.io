@@ -2,6 +2,9 @@
 #r "nuget: Markdig, 0.37.0"
 #r "nuget: YamlDotNet, 16.3.0"
 
+#nullable enable
+
+using System.Linq;
 using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -69,9 +72,37 @@ static List<Article> LoadArticles(string dir, IDeserializer yaml, MarkdownPipeli
 
         var html = Markdown.ToHtml(body.Trim(), mdPipeline);
         var tags = NormalizeTags(meta.Tags ?? new List<string>());
-        list.Add(new Article(meta.Slug, meta.Title, meta.Description ?? "", meta.Date_display ?? "", meta.Order, html, tags));
+        var provenance = BuildProvenanceFromFrontMatter(meta);
+        list.Add(new Article(meta.Slug, meta.Title, meta.Description ?? "", meta.Date_display ?? "", meta.Order, html, tags, provenance));
     }
     return list;
+}
+
+static CoauthorshipProvenance? BuildProvenanceFromFrontMatter(FrontMatter meta)
+{
+    if (!meta.Show_provenance)
+        return null;
+
+    var author = TrimOrNull(meta.Provenance_author);
+    var coauthors = meta.Provenance_coauthors?
+        .Where(s => !string.IsNullOrWhiteSpace(s))
+        .Select(s => s.Trim())
+        .ToList() ?? new List<string>();
+    var contribution = TrimOrNull(meta.Provenance_contribution);
+    var humanFinal = TrimOrNull(meta.Provenance_human_final);
+
+    if (author is null && coauthors.Count == 0 && contribution is null && humanFinal is null)
+        return null;
+
+    return new CoauthorshipProvenance(author, coauthors, contribution, humanFinal);
+}
+
+static string? TrimOrNull(string? s)
+{
+    if (string.IsNullOrWhiteSpace(s))
+        return null;
+    var t = s.Trim();
+    return t.Length == 0 ? null : t;
 }
 
 /// <summary>Уникальные теги: slug для URL, display — первая встреченная строка из YAML.</summary>
@@ -217,7 +248,16 @@ static void WriteArticlePage(Article a, string lang, string outDir, string writi
         sb.AppendLine("        </p>");
     }
     sb.AppendLine("      </header>");
-    sb.AppendLine();
+    if (a.Provenance is { } pv)
+    {
+        sb.AppendLine();
+        sb.AppendLine(Indent(BuildProvenanceAside(pv, isEn), "      "));
+        sb.AppendLine();
+    }
+    else
+    {
+        sb.AppendLine();
+    }
     sb.AppendLine("      <div class=\"prose\">");
     sb.AppendLine(Indent(a.BodyHtml, "        "));
     sb.AppendLine("      </div>");
@@ -628,9 +668,53 @@ static string Indent(string html, string prefix)
     return sb.ToString();
 }
 
+static string BuildProvenanceAside(CoauthorshipProvenance p, bool isEn)
+{
+    var summary = isEn ? "How this piece was written" : "Как написан этот текст";
+    var lblAuthor = isEn ? "Author" : "Автор";
+    var lblCoauthors = isEn ? "Co-authors (tools / models)" : "Соавторы (инструменты / модели)";
+    var lblContribution = isEn ? "Contribution" : "Вклад";
+    var lblHumanFinal = isEn ? "Final review and responsibility" : "Финальная проверка и ответственность";
+
+    var sb = new StringBuilder();
+    sb.AppendLine("<aside class=\"article-provenance\" aria-label=\"" + WebUtility.HtmlEncode(summary) + "\">");
+    sb.AppendLine("  <details class=\"article-provenance-details\">");
+    sb.AppendLine("    <summary class=\"article-provenance-summary\">" + WebUtility.HtmlEncode(summary) + "</summary>");
+    sb.AppendLine("    <dl class=\"article-provenance-dl\">");
+    if (p.Author is { } au)
+    {
+        sb.AppendLine("      <dt>" + WebUtility.HtmlEncode(lblAuthor) + "</dt>");
+        sb.AppendLine("      <dd>" + WebUtility.HtmlEncode(au) + "</dd>");
+    }
+    if (p.Coauthors.Count > 0)
+    {
+        sb.AppendLine("      <dt>" + WebUtility.HtmlEncode(lblCoauthors) + "</dt>");
+        sb.AppendLine("      <dd><ul class=\"article-provenance-list\">");
+        foreach (var c in p.Coauthors)
+            sb.AppendLine("        <li>" + WebUtility.HtmlEncode(c) + "</li>");
+        sb.AppendLine("      </ul></dd>");
+    }
+    if (p.Contribution is { } ct)
+    {
+        sb.AppendLine("      <dt>" + WebUtility.HtmlEncode(lblContribution) + "</dt>");
+        sb.AppendLine("      <dd class=\"article-provenance-multiline\">" + WebUtility.HtmlEncode(ct) + "</dd>");
+    }
+    if (p.HumanFinal is { } hf)
+    {
+        sb.AppendLine("      <dt>" + WebUtility.HtmlEncode(lblHumanFinal) + "</dt>");
+        sb.AppendLine("      <dd class=\"article-provenance-multiline\">" + WebUtility.HtmlEncode(hf) + "</dd>");
+    }
+    sb.AppendLine("    </dl>");
+    sb.AppendLine("  </details>");
+    sb.AppendLine("</aside>");
+    return sb.ToString().TrimEnd();
+}
+
 record ArticleTag(string Display, string Slug);
 
-record Article(string Slug, string Title, string Description, string DateDisplay, int Order, string BodyHtml, IReadOnlyList<ArticleTag> Tags);
+record Article(string Slug, string Title, string Description, string DateDisplay, int Order, string BodyHtml, IReadOnlyList<ArticleTag> Tags, CoauthorshipProvenance? Provenance);
+
+record CoauthorshipProvenance(string? Author, IReadOnlyList<string> Coauthors, string? Contribution, string? HumanFinal);
 
 class FrontMatter
 {
@@ -641,6 +725,14 @@ class FrontMatter
     public int Order { get; set; } = 100;
     [YamlMember(Alias = "tags")]
     public List<string> Tags { get; set; } = new();
+
+    /// <summary>When true and at least one provenance field is set, a disclosure block is rendered. Omit or false: no block (default).</summary>
+    public bool Show_provenance { get; set; }
+
+    public string? Provenance_author { get; set; }
+    public List<string>? Provenance_coauthors { get; set; }
+    public string? Provenance_contribution { get; set; }
+    public string? Provenance_human_final { get; set; }
 }
 
 record NavLabels(
