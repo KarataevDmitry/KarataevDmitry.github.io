@@ -15,11 +15,11 @@ while keeping **humans and tools in the same observable loop**. One of its desig
 threads is explicit: **where your eyes should go, and when** — borrowed from
 how cockpits manage attention in aviation.
 
-This text is a **conceptual sketch**. A fuller specification exists **inside the
-Cascade IDE repository** as an architecture decision record (working name **ADR 0021**,
-PFD / MFD / cockpit attention model). The repository is **not public yet**, so this
-page is the readable entry point. The product is **in active development**; details
-will move as implementation catches up.
+This text is a **conceptual sketch**. The full specification lives in the open
+[**Cascade IDE**](https://github.com/AI-Guiders/cascade-ide) repository: [**ADR 0021 — PFD / MFD cockpit attention model**](https://github.com/AI-Guiders/cascade-ide/blob/main/docs/adr/0021-pfd-mfd-cockpit-attention-model.md)
+(spatial anchors, attention policy, EICAS). See the [ADR index](https://github.com/AI-Guiders/cascade-ide/tree/main/docs/adr).
+This page remains the short public entry point; the product is **in active development**;
+details will move as implementation catches up.
 
 ## The tax: context switches
 
@@ -59,10 +59,11 @@ In plain language:
   advisory style), not “a third column for fun.” Placement can vary by preset;
   the **role** is what matters.
 
-The important move in that specification is separating **spatial anchors** (where regions
+The important move in [ADR 0021](https://github.com/AI-Guiders/cascade-ide/blob/main/docs/adr/0021-pfd-mfd-cockpit-attention-model.md) is separating **spatial anchors** (where regions
 sit) from **attention policy** (Focus / Balanced / Power, escalation, what
 counts as loud). Mixing those layers in docs or code is how products quietly
-return to chaos.
+return to chaos. PFD surface invariants are spelled out separately in
+[ADR 0037](https://github.com/AI-Guiders/cascade-ide/blob/main/docs/adr/0037-pfd-surface-invariants-and-roslyn-enforcement.md).
 
 ## “Everything in one place” without embedding the whole internet
 
@@ -77,11 +78,13 @@ which anchor it belongs to.
 
 The same philosophy that pushes **Roslyn, debuggers, and tests** through MCP is
 the philosophy that says the **IDE surface must not lie** about state. An
-attention model is how you keep that honesty **legible** — for a person and for
-an agent trying to stay aligned.
+attention model is how you keep that honesty **legible** - for a person and for
+an agent trying to stay aligned. External agent hosts connect through bridges
+described in [ADR 0016](https://github.com/AI-Guiders/cascade-ide/blob/main/docs/adr/0016-agent-client-protocol-external-agent.md), without duplicating a second cockpit in the PFD zone.
 
 ## Related
 
+- [**Cascade IDE**](https://github.com/AI-Guiders/cascade-ide) (source) · [ADR 0021](https://github.com/AI-Guiders/cascade-ide/blob/main/docs/adr/0021-pfd-mfd-cockpit-attention-model.md)
 - [**Parity with the toolchain**](/writing/why-these-projects-parity.html) — MCP, shared ground truth
 - [Why Agent-First Learn exists](/writing/why-agent-first-learn.html) — methodology
 - [Why this human–agent workspace is Agile in spirit](/writing/agent-workspace-agile.html) — Agile in spirit

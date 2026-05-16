@@ -54,11 +54,11 @@
         а <strong>человек и инструменты остаются в одном наблюдаемом контуре</strong>. <strong>В концепции
         заложено</strong> явно задать <strong>куда смотреть и когда</strong>: за это отвечает модель,
         позаимствованная у того, как в авиации устроен <strong>кокпит</strong>.</p>
-        <p>Это текст <strong>уровня идей</strong>. Развёрнутая спецификация ведётся <strong>во внутренней
-        документации репозитория Cascade IDE</strong> (архитектурная запись, рабочее имя <strong>ADR 0021</strong>,
-        модель внимания PFD / MFD / кокпит). Репозиторий <strong>пока не открыт</strong> — здесь только
-        публичное введение. Продукт <strong>в активной разработке</strong>; детали будут сдвигаться по мере того,
-        как догонит реализация.</p>
+        <p>Это текст <strong>уровня идей</strong>. Развёрнутая спецификация — в открытом репозитории
+        <a href="https://github.com/AI-Guiders/cascade-ide"><strong>Cascade IDE</strong></a>: <a href="https://github.com/AI-Guiders/cascade-ide/blob/main/docs/adr/0021-pfd-mfd-cockpit-attention-model.md"><strong>ADR 0021 — PFD / MFD — модель внимания кокпита</strong></a>
+        (якорные зоны, политика внимания, EICAS). См. <a href="https://github.com/AI-Guiders/cascade-ide/tree/main/docs/adr">индекс ADR</a>.
+        Эта страница — краткое публичное введение; продукт <strong>в активной разработке</strong>; детали
+        сдвигаются по мере реализации.</p>
         <h2 id="section">Налог: переключения контекста</h2>
         <p>Разработчик одновременно держит код, сборку, тесты, git, диагностики и агента,
         который может жить в <strong>другом</strong> приложении. Цена не только Alt+Tab — это <strong>потеря
@@ -89,9 +89,9 @@
         warning / caution / advisory), не «третья колонка для красоты». Геометрия
         может меняться пресетом; важна <strong>роль</strong>.</li>
         </ul>
-        <p>В проектной документации отдельно держат <strong>пространственные якоря</strong> (где на экране лежат регионы) и
+        <p>В <a href="https://github.com/AI-Guiders/cascade-ide/blob/main/docs/adr/0021-pfd-mfd-cockpit-attention-model.md">ADR 0021</a> отдельно держат <strong>пространственные якоря</strong> (где на экране лежат регионы) и
         <strong>политику внимания</strong> (режимы, эскалация, что считается громким). Смешивать эти
-        слои в документации и коде — быстрый путь обратно к хаосу.</p>
+        слои в документации и коде — быстрый путь обратно к хаосу. Инварианты поверхности PFD — в <a href="https://github.com/AI-Guiders/cascade-ide/blob/main/docs/adr/0037-pfd-surface-invariants-and-roslyn-enforcement.md">ADR 0037</a>.</p>
         <h2 id="section-3">«Всё в одном месте» без встраивания всего интернета</h2>
         <p><strong>Сквозная идея</strong> проста: нужна <strong>одна согласованная сцена</strong>, а не
         «вшить каждый чат в бинарник». Десять разных чат-UI внутри IDE чаще добавляют
@@ -106,6 +106,7 @@
         пытается остаться согласованным.</p>
         <h2 id="section-4">Связанный текст</h2>
         <ul>
+        <li><a href="https://github.com/AI-Guiders/cascade-ide"><strong>Cascade IDE</strong></a> (исходники) · <a href="https://github.com/AI-Guiders/cascade-ide/blob/main/docs/adr/0021-pfd-mfd-cockpit-attention-model.md">ADR 0021</a></li>
         <li><a href="/ru/writing/why-these-projects-parity.html"><strong>Паритет с тулчейном</strong></a> — MCP, общая опора на факты</li>
         <li><a href="/ru/writing/why-agent-first-learn.html">Зачем появился Agent-First Learn</a> — методология</li>
         <li><a href="/ru/writing/agent-workspace-agile.html">Почему среда «человек–агент» по духу Agile</a> — Agile по духу</li>

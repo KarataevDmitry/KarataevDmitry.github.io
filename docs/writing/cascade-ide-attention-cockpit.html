@@ -54,11 +54,11 @@
         while keeping <strong>humans and tools in the same observable loop</strong>. One of its design
         threads is explicit: <strong>where your eyes should go, and when</strong> — borrowed from
         how cockpits manage attention in aviation.</p>
-        <p>This text is a <strong>conceptual sketch</strong>. A fuller specification exists <strong>inside the
-        Cascade IDE repository</strong> as an architecture decision record (working name <strong>ADR 0021</strong>,
-        PFD / MFD / cockpit attention model). The repository is <strong>not public yet</strong>, so this
-        page is the readable entry point. The product is <strong>in active development</strong>; details
-        will move as implementation catches up.</p>
+        <p>This text is a <strong>conceptual sketch</strong>. The full specification lives in the open
+        <a href="https://github.com/AI-Guiders/cascade-ide"><strong>Cascade IDE</strong></a> repository: <a href="https://github.com/AI-Guiders/cascade-ide/blob/main/docs/adr/0021-pfd-mfd-cockpit-attention-model.md"><strong>ADR 0021 — PFD / MFD cockpit attention model</strong></a>
+        (spatial anchors, attention policy, EICAS). See the <a href="https://github.com/AI-Guiders/cascade-ide/tree/main/docs/adr">ADR index</a>.
+        This page remains the short public entry point; the product is <strong>in active development</strong>;
+        details will move as implementation catches up.</p>
         <h2 id="the-tax-context-switches">The tax: context switches</h2>
         <p>A developer juggles code, build output, tests, git, diagnostics, and an agent
         that may be half a screen away in another app. The productivity hit is not only
@@ -90,10 +90,11 @@
         advisory style), not “a third column for fun.” Placement can vary by preset;
         the <strong>role</strong> is what matters.</li>
         </ul>
-        <p>The important move in that specification is separating <strong>spatial anchors</strong> (where regions
+        <p>The important move in <a href="https://github.com/AI-Guiders/cascade-ide/blob/main/docs/adr/0021-pfd-mfd-cockpit-attention-model.md">ADR 0021</a> is separating <strong>spatial anchors</strong> (where regions
         sit) from <strong>attention policy</strong> (Focus / Balanced / Power, escalation, what
         counts as loud). Mixing those layers in docs or code is how products quietly
-        return to chaos.</p>
+        return to chaos. PFD surface invariants are spelled out separately in
+        <a href="https://github.com/AI-Guiders/cascade-ide/blob/main/docs/adr/0037-pfd-surface-invariants-and-roslyn-enforcement.md">ADR 0037</a>.</p>
         <h2 id="everything-in-one-place-without-embedding-the-whole-internet">“Everything in one place” without embedding the whole internet</h2>
         <p>The north-star wording is <strong>one coherent scene</strong>, not “ship every chat client
         inside the binary.” Ten different chat UIs inside the IDE mostly add <strong>login
@@ -104,10 +105,12 @@
         <h2 id="why-this-pairs-with-mcp-and-parity">Why this pairs with MCP and parity</h2>
         <p>The same philosophy that pushes <strong>Roslyn, debuggers, and tests</strong> through MCP is
         the philosophy that says the <strong>IDE surface must not lie</strong> about state. An
-        attention model is how you keep that honesty <strong>legible</strong> — for a person and for
-        an agent trying to stay aligned.</p>
+        attention model is how you keep that honesty <strong>legible</strong> - for a person and for
+        an agent trying to stay aligned. External agent hosts connect through bridges
+        described in <a href="https://github.com/AI-Guiders/cascade-ide/blob/main/docs/adr/0016-agent-client-protocol-external-agent.md">ADR 0016</a>, without duplicating a second cockpit in the PFD zone.</p>
         <h2 id="related">Related</h2>
         <ul>
+        <li><a href="https://github.com/AI-Guiders/cascade-ide"><strong>Cascade IDE</strong></a> (source) · <a href="https://github.com/AI-Guiders/cascade-ide/blob/main/docs/adr/0021-pfd-mfd-cockpit-attention-model.md">ADR 0021</a></li>
         <li><a href="/writing/why-these-projects-parity.html"><strong>Parity with the toolchain</strong></a> — MCP, shared ground truth</li>
         <li><a href="/writing/why-agent-first-learn.html">Why Agent-First Learn exists</a> — methodology</li>
         <li><a href="/writing/agent-workspace-agile.html">Why this human–agent workspace is Agile in spirit</a> — Agile in spirit</li>
