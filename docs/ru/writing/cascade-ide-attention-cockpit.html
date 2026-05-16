@@ -103,7 +103,7 @@
         <p>Та же линия, по которой <strong>Roslyn, отладчик и тесты</strong> приходят через MCP, —
         линия, в которой <strong>поверхность IDE не врёт</strong> о состоянии. Модель внимания — это
         способ сделать эту честность <strong>читаемой</strong> и для человека, и для агента, который
-        пытается остаться согласованным.</p>
+        пытается остаться согласованным. Внешние хосты агента связываются <strong>мостом</strong> (<a href="https://github.com/AI-Guiders/cascade-ide/blob/main/docs/adr/0016-agent-client-protocol-external-agent.md">ADR 0016</a>), без дублирования второго «кокпита» в зоне PFD.</p>
         <h2 id="section-4">Связанный текст</h2>
         <ul>
         <li><a href="https://github.com/AI-Guiders/cascade-ide"><strong>Cascade IDE</strong></a> (исходники) · <a href="https://github.com/AI-Guiders/cascade-ide/blob/main/docs/adr/0021-pfd-mfd-cockpit-attention-model.md">ADR 0021</a></li>
