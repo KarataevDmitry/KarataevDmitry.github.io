@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>kb-public — Проекты</title>
+  <meta name="description" content="Публичный read-only срез knowledge base для агентов: плейбуки, ядро целостности, маршрутизация доменов (CC BY-SA)." />
+  <link rel="alternate" hreflang="en" href="/projects/kb-public.html" />
+  <link rel="alternate" hreflang="ru" href="/ru/projects/kb-public.html" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F4BB;</text></svg>" />
+  <link rel="stylesheet" href="/assets/css/articles.css" />
+  <style>.prose table{width:100%;border-collapse:collapse;margin:1rem 0}.prose th,.prose td{border:1px solid #334155;padding:.55rem;text-align:left}.prose th{color:#f1f5f9;background:#1e293b}</style>
+</head>
+<body>
+  <a href="#main" class="skip-link">К содержанию</a>
+  <nav aria-label="Основная навигация">
+    <div class="nav-inner">
+      <div class="logo"><a href="/ru/">Д<span>.</span>Каратаев</a></div>
+      <div class="nav-right">
+        <ul>
+          <li><a href="/ru/#projects" aria-current="page">Проекты</a></li>
+          <li><a href="/ru/writing/">Тексты</a></li>
+        </ul>
+        <ul class="nav-lang" aria-label="Язык">
+          <li><a href="/projects/kb-public.html" lang="en">EN</a></li>
+          <li class="nav-sep" aria-hidden="true">|</li>
+          <li><a href="/ru/projects/kb-public.html" lang="ru" aria-current="page">RU</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <main id="main" class="container">
+    <article class="article-wrap">
+      <p class="article-back"><a href="/ru/projects/">&larr; Все проекты</a></p>
+      <header class="article-header">
+        <h1>kb-public</h1>
+        <p class="article-meta">Публичный срез KB для инструментов памяти агента</p>
+        <p class="solutions-menu">
+<a href="/ru/projects/">Все</a> <a href="/ru/projects/roslyn-mcp.html">RoslynMcp</a> <a href="/ru/projects/dotnet-debug-mcp.html">dotnet-debug-mcp</a> <a href="/ru/projects/dotnet-build-test-mcp.html">dotnet-build-test-mcp</a> <a href="/ru/projects/cascade-ide.html">cascade-ide</a> <a href="/ru/projects/kb-public.html" aria-current="page">kb-public</a>
+        </p>
+      </header>
+      <div class="prose">
+        <p><strong>kb-public</strong> — опубликованная, только для чтения, выгрузка слоя знаний агента: плейбуки и справочные карточки в <code>knowledge/</code>, урезанный фрагмент hot-context, индексы маршрутизации — без закрытых деревьев <code>work/</code> и <code>personal/</code> полного канона.</p>
+        <table>
+        <thead>
+        <tr>
+        <th>Что внутри</th>
+        <th>Зачем</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td><code>index-knowledge-router-v1.md</code></td>
+        <td>Быстрая маршрутизация доменов при узком контексте</td>
+        </tr>
+        <tr>
+        <td>Ядро целостности (<code>META/integrity-core.md</code>, POST spec)</td>
+        <td>Необсуждаемый safety-базис для потребителей</td>
+        </tr>
+        <tr>
+        <td>Доменные playbook’и (<code>worlds/*</code>, HCI, Git, KE, …)</td>
+        <td>Операционные контракты, на которые может ссылаться агент</td>
+        </tr>
+        <tr>
+        <td><code>SHOWCASE.md</code></td>
+        <td>Онбординг без загрузки всего дерева</td>
+        </tr>
+        </tbody>
+        </table>
+        <p>Контент — <strong>CC BY-SA 4.0</strong> (см. <code>knowledge/README.md</code> и <code>PUBLISHING.md</code> в репозитории). MCP-сервер, который читает полный закрытый канон, — отдельно: <strong><a href="https://github.com/AI-Guiders/agent-notes-mcp">agent-notes-mcp</a></strong> (код MIT).</p>
+        <p><strong>Связанные тексты:</strong> <a href="/ru/writing/knowledge-base-trust-curiosity.html">База знаний, доверие и любопытство</a> · <a href="/ru/writing/agent-notes-mcp-2-one-config.html">Agent Notes MCP 2.0: один конфиг</a></p>
+
+        <p><strong>Репозиторий:</strong> <a href="https://github.com/AI-Guiders/kb-public">https://github.com/AI-Guiders/kb-public</a></p>
+      </div>
+    </article>
+  </main>
+  <footer id="contact">
+    <div class="container">
+      <div class="contact-links">
+        <a href="mailto:dkarataev1990@gmail.com">Email</a>
+        <a href="https://t.me/Krawler">Telegram</a>
+        <a href="https://github.com/KarataevDmitry">GitHub</a>
+      </div>
+      <p>Дмитрий Каратаев &copy; 2026.</p>
+    </div>
+  </footer>
+</body>
+</html>
