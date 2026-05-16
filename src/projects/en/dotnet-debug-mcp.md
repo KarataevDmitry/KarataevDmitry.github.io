@@ -3,7 +3,7 @@ slug: dotnet-debug-mcp
 title: "dotnet-debug-mcp"
 description: "DAP debugging from chat: launch/attach, stepping, breakpoints, stacks, and variables."
 subtitle: "DAP-based .NET debugging for agents"
-repo_url: "https://github.com/KarataevDmitry/dotnet-debug-mcp"
+repo_url: "https://github.com/AI-Guiders/dotnet-debug-mcp"
 order: 2
 ---
 

@@ -9,7 +9,7 @@ tags:
   - methodology
 ---
 
-[Agent-First Learn](https://github.com/KarataevDmitry/agent-first-learn) is not another list of
+[Agent-First Learn](https://github.com/AI-Guiders/agent-first-learn) is not another list of
 prompt tricks. It is a **practical stance**: you are not “using a chatbot”;
 you are **building a shared workspace** with something that reads text, acts
 under constraints, and fails in predictable ways.

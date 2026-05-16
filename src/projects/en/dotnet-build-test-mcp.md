@@ -3,7 +3,7 @@ slug: dotnet-build-test-mcp
 title: "dotnet-build-test-mcp"
 description: "Structured build/test output with queueing and compact failures for agent workflows."
 subtitle: "Structured build/test execution for assistants"
-repo_url: "https://github.com/KarataevDmitry/dotnet-build-test-mcp"
+repo_url: "https://github.com/AI-Guiders/dotnet-build-test-mcp"
 order: 3
 ---
 

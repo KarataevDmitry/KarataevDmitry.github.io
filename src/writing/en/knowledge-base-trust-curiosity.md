@@ -27,7 +27,7 @@ A knowledge base is a response to **drift**: prompts evaporate, sessions fork,
 and without a **stable place for intent** you renegotiate the same boundaries
 every week. Putting playbooks, integrity rules, and “well-known paths” into a
 repo makes the environment **inspectable** — the same virtue we ask of builds
-and traces. The [**agent-notes**](https://github.com/KarataevDmitry/agent-notes)
+and traces. The [**kb-public**](https://github.com/AI-Guiders/kb-public)
 workspace is one concrete shape of that idea: not a blog, but **operational
 text** with a claim on continuity.
 

@@ -3,7 +3,7 @@ slug: cascade-ide
 title: "cascade-ide"
 description: "IDE с кокпит-моделью внимания для разработки в контуре человек-агент."
 subtitle: "IDE с кокпит-моделью внимания для контура человек-агент"
-repo_url: "https://github.com/KarataevDmitry/cascade-ide"
+repo_url: "https://github.com/AI-Guiders/cascade-ide"
 order: 4
 ---
 

@@ -52,7 +52,7 @@
 
       <div class="prose">
         <p>Стек MCP уже умеет спрашивать компилятор, отладчик и тесты. Следующий слой — <strong>что мы договорились помнить между сессиями</strong>: playbooks, границы, маршрутизация контекста. Пока этот слой размазан по промптам, env и «магическим» путям, паритет ломается: Cursor видит одно, IDE — другое, человек правит третье.</p>
-        <p><strong>Agent Notes MCP 2.0</strong> — ответ на эту рассинхронизацию: <strong>один файл настроек</strong> (TOML) как единственный источник правды для процесса MCP и для in-proc загрузки в <a href="https://github.com/KarataevDmitry/cascade-ide">Cascade IDE</a>.</p>
+        <p><strong>Agent Notes MCP 2.0</strong> — ответ на эту рассинхронизацию: <strong>один файл настроек</strong> (TOML) как единственный источник правды для процесса MCP и для in-proc загрузки в <a href="https://github.com/AI-Guiders/cascade-ide">Cascade IDE</a>.</p>
         <h2 id="section">Что было неудобно</h2>
         <p>В ранних сборках путь к «канону» знаний часто тащили через переменные окружения и дубли в настройках хоста. Это работало в одной среде и ломалось в другой: поменял <code>mcp.json</code> — забыл <code>%LocalAppData%</code>, агент в IDE читает embedded-срез, а внешний MCP — другой корень <code>knowledge/</code>. Отладка превращалась в «а кто сейчас прав?», а не в проверку содержимого.</p>
         <p>Для инженерии, где мы просим <strong>одни и те же артефакты</strong> у человека и модели, такая дрожь — лишний налог.</p>
@@ -62,7 +62,7 @@
         <li><strong>Cursor / любой MCP-хост:</strong> аргумент <code>--config</code> с путём к файлу (тот же файл, что ты правишь руками).</li>
         <li><strong>Cascade IDE:</strong> в <code>settings.toml</code> секция <code>[agent_notes]</code> с <code>config_path</code> на <strong>тот же</strong> файл.</li>
         </ul>
-        <p>Никакого отдельного «канона в env» в supported path: загрузка через общую библиотеку <a href="https://github.com/KarataevDmitry/AIGuiders.AgentNotes.Core">AIGuiders.AgentNotes.Core</a>, один <code>Initialize</code>, один primary root.</p>
+        <p>Никакого отдельного «канона в env» в supported path: загрузка через общую библиотеку <a href="https://github.com/AI-Guiders/AIGuiders.AgentNotes.Core">AIGuiders.AgentNotes.Core</a>, один <code>Initialize</code>, один primary root.</p>
         <p>Минимальный смысл файла:</p>
         <pre><code class="language-toml">version = 1
 
@@ -80,7 +80,7 @@
         <p>Публичные тулы MCP и команды IDE (<code>ide_read_knowledge_file</code>, <code>ide_memory_health</code>, …) говорят на одном языке аргументов: <strong><code>knowledge_path</code></strong> — корень с каталогом <code>knowledge/</code>. Старое имя <code>canon_path</code> в IDE ещё принимается как алиас, но новый текст и документация идут в одну сторону — чтобы не плодить два слоя «истины» в JSON.</p>
         <p>Практический критерий: вызов <code>memory_health</code> в Cursor и <code>ide_memory_health</code> в Cascade IDE должен показывать <strong>тот же</strong> <code>notes_path</code> и тот же <code>resolved_scope</code>, если <code>config_path</code> указывает на один TOML.</p>
         <h2 id="section-1">Наблюдаемость без облака</h2>
-        <p>Отдельно в 2.0 появилась <strong>localhost status surface</strong> у процесса <a href="https://github.com/KarataevDmitry/agent-notes-mcp">agent-notes-mcp</a>: <code>/health</code>, HTML-дашборд, ring buffer последних вызовов тулов. Это не «аналитика в SaaS», а <strong>короткий ответ на вопрос «жив ли сервер и что он только что делал»</strong> — в духе того же паритета: факты на диске и в HTTP на loopback, а не ощущение из чата.</p>
+        <p>Отдельно в 2.0 появилась <strong>localhost status surface</strong> у процесса <a href="https://github.com/AI-Guiders/agent-notes-mcp">agent-notes-mcp</a>: <code>/health</code>, HTML-дашборд, ring buffer последних вызовов тулов. Это не «аналитика в SaaS», а <strong>короткий ответ на вопрос «жив ли сервер и что он только что делал»</strong> — в духе того же паритета: факты на диске и в HTTP на loopback, а не ощущение из чата.</p>
         <p>Cascade IDE эту HTTP-страницу не подменяет: IDE грузит Core <strong>in-proc</strong>. Зато на странице «готовность окружения» есть строка <strong>agent-notes config (TOML)</strong> — файл найден, primary root существует. В Dark Cockpit <strong>норма — лампа не горит</strong>: OK значит «тихо», а не «сломано».</p>
         <h2 id="section-2">Зачем это в линии сайта</h2>
         <p>Репозитории на GitHub — доказательство. Тексты в разделе <a href="/writing/">/writing/</a> — <strong>зачем</strong> устроена работа: общая опора, проверяемость, уважение к обоим участникам пары человек–агент. Эта заметка — про <strong>инфраструктуру памяти</strong>, без которой остальной MCP-стек остаётся умным, но амнестическим.</p>
@@ -91,7 +91,7 @@
         <li><a href="/ru/writing/cascade-ide-attention-cockpit.html"><strong>Модель внимания Cascade IDE</strong></a> — кокпит и наблюдаемость агента в IDE.</li>
         <li><a href="/ru/writing/summarization-parity-and-host-summary.html"><strong>Равное право завершить и почему сжатие на хосте — слабый фундамент</strong></a> — верифицируемые артефакты вместо непрозрачного summary.</li>
         </ul>
-        <p>Код и ADR в репозиториях: <a href="https://github.com/KarataevDmitry/agent-notes-mcp">agent-notes-mcp</a>, <a href="https://github.com/KarataevDmitry/cascade-ide">cascade-ide</a> (ветка <code>develop</code>, ADR 0118).</p>
+        <p>Код и ADR в репозиториях: <a href="https://github.com/AI-Guiders/agent-notes-mcp">agent-notes-mcp</a>, <a href="https://github.com/AI-Guiders/cascade-ide">cascade-ide</a> (ветка <code>develop</code>, ADR 0118).</p>
 
       </div>
     </article>

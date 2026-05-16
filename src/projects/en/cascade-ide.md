@@ -3,7 +3,7 @@ slug: cascade-ide
 title: "cascade-ide"
 description: "Cockpit-style IDE surface for human-agent development with MCP-first orchestration."
 subtitle: "Cockpit-inspired IDE for human-agent flow"
-repo_url: "https://github.com/KarataevDmitry/cascade-ide"
+repo_url: "https://github.com/AI-Guiders/cascade-ide"
 order: 4
 ---
 

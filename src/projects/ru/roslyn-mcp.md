@@ -3,7 +3,7 @@ slug: roslyn-mcp
 title: "RoslynMcp"
 description: "MCP на Roslyn: диагностики, символы и безопасные рефакторинги для агента."
 subtitle: "MCP поверх Roslyn для семантических операций C#"
-repo_url: "https://github.com/KarataevDmitry/RoslynMcp"
+repo_url: "https://github.com/AI-Guiders/RoslynMcp"
 order: 1
 ---
 

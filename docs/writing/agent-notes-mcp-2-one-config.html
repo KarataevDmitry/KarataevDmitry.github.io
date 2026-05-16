@@ -52,7 +52,7 @@
 
       <div class="prose">
         <p>The MCP stack already asks the compiler, debugger, and tests for truth. The next layer is <strong>what we agree to keep between sessions</strong>: playbooks, boundaries, context routing. While that layer is spread across prompts, env vars, and ad-hoc paths, parity breaks: Cursor sees one layout, the IDE another, and the human edits a third.</p>
-        <p><strong>Agent Notes MCP 2.0</strong> answers that drift: <strong>one settings file</strong> (TOML) as the single source of truth for the MCP process and for in-proc loading inside <a href="https://github.com/KarataevDmitry/cascade-ide">Cascade IDE</a>.</p>
+        <p><strong>Agent Notes MCP 2.0</strong> answers that drift: <strong>one settings file</strong> (TOML) as the single source of truth for the MCP process and for in-proc loading inside <a href="https://github.com/AI-Guiders/cascade-ide">Cascade IDE</a>.</p>
         <h2 id="what-was-awkward">What was awkward</h2>
         <p>Early builds often carried the “canon” knowledge root through environment variables and duplicate host settings. That worked in one environment and failed in another: you change <code>mcp.json</code>, forget <code>%LocalAppData%</code>, the IDE agent reads an embedded slice while external MCP points elsewhere. Debugging becomes “who is right now?” instead of inspecting content.</p>
         <p>For engineering that asks <strong>people and models to cite the same artefacts</strong>, that jitter is pure overhead.</p>
@@ -62,7 +62,7 @@
         <li><strong>Cursor / any MCP host:</strong> <code>--config</code> pointing at the file you edit by hand.</li>
         <li><strong>Cascade IDE:</strong> <code>[agent_notes].config_path</code> in <code>settings.toml</code> — <strong>the same file</strong>.</li>
         </ul>
-        <p>No separate “canon in env” on the supported path: load via <a href="https://github.com/KarataevDmitry/AIGuiders.AgentNotes.Core">AIGuiders.AgentNotes.Core</a>, one <code>Initialize</code>, one primary root.</p>
+        <p>No separate “canon in env” on the supported path: load via <a href="https://github.com/AI-Guiders/AIGuiders.AgentNotes.Core">AIGuiders.AgentNotes.Core</a>, one <code>Initialize</code>, one primary root.</p>
         <p>Minimal shape:</p>
         <pre><code class="language-toml">version = 1
 
@@ -80,7 +80,7 @@
         <p>Public MCP tools and IDE commands (<code>ide_read_knowledge_file</code>, <code>ide_memory_health</code>, …) share one argument story: <strong><code>knowledge_path</code></strong> — the root that contains a <code>knowledge/</code> directory. The legacy <code>canon_path</code> name is still accepted in the IDE executor as an alias, but new docs and examples converge on one term so JSON does not fork “truth”.</p>
         <p>Practical check: <code>memory_health</code> in Cursor and <code>ide_memory_health</code> in Cascade IDE should report the <strong>same</strong> <code>notes_path</code> and <code>resolved_scope</code> when <code>config_path</code> aims at one TOML.</p>
         <h2 id="observability-without-a-cloud">Observability without a cloud</h2>
-        <p>2.0 also adds a <strong>localhost status surface</strong> on the <a href="https://github.com/KarataevDmitry/agent-notes-mcp">agent-notes-mcp</a> process: <code>/health</code>, a small HTML dashboard, a ring buffer of recent tool calls. Not SaaS analytics — a <strong>quick answer to “is the server alive and what did it just do?”</strong> in the same spirit as parity: facts on disk and on loopback HTTP, not chat vibes.</p>
+        <p>2.0 also adds a <strong>localhost status surface</strong> on the <a href="https://github.com/AI-Guiders/agent-notes-mcp">agent-notes-mcp</a> process: <code>/health</code>, a small HTML dashboard, a ring buffer of recent tool calls. Not SaaS analytics — a <strong>quick answer to “is the server alive and what did it just do?”</strong> in the same spirit as parity: facts on disk and on loopback HTTP, not chat vibes.</p>
         <p>Cascade IDE does not replace that HTTP page; the IDE loads Core <strong>in-proc</strong>. On the environment-readiness page you get a row <strong>agent-notes config (TOML)</strong> — file found, primary root exists. In the Dark Cockpit pattern, <strong>a lamp that stays off is OK</strong>: quiet means healthy, not broken.</p>
         <h2 id="why-this-belongs-on-the-site">Why this belongs on the site</h2>
         <p>GitHub repos are proof. The <a href="/writing/">/writing/</a> section is <strong>intent</strong>: shared ground, inspectability, respect for both sides of the human–agent pair. This note is about <strong>memory infrastructure</strong> without which the rest of the MCP stack stays clever but amnesic.</p>
@@ -91,7 +91,7 @@
         <li><a href="/writing/cascade-ide-attention-cockpit.html"><strong>Cascade IDE’s cockpit-inspired attention model</strong></a> — cockpit and agent observability in the IDE.</li>
         <li><a href="/writing/summarization-parity-and-host-summary.html"><strong>Equal right to wrap up, and why host-side compression is a weak foundation</strong></a> — verifiable artefacts vs opaque summarization.</li>
         </ul>
-        <p>Code and ADRs: <a href="https://github.com/KarataevDmitry/agent-notes-mcp">agent-notes-mcp</a>, <a href="https://github.com/KarataevDmitry/cascade-ide">cascade-ide</a> (<code>develop</code>, ADR 0118).</p>
+        <p>Code and ADRs: <a href="https://github.com/AI-Guiders/agent-notes-mcp">agent-notes-mcp</a>, <a href="https://github.com/AI-Guiders/cascade-ide">cascade-ide</a> (<code>develop</code>, ADR 0118).</p>
 
       </div>
     </article>

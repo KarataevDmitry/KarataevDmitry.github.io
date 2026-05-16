@@ -9,7 +9,7 @@ tags:
   - methodology
 ---
 
-[Agent-First Learn](https://github.com/KarataevDmitry/agent-first-learn) — это не
+[Agent-First Learn](https://github.com/AI-Guiders/agent-first-learn) — это не
 ещё один список «промптов для продуктивности». Это **практическая позиция**:
 ты не «пользуешься чатботом», а **строишь общее рабочее пространство** с тем,
 кто читает текст, действует в ограничениях и ломается предсказуемо.

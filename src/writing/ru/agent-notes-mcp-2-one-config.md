@@ -13,7 +13,7 @@ tags:
 
 Стек MCP уже умеет спрашивать компилятор, отладчик и тесты. Следующий слой — **что мы договорились помнить между сессиями**: playbooks, границы, маршрутизация контекста. Пока этот слой размазан по промптам, env и «магическим» путям, паритет ломается: Cursor видит одно, IDE — другое, человек правит третье.
 
-**Agent Notes MCP 2.0** — ответ на эту рассинхронизацию: **один файл настроек** (TOML) как единственный источник правды для процесса MCP и для in-proc загрузки в [Cascade IDE](https://github.com/KarataevDmitry/cascade-ide).
+**Agent Notes MCP 2.0** — ответ на эту рассинхронизацию: **один файл настроек** (TOML) как единственный источник правды для процесса MCP и для in-proc загрузки в [Cascade IDE](https://github.com/AI-Guiders/cascade-ide).
 
 ## Что было неудобно
 
@@ -28,7 +28,7 @@ tags:
 - **Cursor / любой MCP-хост:** аргумент `--config` с путём к файлу (тот же файл, что ты правишь руками).
 - **Cascade IDE:** в `settings.toml` секция `[agent_notes]` с `config_path` на **тот же** файл.
 
-Никакого отдельного «канона в env» в supported path: загрузка через общую библиотеку [AIGuiders.AgentNotes.Core](https://github.com/KarataevDmitry/AIGuiders.AgentNotes.Core), один `Initialize`, один primary root.
+Никакого отдельного «канона в env» в supported path: загрузка через общую библиотеку [AIGuiders.AgentNotes.Core](https://github.com/AI-Guiders/AIGuiders.AgentNotes.Core), один `Initialize`, один primary root.
 
 Минимальный смысл файла:
 
@@ -55,7 +55,7 @@ default_scope = "mixed"
 
 ## Наблюдаемость без облака
 
-Отдельно в 2.0 появилась **localhost status surface** у процесса [agent-notes-mcp](https://github.com/KarataevDmitry/agent-notes-mcp): `/health`, HTML-дашборд, ring buffer последних вызовов тулов. Это не «аналитика в SaaS», а **короткий ответ на вопрос «жив ли сервер и что он только что делал»** — в духе того же паритета: факты на диске и в HTTP на loopback, а не ощущение из чата.
+Отдельно в 2.0 появилась **localhost status surface** у процесса [agent-notes-mcp](https://github.com/AI-Guiders/agent-notes-mcp): `/health`, HTML-дашборд, ring buffer последних вызовов тулов. Это не «аналитика в SaaS», а **короткий ответ на вопрос «жив ли сервер и что он только что делал»** — в духе того же паритета: факты на диске и в HTTP на loopback, а не ощущение из чата.
 
 Cascade IDE эту HTTP-страницу не подменяет: IDE грузит Core **in-proc**. Зато на странице «готовность окружения» есть строка **agent-notes config (TOML)** — файл найден, primary root существует. В Dark Cockpit **норма — лампа не горит**: OK значит «тихо», а не «сломано».
 
@@ -70,4 +70,4 @@ Cascade IDE эту HTTP-страницу не подменяет: IDE грузи
 - [**Модель внимания Cascade IDE**](/ru/writing/cascade-ide-attention-cockpit.html) — кокпит и наблюдаемость агента в IDE.
 - [**Равное право завершить и почему сжатие на хосте — слабый фундамент**](/ru/writing/summarization-parity-and-host-summary.html) — верифицируемые артефакты вместо непрозрачного summary.
 
-Код и ADR в репозиториях: [agent-notes-mcp](https://github.com/KarataevDmitry/agent-notes-mcp), [cascade-ide](https://github.com/KarataevDmitry/cascade-ide) (ветка `develop`, ADR 0118).
+Код и ADR в репозиториях: [agent-notes-mcp](https://github.com/AI-Guiders/agent-notes-mcp), [cascade-ide](https://github.com/AI-Guiders/cascade-ide) (ветка `develop`, ADR 0118).

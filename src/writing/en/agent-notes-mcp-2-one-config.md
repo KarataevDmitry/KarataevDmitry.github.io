@@ -13,7 +13,7 @@ tags:
 
 The MCP stack already asks the compiler, debugger, and tests for truth. The next layer is **what we agree to keep between sessions**: playbooks, boundaries, context routing. While that layer is spread across prompts, env vars, and ad-hoc paths, parity breaks: Cursor sees one layout, the IDE another, and the human edits a third.
 
-**Agent Notes MCP 2.0** answers that drift: **one settings file** (TOML) as the single source of truth for the MCP process and for in-proc loading inside [Cascade IDE](https://github.com/KarataevDmitry/cascade-ide).
+**Agent Notes MCP 2.0** answers that drift: **one settings file** (TOML) as the single source of truth for the MCP process and for in-proc loading inside [Cascade IDE](https://github.com/AI-Guiders/cascade-ide).
 
 ## What was awkward
 
@@ -28,7 +28,7 @@ In 2.0, configuration lives in a **local TOML file** (schema version 1): `knowle
 - **Cursor / any MCP host:** `--config` pointing at the file you edit by hand.
 - **Cascade IDE:** `[agent_notes].config_path` in `settings.toml` — **the same file**.
 
-No separate “canon in env” on the supported path: load via [AIGuiders.AgentNotes.Core](https://github.com/KarataevDmitry/AIGuiders.AgentNotes.Core), one `Initialize`, one primary root.
+No separate “canon in env” on the supported path: load via [AIGuiders.AgentNotes.Core](https://github.com/AI-Guiders/AIGuiders.AgentNotes.Core), one `Initialize`, one primary root.
 
 Minimal shape:
 
@@ -55,7 +55,7 @@ Practical check: `memory_health` in Cursor and `ide_memory_health` in Cascade ID
 
 ## Observability without a cloud
 
-2.0 also adds a **localhost status surface** on the [agent-notes-mcp](https://github.com/KarataevDmitry/agent-notes-mcp) process: `/health`, a small HTML dashboard, a ring buffer of recent tool calls. Not SaaS analytics — a **quick answer to “is the server alive and what did it just do?”** in the same spirit as parity: facts on disk and on loopback HTTP, not chat vibes.
+2.0 also adds a **localhost status surface** on the [agent-notes-mcp](https://github.com/AI-Guiders/agent-notes-mcp) process: `/health`, a small HTML dashboard, a ring buffer of recent tool calls. Not SaaS analytics — a **quick answer to “is the server alive and what did it just do?”** in the same spirit as parity: facts on disk and on loopback HTTP, not chat vibes.
 
 Cascade IDE does not replace that HTTP page; the IDE loads Core **in-proc**. On the environment-readiness page you get a row **agent-notes config (TOML)** — file found, primary root exists. In the Dark Cockpit pattern, **a lamp that stays off is OK**: quiet means healthy, not broken.
 
@@ -70,4 +70,4 @@ GitHub repos are proof. The [/writing/](/writing/) section is **intent**: shared
 - [**Cascade IDE’s cockpit-inspired attention model**](/writing/cascade-ide-attention-cockpit.html) — cockpit and agent observability in the IDE.
 - [**Equal right to wrap up, and why host-side compression is a weak foundation**](/writing/summarization-parity-and-host-summary.html) — verifiable artefacts vs opaque summarization.
 
-Code and ADRs: [agent-notes-mcp](https://github.com/KarataevDmitry/agent-notes-mcp), [cascade-ide](https://github.com/KarataevDmitry/cascade-ide) (`develop`, ADR 0118).
+Code and ADRs: [agent-notes-mcp](https://github.com/AI-Guiders/agent-notes-mcp), [cascade-ide](https://github.com/AI-Guiders/cascade-ide) (`develop`, ADR 0118).

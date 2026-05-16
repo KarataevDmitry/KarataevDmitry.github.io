@@ -3,7 +3,7 @@ slug: dotnet-debug-mcp
 title: "dotnet-debug-mcp"
 description: "DAP-отладка из чата: launch/attach, шаги, брейкпоинты, стек и переменные."
 subtitle: "DAP-отладка .NET для агентных сценариев"
-repo_url: "https://github.com/KarataevDmitry/dotnet-debug-mcp"
+repo_url: "https://github.com/AI-Guiders/dotnet-debug-mcp"
 order: 2
 ---
 
