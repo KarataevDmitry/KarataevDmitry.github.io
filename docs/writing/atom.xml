@@ -4,8 +4,15 @@
   <link href="https://karataevdmitry.github.io/writing/" rel="alternate" type="text/html" />
   <link href="https://karataevdmitry.github.io/writing/atom.xml" rel="self" type="application/atom+xml" />
   <id>https://karataevdmitry.github.io/writing/atom.xml</id>
-  <updated>2026-04-08T12:00:00Z</updated>
+  <updated>2026-04-10T12:00:00Z</updated>
   <author><name>Dmitry Karataev</name></author>
+  <entry>
+    <title>Agent Notes MCP 2.0: one config for Cursor and the IDE</title>
+    <link href="https://karataevdmitry.github.io/writing/agent-notes-mcp-2-one-config.html" rel="alternate" type="text/html" />
+    <id>https://karataevdmitry.github.io/writing/agent-notes-mcp-2-one-config.html</id>
+    <updated>2026-04-10T12:00:00Z</updated>
+    <summary type="text">Agent memory stops living in scattered environment variables — one TOML for MCP, Cascade IDE, and inspectable hot-context.</summary>
+  </entry>
   <entry>
     <title>Roslyn MCP workspace navigation: what it gives an agent</title>
     <link href="https://karataevdmitry.github.io/writing/roslyn-mcp-workspace-navigation-for-agents.html" rel="alternate" type="text/html" />

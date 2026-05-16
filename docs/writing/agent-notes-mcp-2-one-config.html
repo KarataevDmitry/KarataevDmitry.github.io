@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Agent Notes MCP 2.0: one config for Cursor and the IDE — Dmitry Karataev</title>
+  <meta name="description" content="Agent memory stops living in scattered environment variables — one TOML for MCP, Cascade IDE, and inspectable hot-context." />
+  <link rel="alternate" hreflang="en" href="/writing/agent-notes-mcp-2-one-config.html" />
+  <link rel="alternate" hreflang="ru" href="/ru/writing/agent-notes-mcp-2-one-config.html" />
+  <link rel="alternate" hreflang="x-default" href="/writing/agent-notes-mcp-2-one-config.html" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F4BB;</text></svg>" />
+  <link rel="stylesheet" href="/assets/css/articles.css" />
+  <link rel="alternate" type="application/atom+xml" title="Writing (Atom)" href="/writing/atom.xml" />
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <div class="logo"><a href="/">D<span>.</span>Karataev</a></div>
+      <div class="nav-right">
+        <ul>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#projects">Projects</a></li>
+          <li><a href="/writing/" aria-current="page">Writing</a></li>
+          <li><a href="/#experience">Experience</a></li>
+          <li><a href="/#documents">Docs</a></li>
+        </ul>
+        <ul class="nav-lang" aria-label="Language">
+          <li><a href="/writing/agent-notes-mcp-2-one-config.html" lang="en" aria-current="page">EN</a></li>
+          <li class="nav-sep" aria-hidden="true">|</li>
+          <li><a href="/ru/writing/agent-notes-mcp-2-one-config.html" lang="ru">RU</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main" class="container">
+    <article class="article-wrap">
+      <p class="article-back"><a href="/writing/">&larr; All writing</a> · <a href="/writing/tags.html">All tags</a> · <a href="/writing/atom.xml">Atom feed</a></p>
+
+      <header class="article-header">
+        <h1>Agent Notes MCP 2.0: one config for Cursor and the IDE</h1>
+        <p class="article-meta">May 2026</p>
+        <p class="article-tags" aria-label="tags">
+          <a class="tag-pill" href="/writing/tag/agents.html">agents</a>
+          <a class="tag-pill" href="/writing/tag/knowledge-base.html">knowledge-base</a>
+          <a class="tag-pill" href="/writing/tag/mcp.html">mcp</a>
+          <a class="tag-pill" href="/writing/tag/parity.html">parity</a>
+        </p>
+      </header>
+
+      <div class="prose">
+        <p>The MCP stack already asks the compiler, debugger, and tests for truth. The next layer is <strong>what we agree to keep between sessions</strong>: playbooks, boundaries, context routing. While that layer is spread across prompts, env vars, and ad-hoc paths, parity breaks: Cursor sees one layout, the IDE another, and the human edits a third.</p>
+        <p><strong>Agent Notes MCP 2.0</strong> answers that drift: <strong>one settings file</strong> (TOML) as the single source of truth for the MCP process and for in-proc loading inside <a href="https://github.com/KarataevDmitry/cascade-ide">Cascade IDE</a>.</p>
+        <h2 id="what-was-awkward">What was awkward</h2>
+        <p>Early builds often carried the “canon” knowledge root through environment variables and duplicate host settings. That worked in one environment and failed in another: you change <code>mcp.json</code>, forget <code>%LocalAppData%</code>, the IDE agent reads an embedded slice while external MCP points elsewhere. Debugging becomes “who is right now?” instead of inspecting content.</p>
+        <p>For engineering that asks <strong>people and models to cite the same artefacts</strong>, that jitter is pure overhead.</p>
+        <h2 id="one-toml-ssot">One TOML — SSOT</h2>
+        <p>In 2.0, configuration lives in a <strong>local TOML file</strong> (schema version 1): <code>knowledge/</code> roots, workspace scope, optional loopback status.</p>
+        <ul>
+        <li><strong>Cursor / any MCP host:</strong> <code>--config</code> pointing at the file you edit by hand.</li>
+        <li><strong>Cascade IDE:</strong> <code>[agent_notes].config_path</code> in <code>settings.toml</code> — <strong>the same file</strong>.</li>
+        </ul>
+        <p>No separate “canon in env” on the supported path: load via <a href="https://github.com/KarataevDmitry/AIGuiders.AgentNotes.Core">AIGuiders.AgentNotes.Core</a>, one <code>Initialize</code>, one primary root.</p>
+        <p>Minimal shape:</p>
+        <pre><code class="language-toml">version = 1
+
+        [knowledge]
+        primary = &quot;personal&quot;
+
+        [knowledge.roots]
+        personal = &quot;/path/to/your/knowledge-repo&quot;
+
+        [workspace]
+        default_scope = &quot;mixed&quot;
+        </code></pre>
+        <p>Your knowledge repo path is yours; the contract is shared.</p>
+        <h2 id="tool-parity-knowledge_path-not-two-names">Tool parity: <code>knowledge_path</code>, not two names</h2>
+        <p>Public MCP tools and IDE commands (<code>ide_read_knowledge_file</code>, <code>ide_memory_health</code>, …) share one argument story: <strong><code>knowledge_path</code></strong> — the root that contains a <code>knowledge/</code> directory. The legacy <code>canon_path</code> name is still accepted in the IDE executor as an alias, but new docs and examples converge on one term so JSON does not fork “truth”.</p>
+        <p>Practical check: <code>memory_health</code> in Cursor and <code>ide_memory_health</code> in Cascade IDE should report the <strong>same</strong> <code>notes_path</code> and <code>resolved_scope</code> when <code>config_path</code> aims at one TOML.</p>
+        <h2 id="observability-without-a-cloud">Observability without a cloud</h2>
+        <p>2.0 also adds a <strong>localhost status surface</strong> on the <a href="https://github.com/KarataevDmitry/agent-notes-mcp">agent-notes-mcp</a> process: <code>/health</code>, a small HTML dashboard, a ring buffer of recent tool calls. Not SaaS analytics — a <strong>quick answer to “is the server alive and what did it just do?”</strong> in the same spirit as parity: facts on disk and on loopback HTTP, not chat vibes.</p>
+        <p>Cascade IDE does not replace that HTTP page; the IDE loads Core <strong>in-proc</strong>. On the environment-readiness page you get a row <strong>agent-notes config (TOML)</strong> — file found, primary root exists. In the Dark Cockpit pattern, <strong>a lamp that stays off is OK</strong>: quiet means healthy, not broken.</p>
+        <h2 id="why-this-belongs-on-the-site">Why this belongs on the site</h2>
+        <p>GitHub repos are proof. The <a href="/writing/">/writing/</a> section is <strong>intent</strong>: shared ground, inspectability, respect for both sides of the human–agent pair. This note is about <strong>memory infrastructure</strong> without which the rest of the MCP stack stays clever but amnesic.</p>
+        <h2 id="related">Related</h2>
+        <ul>
+        <li><a href="/writing/why-these-projects-parity.html"><strong>Why these projects, and why parity matters</strong></a> — MCP stack and shared ground truth.</li>
+        <li><a href="/writing/knowledge-base-trust-curiosity.html"><strong>Knowledge base, trust, and curiosity</strong></a> — why the KB layer exists.</li>
+        <li><a href="/writing/cascade-ide-attention-cockpit.html"><strong>Cascade IDE’s cockpit-inspired attention model</strong></a> — cockpit and agent observability in the IDE.</li>
+        <li><a href="/writing/summarization-parity-and-host-summary.html"><strong>Equal right to wrap up, and why host-side compression is a weak foundation</strong></a> — verifiable artefacts vs opaque summarization.</li>
+        </ul>
+        <p>Code and ADRs: <a href="https://github.com/KarataevDmitry/agent-notes-mcp">agent-notes-mcp</a>, <a href="https://github.com/KarataevDmitry/cascade-ide">cascade-ide</a> (<code>develop</code>, ADR 0118).</p>
+
+      </div>
+    </article>
+  </main>
+
+  <footer id="contact">
+    <div class="container">
+      <div class="contact-links">
+        <a href="mailto:dkarataev1990@gmail.com">Email</a>
+        <a href="https://t.me/Krawler">Telegram</a>
+        <a href="https://github.com/KarataevDmitry">GitHub</a>
+      </div>
+      <p>Dmitry Karataev &copy; 2026.</p>
+    </div>
+  </footer>
+</body>
+</html>
