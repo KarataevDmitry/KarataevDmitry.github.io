@@ -16,7 +16,7 @@ threads is explicit: **where your eyes should go, and when** — borrowed from
 how cockpits manage attention in aviation.
 
 This text is a **conceptual sketch**. The full specification lives in the open
-[**Cascade IDE**](https://github.com/AI-Guiders/cascade-ide) repository: [**ADR 0021 — PFD / MFD cockpit attention model**](https://github.com/AI-Guiders/cascade-ide/blob/main/docs/adr/0021-pfd-mfd-cockpit-attention-model.md)
+[**Cascade IDE**](https://github.com/AI-Guiders/cascade-ide) repository: [**ADR 0021 — PFD / MFD cockpit attention model**](https://github.com/AI-Guiders/cascade-ide/blob/main/docs/adr/0021-pfd-mfd-cockpit-attention-model.md) (**Accepted**)
 (spatial anchors, attention policy, EICAS). See the [ADR index](https://github.com/AI-Guiders/cascade-ide/tree/main/docs/adr).
 This page remains the short public entry point; the product is **in active development**;
 details will move as implementation catches up.

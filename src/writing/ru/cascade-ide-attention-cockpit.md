@@ -16,7 +16,7 @@ tags:
 позаимствованная у того, как в авиации устроен **кокпит**.
 
 Это текст **уровня идей**. Развёрнутая спецификация — в открытом репозитории
-[**Cascade IDE**](https://github.com/AI-Guiders/cascade-ide): [**ADR 0021 — PFD / MFD — модель внимания кокпита**](https://github.com/AI-Guiders/cascade-ide/blob/main/docs/adr/0021-pfd-mfd-cockpit-attention-model.md)
+[**Cascade IDE**](https://github.com/AI-Guiders/cascade-ide): [**ADR 0021 — PFD / MFD — модель внимания кокпита**](https://github.com/AI-Guiders/cascade-ide/blob/main/docs/adr/0021-pfd-mfd-cockpit-attention-model.md) (статус **Accepted**)
 (якорные зоны, политика внимания, EICAS). См. [индекс ADR](https://github.com/AI-Guiders/cascade-ide/tree/main/docs/adr).
 Эта страница — краткое публичное введение; продукт **в активной разработке**; детали
 сдвигаются по мере реализации.
