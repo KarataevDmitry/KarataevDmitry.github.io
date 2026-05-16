@@ -1,4 +1,4 @@
-# Нормализация окончаний строк: в репозитории — LF (удобно для GitHub Pages и сборок на Linux).
+# Normalize line endings in the repo: LF (GitHub Pages + dotnet script on Linux).
 .gitattributes text eol=lf
 * text=auto
 
@@ -11,3 +11,14 @@
 *.yml  text eol=lf
 *.yaml text eol=lf
 *.svg  text eol=lf
+*.txt  text eol=lf
+*.ps1  text eol=lf
+
+# Binary / generated assets
+*.pdf  -text
+*.docx -text
+*.png  -text
+*.jpg  -text
+*.jpeg -text
+*.gif  -text
+*.ico  -text
