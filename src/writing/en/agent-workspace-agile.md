@@ -81,6 +81,8 @@ every morning.
 
 ## Related
 
+- [**IOP manifest (Intent-Oriented Programming)**](https://github.com/AI-Guiders/cascade-ide/blob/develop/docs/en/iop-manifest-v1.md) — named discipline canon; Cascade IDE is a use case in the same repo, not the definition of IOP
+
 - [**Parity with the toolchain**](/writing/why-these-projects-parity.html) — MCP, shared ground truth
 - [Why Agent-First Learn exists](/writing/why-agent-first-learn.html) — methodology and stance
 - [**Cascade IDE’s cockpit-inspired attention model**](/writing/cascade-ide-attention-cockpit.html)
