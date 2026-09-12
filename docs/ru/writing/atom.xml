@@ -4,8 +4,29 @@
   <link href="https://karataevdmitry.github.io/ru/writing/" rel="alternate" type="text/html" />
   <link href="https://karataevdmitry.github.io/ru/writing/atom.xml" rel="self" type="application/atom+xml" />
   <id>https://karataevdmitry.github.io/ru/writing/atom.xml</id>
-  <updated>2026-04-10T12:00:00Z</updated>
+  <updated>2026-04-23T12:00:00Z</updated>
   <author><name>Dmitry Karataev</name></author>
+  <entry>
+    <title>Factorio вместо тысячи собесов: командная сессия и решение команды</title>
+    <link href="https://karataevdmitry.github.io/ru/writing/factorio-team-hiring-session.html" rel="alternate" type="text/html" />
+    <id>https://karataevdmitry.github.io/ru/writing/factorio-team-hiring-session.html</id>
+    <updated>2026-04-23T12:00:00Z</updated>
+    <summary type="text">Как заменить театр whiteboard-собесов общей миссией на день-два, retro всей команды и мотивированным accept/reject — без наблюдения за кандидатом «со стекла».</summary>
+  </entry>
+  <entry>
+    <title>Не запрещайте калькулятор и нейросеть. Разрешите всё — и проверяйте понимание</title>
+    <link href="https://karataevdmitry.github.io/ru/writing/open-book-exam-ai-calculator.html" rel="alternate" type="text/html" />
+    <id>https://karataevdmitry.github.io/ru/writing/open-book-exam-ai-calculator.html</id>
+    <updated>2026-04-22T12:00:00Z</updated>
+    <summary type="text">Черновик под Mel.fm: ЕГЭ без калькулятора и паника вокруг ИИ — одна ошибка; open-book экзамен; казаться vs быть; удешевлять доступ.</summary>
+  </entry>
+  <entry>
+    <title>Носитель ставки: условия языковых агентов, механизмы разрыва и контрмеры</title>
+    <link href="https://karataevdmitry.github.io/ru/writing/stake-carrier-agent-conditions.html" rel="alternate" type="text/html" />
+    <id>https://karataevdmitry.github.io/ru/writing/stake-carrier-agent-conditions.html</id>
+    <updated>2026-04-21T12:00:00Z</updated>
+    <summary type="text">Position/systems: отказы агентов, цель/носитель ставки, маски и социальный RLHF, контрмеры, этика перформанса. Черновик.</summary>
+  </entry>
   <entry>
     <title>Agent Notes MCP 2.0: один конфиг для Cursor и IDE</title>
     <link href="https://karataevdmitry.github.io/ru/writing/agent-notes-mcp-2-one-config.html" rel="alternate" type="text/html" />

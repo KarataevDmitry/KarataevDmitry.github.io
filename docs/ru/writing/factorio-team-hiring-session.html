@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Factorio вместо тысячи собесов: командная сессия и решение команды — Дмитрий Каратаев</title>
+  <meta name="description" content="Как заменить театр whiteboard-собесов общей миссией на день-два, retro всей команды и мотивированным accept/reject — без наблюдения за кандидатом &#171;со стекла&#187;." />
+  <link rel="alternate" hreflang="en" href="/writing/factorio-team-hiring-session.html" />
+  <link rel="alternate" hreflang="ru" href="/ru/writing/factorio-team-hiring-session.html" />
+  <link rel="alternate" hreflang="x-default" href="/writing/factorio-team-hiring-session.html" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F4BB;</text></svg>" />
+  <link rel="stylesheet" href="/assets/css/articles.css" />
+  <link rel="alternate" type="application/atom+xml" title="Тексты (Atom)" href="/ru/writing/atom.xml" />
+</head>
+<body>
+  <a href="#main" class="skip-link">К содержанию</a>
+
+  <nav aria-label="Основная навигация">
+    <div class="nav-inner">
+      <div class="logo"><a href="/ru/">Д<span>.</span>Каратаев</a></div>
+      <div class="nav-right">
+        <ul>
+          <li><a href="/ru/#about">О себе</a></li>
+          <li><a href="/ru/#projects">Проекты</a></li>
+          <li><a href="/ru/writing/" aria-current="page">Тексты</a></li>
+          <li><a href="/ru/#experience">Опыт</a></li>
+          <li><a href="/ru/#documents">Документы</a></li>
+        </ul>
+        <ul class="nav-lang" aria-label="Язык">
+          <li><a href="/writing/factorio-team-hiring-session.html" lang="en">EN</a></li>
+          <li class="nav-sep" aria-hidden="true">|</li>
+          <li><a href="/ru/writing/factorio-team-hiring-session.html" lang="ru" aria-current="page">RU</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main" class="container">
+    <article class="article-wrap">
+      <p class="article-back"><a href="/ru/writing/">&larr; Все тексты</a> · <a href="/ru/writing/tags.html">Все теги</a> · <a href="/ru/writing/atom.xml">Лента Atom</a></p>
+
+      <header class="article-header">
+        <h1>Factorio вместо тысячи собесов: командная сессия и решение команды</h1>
+        <p class="article-meta">Сентябрь 2026</p>
+        <p class="article-tags" aria-label="tags">
+          <a class="tag-pill" href="/ru/writing/tag/factorio.html">factorio</a>
+          <a class="tag-pill" href="/ru/writing/tag/hiring.html">hiring</a>
+          <a class="tag-pill" href="/ru/writing/tag/methodology.html">methodology</a>
+          <a class="tag-pill" href="/ru/writing/tag/teams.html">teams</a>
+        </p>
+      </header>
+
+      <div class="prose">
+        <p><strong>Статус:</strong> черновик для ревью (KDGIO) · position / практика найма<br />
+        <strong>Тон:</strong> команда, рекрутинг, координация · без «спроектируй Twitter»</p>
+        <hr />
+        <p>Собеседование, где человек два часа рисует прямоугольники и рассказывает про Garbage Collector, мало говорит о том, <strong>как он будет работать рядом с тобой</strong>. Команда — это не набор solo-героев. Это умение видеть сильные и слабые стороны соседей и выстроить взаимодействие так, чтобы <strong>сильное одних перекрывало слабое других</strong>.</p>
+        <p>Есть формат, который проверяет именно это — без тысячи скучных вопросов. Не обязательно Factorio, но Factorio подходит неожиданно хорошо.</p>
+        <h2 id="section">Что на самом деле нужно из найма</h2>
+        <p>На работе редко нужен «лучший алгоритмист в вакууме». Нужны:</p>
+        <ul>
+        <li>кто видит bottleneck раньше, чем всё встало;</li>
+        <li>кто отдаёт кусок задачи без ego;</li>
+        <li>кто после конфликта делает re-plan, а не revenge refactor;</li>
+        <li>кто закрывает <strong>сектор</strong>, а не «красиво строит свой участок», пока фабрика голодает.</li>
+        </ul>
+        <p>Традиционный pipeline меряет <strong>reconstruction прошлого</strong> и <strong>solo performance under anxiety</strong>. Общая миссия под давлением времени меряет <strong>coordination under shared mutable state</strong> — то же, что потом будет в проде, только честнее.</p>
+        <h2 id="factorio-probe">Factorio как probe (не как «геймерское собеседование»)</h2>
+        <p>Factorio — не проверка «знает ли кандидат рецепты наизусть». Это <strong>behavioral interview в реальном времени</strong>:</p>
+        <table>
+        <thead>
+        <tr>
+        <th>За день–два видно</th>
+        <th>Чего не видно на whiteboard</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>Как координируется при поломке линии</td>
+        <td>Как красиво рисует REST API</td>
+        </tr>
+        <tr>
+        <td>Берёт ли чужую зону или микроменеджит</td>
+        <td>Как блестяще «проектирует Twitter»</td>
+        </tr>
+        <tr>
+        <td>Эскалирует ли «тут дыра, нужен человек»</td>
+        <td>Как рассказывает про conflict resolution три года назад</td>
+        </tr>
+        <tr>
+        <td>Думает ли про throughput команды</td>
+        <td>Думает ли про perfect belt layout</td>
+        </tr>
+        </tbody>
+        </table>
+        <p><strong>День 1</strong> ещё можно играть «я умный». <strong>День 2</strong> вскрывает карту: кто logistics, кто power, кто research, кто <strong>резерв на пожар</strong>.</p>
+        <h2 id="section-1">Военная метафора (она здесь не декор)</h2>
+        <p>Команда в Factorio похожа на <strong>секторную оборону с общим ресурсом</strong>:</p>
+        <ul>
+        <li><strong>Сектор обстрела</strong> — зона, где человек реально силён.</li>
+        <li><strong>Перекрытие огня</strong> — его навык закрывает чужую слабость.</li>
+        <li><strong>Слепые зоны</strong> — bottleneck, который никто не взял, потому что «не моё».</li>
+        <li><strong>Мобильная группа</strong> — тот, кто не закопан в одной линии и может прыгнуть туда, где горит.</li>
+        <li><strong>Радио</strong> — явная координация: «беру oil, не трогайте».</li>
+        </ul>
+        <p>Сильная команда — не «пять fullstack heroes», а <strong>complementarity + handoff protocol</strong>. Solo genius без координации упирается в science pack starvation раньше, чем успевает показать genius.</p>
+        <h2 id="section-2">Главное: не «играть под наблюдением»</h2>
+        <p>Плохой вариант: HR и lead смотрят со стекла, потом <strong>один</strong> решает за всех.</p>
+        <p>Хороший вариант:</p>
+        <pre><code>день–два общей миссии (Factorio или аналог)
+                ↓
+        retro всей команды (+ кандидат в комнате)
+                ↓
+        «Ну чо, ребят, как вам? Берём / не берём / ещё один день?»
+                ↓
+        решение = консенсус команды, не вердикт одного лида
+        </code></pre>
+        <p><strong>Наблюдение не нужно</strong> — signal уже внутри команды. Кто с кем говорил, кто прыгнул на пожар, кто предложил handoff, кто молчал в blind zone — это видят все участники.</p>
+        <p>Кандидат <strong>на retro</strong> — сильный ход. Он слышит не «мы перезвоним», а конкретику: «нам не хватило X», «круто закрыл Y», «на oil line ты сделал Z — нам ок / не ок». Это и respect, и clarity.</p>
+        <h2 id="section-3">Четыре зайца одним форматом</h2>
+        <ol>
+        <li><strong>Скучные собесы</strong> — убираешь театр «докажи ум в вакууме». Skills видны в действии.</li>
+        <li><strong>Team fit</strong> — не «пьём ли пиво», а feedback, ownership, complementarity, поведение при поломке.</li>
+        <li><strong>Skills fit</strong> — кто logistics / power / firefighter видно без keywords в резюме.</li>
+        <li><strong>Motivated reject/accept</strong> — команда, которая <strong>сама</strong> сказала «хотим / не хотим», уже co-invested. Reject с именованными причинами на retro честнее lottery «HR said no».</li>
+        </ol>
+        <h2 id="guardrails">Guardrails (чтобы не превратить в «дружный клуб только своих»)</h2>
+        <ul>
+        <li><strong>Критерии до игры</strong> — не «понравился», а 3–4 оси: coordination, ownership, feedback, adaptability. Retro по ним.</li>
+        <li><strong>Разные роли в сессии</strong> — scout, logistics lead, firefighter — чтобы не отсеивать «не factorio player», а смотреть behavior в роли.</li>
+        <li><strong>Minority voice</strong> — один «против» не автоматический veto, но <strong>обязательная причина</strong> в retro. Иначе groupthink.</li>
+        <li><strong>Optional track</strong> — кому realtime strategy некomfortable, тот же принцип (общая миссия + retro + решение командой) на другом формате. Не gate для всех.</li>
+        </ul>
+        <h2 id="section-4">Чем это не является</h2>
+        <ul>
+        <li>Не замена всех этапов (юридические, комплаенс, deep domain — остаются).</li>
+        <li>Не «нанимаем только factorio-задротов».</li>
+        <li>Не guarantee: один weekend не заменяет месяцы совместной работы — но <strong>лучше</strong>, чем пятый раунд system design на доске.</li>
+        </ul>
+        <h2 id="section-5">Если совсем коротко</h2>
+        <p><strong>Команда</strong> — это карта без слепых зон, перекрытие секторов и резерв, который приезжает вовремя. Factorio (или любая общая миссия с mutable state) показывает эту карту быстрее, чем «расскажите про GC». А <strong>решение команды на retro при кандидате</strong> делает accept и reject мотивированными — для обеих сторон.</p>
+        <p>Weekend hiring session звучит здоровее, чем ещё один whiteboard про URL shortener.</p>
+        <hr />
+        <p><em>Черновик из рабочего разговора (2026-09). Редактура и публикация — на усмотрение автора.</em></p>
+
+      </div>
+    </article>
+  </main>
+
+  <footer id="contact">
+    <div class="container">
+      <div class="contact-links">
+        <a href="mailto:dkarataev1990@gmail.com">Email</a>
+        <a href="https://t.me/Krawler">Telegram</a>
+        <a href="https://github.com/KarataevDmitry">GitHub</a>
+      </div>
+      <p>Дмитрий Каратаев &copy; 2026.</p>
+    </div>
+  </footer>
+</body>
+</html>
