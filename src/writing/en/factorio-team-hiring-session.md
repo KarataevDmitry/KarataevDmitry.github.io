@@ -62,15 +62,12 @@ Bad version: HR and a lead watch through glass; **one person** decides for every
 
 Good version:
 
-```
-one–two days on a shared mission (Factorio or equivalent)
-        ↓
-full-team retro (+ candidate in the room)
-        ↓
-“So, folks — what do you think? Hire / pass / one more day?”
-        ↓
-decision = team consensus, not a single lead’s verdict
-```
+<ol class="flow-steps">
+  <li>one–two days on a shared mission (Factorio or equivalent)</li>
+  <li>full-team retro (+ candidate in the room)</li>
+  <li>“So, folks — what do you think? Hire / pass / one more day?”</li>
+  <li>decision = team consensus, not a single lead’s verdict</li>
+</ol>
 
 **Observation is unnecessary** — the signal is already inside the team. Who talked to whom, who jumped to a fire, who offered a handoff, who stayed silent in a blind zone — every participant saw it.
 
