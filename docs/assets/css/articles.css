@@ -428,6 +428,27 @@ nav ul.nav-lang .nav-sep { color: var(--text-muted); padding: 0 0.1rem; font-wei
   margin-left: 0.35rem;
 }
 
+
+.epigraph {
+  margin: 2.5rem 0 3rem;
+  text-align: right;
+  max-width: 22rem;
+  margin-left: auto;
+  color: var(--text-secondary);
+}
+.epigraph-mark {
+  margin: 0 0 1rem;
+  font-style: italic;
+}
+.epigraph-quote {
+  margin: 0 0 0.75rem;
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+}
+.epigraph-source {
+  margin: 0;
+  font-size: 0.95rem;
+}
 footer {
   padding: 2.5rem 0;
   border-top: 1px solid var(--border);
